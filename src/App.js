@@ -1,22 +1,22 @@
-import React from 'react';
+import React, {Fragment, Suspense, lazy} from 'react';
+import { Route, Switch } from "react-router-dom";
+import Layout from './hoc/Layout'
+import MyClubs from "./pages/MyClubs/MyClubs";
 
-function App() {
+const Registration = lazy(() => import("./pages/Registration/Registration"));
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+      <Layout>
+        <Suspense fallback={<div>Loading . . . </div>}>
+          <Switch>
+            <Route exact path="/" component={MyClubs} />
+            <Route exact path="/register" component={Registration} />
+          </Switch>
+        </Suspense>
+      </Layout>
+    </Fragment>
   );
 }
 
