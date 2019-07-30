@@ -1,0 +1,33 @@
+.Nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.Logo {
+  height: 37px;
+  width: 37px;
+  overflow: hidden;
+}
+
+.Logo img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.navWrap {
+  display: flex;
+  align-items: center;
+}
+
+li {
+  list-style-type: none;
+}
+
+.navElement {
+  font-family: "Gilroy-bold";
+  font-size: 16px;
+  color: white; 
+  text-decoration: none;
+  margin-left: 10px;
+}

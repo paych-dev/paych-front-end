@@ -1,10 +1,36 @@
-body {
+@font-face {
+  font-family: "Gilroy-bold";
+  src: url(./assets/fonts/gilroy/Gilroyextrabold.ttf) format("truetype"),
+    url(./assets/fonts/gilroy/Gilroyextrabold.woff) format("woff");
+  font-weight: 800;
+}
+
+@font-face {
+  font-family: "Gilroy-light";
+  src: url(./assets/fonts/gilroy/Gilroylight.ttf) format("truetype"),
+    url(./assets/fonts/gilroy/Gilroylight.woff) format("woff");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "HelveticaNeue";
+  src: url(./assets/fonts/helvetica-neue/HelveticaNeue.ttf) format("truetype");
+}
+
+* {
+  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: "HelveticaNeue";
+  outline: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+body {
+  background-color: #0e0e0e;
 }
 
 code {
