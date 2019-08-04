@@ -14,8 +14,8 @@ const Navigation = () => {
         <div className={styles.Logo}>
           <img src={menuIcon} alt='logo' />
         </div>
-        <li><Link to='/' activeClassName='active' className={styles.navElement}>My Clubs</Link></li>
-        <li><Link to='/register' activeClassName='active' className={styles.navElement}>Registration</Link></li>
+        <li><Link to='/' className={styles.navElement}>My Clubs</Link></li>
+        <li><Link to='/register' className={styles.navElement}>Registration</Link></li>
       </ul>
     </nav>
   )

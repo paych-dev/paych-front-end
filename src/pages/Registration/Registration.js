@@ -4,19 +4,18 @@ import signUpIcon from "../../assets/signup.png";
 import styles from './Registrations.module.css'
 
 const Registration = () => {
-
   return (
     <Fragment>
       <IconHeader img={signUpIcon} title={"Регистрация"}/>
       <form className={styles.form}>
         <div className={styles.formFields}>
           <fieldset className={styles.formGroup}>
-            <label className={styles.formLabel} for="email">ЕМЕЙЛ:</label>
-            <input id="email" type="email" name="email" autocomplete="off" placeholder="Введите почту" />
+            <label className={styles.formLabel}>ЕМЕЙЛ:</label>
+            <input id="email" type="email" name="email" autoComplete="off" placeholder="Введите почту" />
           </fieldset>
           <fieldset className={styles.formGroup}>
-            <label className={styles.formLabel}  for="password">ПАРОЛЬ:</label>
-            <input id="password" type="password" name="password" autocomplete="off" placeholder="Придумайте пароль" />
+            <label className={styles.formLabel}>ПАРОЛЬ:</label>
+            <input id="password" type="password" name="password" autoComplete="off" placeholder="Придумайте пароль" />
           </fieldset>
         </div>
         

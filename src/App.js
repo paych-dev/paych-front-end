@@ -1,15 +1,16 @@
 import React, {Fragment, Suspense, lazy} from 'react';
 import { Route, Switch } from "react-router-dom";
 import Layout from './hoc/Layout'
-import MyClubs from "./pages/MyClubs/MyClubs";
+import Loader from './components/Loader/Loader'
 
 const Registration = lazy(() => import("./pages/Registration/Registration"));
+const MyClubs = lazy(() => import("./pages/MyClubs/MyClubs"));
 
 const App = () => {
   return (
     <Fragment>
       <Layout>
-        <Suspense fallback={<div>Loading . . . </div>}>
+        <Suspense fallback={<Loader />}>
           <Switch>
             <Route exact path="/" component={MyClubs} />
             <Route exact path="/register" component={Registration} />
