@@ -1,0 +1,32 @@
+.form {
+  padding: 0 20px;
+}
+
+.formGroup {
+  margin-bottom: 15px;
+}
+
+.formLabel {
+  display: block;
+  color: white;
+  margin-bottom: 15px;
+  font-family: "Gilroy-bold"
+}
+
+.alreadySignUp {
+  width: 100%;
+  text-align: center;
+  color: #959595;
+  font-size: 11px;
+}
+
+.alreadySignUp p {
+  margin-bottom: 10px;
+}
+
+.alreadySignUp a {
+  font-family: "Gilroy-bold";
+  font-size: 14px;
+  font-weight: 800;
+  color: #ffffff;
+}
