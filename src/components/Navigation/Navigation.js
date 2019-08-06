@@ -1,10 +1,10 @@
-import React, {Fragment} from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 
 import styles from './Navigation.module.css'
 import logo from '../../assets/logo.png'
 import menuIcon from '../../assets/menu.png'
-
+import closeIcon from '../../assets/close.png'
 import clubs from '../../assets/clubs.png'
 import profile from '../../assets/profile.png'
 import myclubs from '../../assets/myclubs.png'
@@ -27,13 +27,19 @@ class Navigation extends React.Component {
 
   render(){
     return (
-      <nav className={styles.nav}>
+      <nav className={styles.navMenu}>
         <div className={styles.menu}>
           <div className={styles.Logo}>
             <img src={logo} />
           </div>
-          <div className={styles.Logo}>
-            <img src={menuIcon} onClick={this.toggleNavMenu}/>
+
+          <ul className={styles.navWrap}>
+            <li><Link to='/' className={styles.navElement}>My Clubs</Link></li>
+            <li><Link to='/register' className={styles.navElement}>Registration</Link></li>
+          </ul>
+
+          <div className={`${styles.Logo} ${styles.toggleMenu_icon}`}>
+            <img src={this.state.toggle ? menuIcon : closeIcon} onClick={this.toggleNavMenu}/>
           </div>         
         </div>
 
@@ -57,7 +63,7 @@ class Navigation extends React.Component {
             <h3>Мои клубы</h3>
             <span>На счету $0</span>
           </Link>
-          <Link to='/' className={styles.toggleMenu_element}>
+          <Link to='/' className={`${styles.toggleMenu_element} toBottom`}>
             <span className={styles.error}>СООБЩИТЬ О ПРОБЛЕМЕ</span>
           </Link>
         </div> : null}

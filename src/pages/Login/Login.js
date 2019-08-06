@@ -2,13 +2,12 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import IconHeader from '../../components/IconHeader/IconHeader'
 import signUpIcon from "../../assets/signup.png";
-import styles from './Registrations.module.css'
+import styles from '../Login/Login.module.css'
 
-
-const Registration = () => {
+const Login = () => {
   return (
     <div className={styles.registerWrap}>
-      <IconHeader img={signUpIcon} title={"Регистрация"}/>
+      <IconHeader img={signUpIcon} title={"Авторизация"}/>
       <form className={styles.form}>
         <div className={styles.formFields}>
           <fieldset className={styles.formGroup}>
@@ -21,16 +20,15 @@ const Registration = () => {
           </fieldset>
         </div>
         
-        <button className="button blue-radius-btn register-btn" onClick={(e) => e.preventDefault()}>Зарегистрироваться</button>
-      
+        <button className="button blue-radius-btn register-btn" onClick={(e) => e.preventDefault()}>Логин</button>
+
         <div className={styles.alreadySignUp}>
-          <p>Уже есть аккаунт?</p>
-          <Link to='/login'>Войти</Link>
+          <p>Ещё нет аккаунта?</p>
+          <Link to='/register'>Зарегистрироваться</Link>
         </div>
-      
       </form>
     </div>
   )
 }
 
-export default Registration
+export default Login

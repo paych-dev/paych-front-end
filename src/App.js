@@ -5,6 +5,7 @@ import Loader from './components/Loader/Loader'
 
 const Registration = lazy(() => import("./pages/Registration/Registration"));
 const MyClubs = lazy(() => import("./pages/MyClubs/MyClubs"));
+const Login = lazy(() => import('./pages/Login/Login'))
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
           <Switch>
             <Route exact path="/myclubs" component={MyClubs} />
             <Route exact path="/register" component={Registration} />
+            <Route exact path="/login" component={Login} />
           </Switch>
         </Suspense>
       </Layout>

@@ -5,7 +5,7 @@ import Navigation from '../components/Navigation/Navigation'
 const Layout = props => (
   <div className={styles.Wrap}>
     <Navigation />
-    <main>{props.children}</main>
+    <main className={styles.Main}>{props.children}</main>
   </div>
 );
 

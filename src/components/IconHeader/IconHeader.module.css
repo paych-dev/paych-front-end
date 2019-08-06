@@ -26,3 +26,15 @@
   color: white;
   font-family: 'Gilroy-bold'
 }
+
+
+@media (min-width: 600px) {
+  .IconHeader_img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .IconHeader_title {
+    font-size: 28px;
+  }
+}

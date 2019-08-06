@@ -23,6 +23,7 @@
   margin: 0;
   font-family: "HelveticaNeue";
   outline: none;
+  box-sizing: border-box;
   -moz-user-select: none;
   -o-user-select: none;
   -khtml-user-select: none;
@@ -71,4 +72,8 @@ input {
 .register-btn {
   display: block;
   margin: 50px auto 38px;
+}
+
+.toBottom {
+  margin-top: auto;
 }
