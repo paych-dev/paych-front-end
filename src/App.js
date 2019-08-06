@@ -12,7 +12,7 @@ const App = () => {
       <Layout>
         <Suspense fallback={<Loader />}>
           <Switch>
-            <Route exact path="/" component={MyClubs} />
+            <Route exact path="/myclubs" component={MyClubs} />
             <Route exact path="/register" component={Registration} />
           </Switch>
         </Suspense>
