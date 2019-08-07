@@ -30,7 +30,7 @@ class Navigation extends React.Component {
       <nav className={styles.navMenu}>
         <div className={styles.menu}>
           <div className={styles.Logo}>
-            <img src={logo} />
+            <img src={logo} alt={logo}/>
           </div>
 
           <ul className={styles.navWrap}>

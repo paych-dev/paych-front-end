@@ -1,0 +1,127 @@
+.form {
+  padding: 0 20px;
+}
+
+.form a {
+  text-decoration: none;
+}
+
+.formGroup {
+  margin-bottom: 22px;
+}
+
+.formLabel {
+  display: block;
+  color: white;
+  margin-bottom: 15px;
+  font-family: "Gilroy-bold"
+}
+
+.alreadySignUp {
+  width: 100%;
+  text-align: center;
+  color: #959595;
+}
+
+.alreadySignUp p {
+  margin-bottom: 10px;
+  font-size: 11px;
+}
+
+.alreadySignUp a {
+  font-family: "Gilroy-bold";
+  font-size: 14px;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.inputImg {
+  width: 125px;
+  height: 125px;
+  overflow: hidden;
+  display: block;
+  position: relative;
+  margin: 0 auto;
+  margin-bottom: 40px;
+}
+
+.inputImg_photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.inputImg_upload {
+  width: 28px;
+  height: 28px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+textarea {
+  resize: none;
+  padding: 0 0 10px;
+  background: none;
+  border-bottom: 1px solid #575757;
+  width: 100%;
+  height: 70px;
+  color: #959595
+}
+
+.dolar input {
+  padding-left: 35px;
+  color:white;
+  font-size: 40px;
+  font-family: 'Gilroy-bold';
+  line-height: 0.4;
+}
+
+input[type="number"]::-webkit-inner-spin-button, 
+input[type="number"]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+.dolar{
+  position: relative;
+  font-size: 40px;
+  font-family: 'Gilroy-bold';
+}
+.dolar:before {
+  content: '$';
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  color:white
+}
+
+@media (min-width: 600px) {
+  .form {
+    width: 400px;
+  }
+
+  .registerWrap {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .alreadySignUp p {
+    font-size: 12px;
+  }
+  .alreadySignUp a {
+    font-size: 16px
+  }
+}
