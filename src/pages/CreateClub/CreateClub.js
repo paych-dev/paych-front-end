@@ -20,7 +20,7 @@ const CreateClub = () => {
           </fieldset>
           <fieldset className={styles.formGroup}>
             <label className={styles.formLabel}>НАЗВАНИЕ:</label>
-            <input id="name" type="text" name="email" autoComplete="off" placeholder="Введите название" />
+            <input maxLength='40' id="name" type="text" name="email" autoComplete="off" placeholder="Введите название" />
           </fieldset>
           <fieldset className={styles.formGroup}>
             <label className={styles.formLabel}>ОПИСАНИЕ:</label>

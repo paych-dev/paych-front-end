@@ -11,7 +11,6 @@ import myclubs from '../../assets/myclubs.png'
 
 // TODO: 
 //   1.REFACTOR NAV
-//   2.MAKE NAV OVER ELEMENTS 
 
 class Navigation extends React.Component {
 

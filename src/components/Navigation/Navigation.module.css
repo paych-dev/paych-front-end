@@ -4,7 +4,8 @@
   left: 0;
   padding: 20px;
   position: fixed;
-  background-color: #0e0e0edc
+  background-color: #0e0e0edc;
+  z-index: 999;
 }
 
 .Logo {
