@@ -1,45 +1,55 @@
 import React from 'react';
 import IconHeader from '../../components/IconHeader/IconHeader';
+
 import photo from '../../assets/photo.png'
 import upload from '../../assets/upload.png'
 import newClub from '../../assets/newclub.png'
-import styles from './CreateClub.module.css'
 
 const CreateClub = () => {
   return (
-    <div className={styles.CreateClub}>
-      <IconHeader img={newClub} title={"Новый клуб"}/>
-      <form className={styles.form}>
-        <div className={styles.formFields}>
-          <fieldset className={styles.formGroup}>
-            <input type="file" name="file" id="file" className={styles.inputfile}/>
-            <label for="file" className={styles.inputImg}>
-              <img src={photo} className={styles.inputImg_photo}/>
-              <img src={upload} className={styles.inputImg_upload}/>
+    <div className='formWrap'>
+
+      <IconHeader img={newClub} title={'Новый клуб'}/>
+
+      <form className='form'>
+        <div className='formFields'>
+
+          <fieldset className='formGroup'>
+            <input type='file' id='file' className='inputfile'/>
+            <label htmlFor='file' className='inputImg'>
+              <img src={photo} alt={photo} className='inputImg_photo'/>
+              <img src={upload} alt={upload} className='inputImg_upload'/>
             </label>
           </fieldset>
-          <fieldset className={styles.formGroup}>
-            <label className={styles.formLabel}>НАЗВАНИЕ:</label>
-            <input maxLength='40' id="name" type="text" name="email" autoComplete="off" placeholder="Введите название" />
+
+          <fieldset className='formGroup'>
+            <label htmlFor='name' className='formLabel'>НАЗВАНИЕ:</label>
+            <input maxLength='40' id='name' type='text' placeholder='Введите название' />
           </fieldset>
-          <fieldset className={styles.formGroup}>
-            <label className={styles.formLabel}>ОПИСАНИЕ:</label>
-            <textarea placeholder="Придумайте описание"></textarea>
-          
+
+          <fieldset className='formGroup'>
+            <label htmlFor='desc' className='formLabel'>ОПИСАНИЕ:</label>
+            <textarea id='desc' placeholder='Придумайте описание'></textarea>  
           </fieldset>
-          <fieldset className={styles.formGroup}>
-            <label className={styles.formLabel}>ССЫЛКА НА КЛУБ:</label>
-            <input id="link" type="text" name="password" autoComplete="off" placeholder="Paych.me/ Название клуба" />
+
+          <fieldset className='formGroup'>
+            <label htmlFor='link' className='formLabel'>ССЫЛКА НА КЛУБ:</label>
+            <input id='link' type='text' placeholder='Paych.me/ Название клуба' />
           </fieldset>
-          <fieldset className={styles.formGroup}>
-            <label className={styles.formLabel}>СТОИМОСТЬ В МЕСЯЦ:</label>
-            <span className={styles.dolar}><input type="number" name="currency" /></span>
+
+          <fieldset className='formGroup'>
+            <label htmlFor='money' className='formLabel'>СТОИМОСТЬ В МЕСЯЦ:</label>
+            <span className='dolar'>
+              <input type='number' id='money' />
+            </span>
           </fieldset>
         </div>
-        <div className={styles.alreadySignUp}>
+
+        <div className='alreadySignUp'>
           Наша комисия составляет 9%
         </div>
-        <button className="button blue-radius-btn register-btn" onClick={(e) => e.preventDefault()}>Создать клуб</button>   
+
+        <button className='button blue-radius-btn register-btn' onClick={(e) => e.preventDefault()}>Создать клуб</button>   
       </form>
     </div>
   )
