@@ -43,26 +43,26 @@ class Navigation extends React.Component {
         </div>
 
         {!this.state.toggle ? <div className={styles.toggleMenu}>
-          <Link to='/' className={styles.toggleMenu_element}>
+          <Link to='/' className={styles.toggleMenu_element} onClick={this.toggleNavMenu}>
             <div className={`${styles.toggleMenu_img} ${styles.toggleMenu_club}`}>
               <img src={clubs} alt={clubs} />
             </div>
             <h3 className={styles.toggleMenu_text}>Клубы</h3>
           </Link>
-          <Link to='/' className={styles.toggleMenu_element}>
+          <Link to='/' className={styles.toggleMenu_element} onClick={this.toggleNavMenu}>
             <div className={`${styles.toggleMenu_img} ${styles.toggleMenu_profile}`}>
               <img src={profile} alt={profile}/>
             </div>
             <h3>Мой профиль</h3>
           </Link>
-          <Link to='myclubs' className={styles.toggleMenu_element}>
+          <Link to='myclubs' className={styles.toggleMenu_element} onClick={this.toggleNavMenu}>
             <div className={`${styles.toggleMenu_img} ${styles.toggleMenu_myclubs}`}>
               <img src={myclubs} alt={myclubs}/>
             </div>
             <h3>Мои клубы</h3>
             <span>На счету $0</span>
           </Link>
-          <Link to='/' className={`${styles.toggleMenu_element} toBottom`}>
+          <Link to='/' className={`${styles.toggleMenu_element} toBottom`} onClick={this.toggleNavMenu}>
             <span className={styles.error}>СООБЩИТЬ О ПРОБЛЕМЕ</span>
           </Link>
         </div> : null}
