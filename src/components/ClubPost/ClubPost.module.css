@@ -1,0 +1,53 @@
+.clubHeader {
+  padding: 16px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.clubHeader__date {
+  display: flex;
+  align-items: center;
+}
+
+.clubHeader__date_clock {
+  width: 14px;
+  height: 14px;
+  margin-right: 7px;
+}
+
+.clubHeader__date_clock img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.clubHeader__date_text span{
+  font-family: 'Gilroy-bold';
+  font-size: 10px;
+  line-height: 1.8;
+  color: #080808;
+}
+
+.clubHeader__new {
+  border-radius: 8px;
+  background-color: #35cb8a;
+  max-width: 55px;
+  padding: 7px;
+  text-align: center;
+  color: white;
+  opacity: 0.93;
+  font-family: 'Gilroy-bold';
+  font-size: 12px;
+}
+
+/* CONTENT */
+
+.clubContent__text {
+  opacity: 0.93;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #000000;
+
+  padding: 5px 20px;
+}

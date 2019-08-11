@@ -1,0 +1,42 @@
+.NewPost {
+  padding: 20px 25px 0;
+}
+
+.NewPost__header {
+  font-family: 'Gilroy-bold';
+  font-size: 18px;
+  line-height: 1;
+  color: #080808;
+  margin-bottom: 10px;
+}
+
+.NewPost_addFile {
+  margin: 0;
+  
+}
+.NewPost__add {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 70px;
+  cursor: pointer;
+}
+
+.NewPost__text {
+  border: 0;
+  height: 200px;
+}
+
+.NewPost__fileImg {
+  width: 18px;
+  height: 17px;
+  margin-right: 5px;
+}
+
+.NewPost__fileText {
+  font-family: 'Gilroy-bold';
+  font-size: 10px;
+  text-align: center;
+  color: #6e6aea;
+
+}

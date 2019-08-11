@@ -1,0 +1,56 @@
+/* WRAPs */
+
+.clubPage__clubInfo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.clubPage__clubInfo_logoText {
+  display: flex;
+  align-items: center;
+}
+
+/* IMAGES */
+
+.clubPage__clubInfo_logo {
+  width: 44px;
+  height: 44px;
+  overflow: hidden;
+
+  border-radius: 50%;
+  border: 2px solid white;
+
+  margin-right: 20px;
+}
+
+.clubPage__clubInfo_menu__img {
+  width: 37px;
+  height: 37px;
+  overflow: hidden;
+}
+
+.clubPage__clubInfo_logo img,
+.clubPage__clubInfo_menu__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/*  TEXT */
+
+.clubPage__clubInfo_text {
+  color: white;
+}
+
+.clubPage__clubInfo_text__header {
+  font-family: 'Gilroy-bold';
+  font-size: 16px;
+}
+
+.clubPage__clubInfo_text__info {
+  opacity: 0.35;
+  font-family: Arial;
+  font-size: 12px;
+}

@@ -1,5 +1,6 @@
 import React from 'react'
 import Card from '../Card/Card'
+
 import styles from './ClubCard.module.css'
 import roll from '../../assets/Rolling.gif'
 
