@@ -32,7 +32,7 @@ li {
 .navElement {
   font-family: "Gilroy-bold";
   font-size: 16px;
-  color: white; 
+  color: white;
   text-decoration: none;
   margin-left: 10px;
 }
@@ -107,16 +107,20 @@ li {
     width: 50px;
     height: 50px;
   }
+
   .navMenu {
     position: relative;
     padding: 0 0 20px;
   }
+
   .navWrap {
     display: flex;
   }
+
   .toggleMenu {
     display: none;
   }
+
   .toggleMenu_icon {
     display: none;
   }

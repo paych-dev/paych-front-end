@@ -8,7 +8,7 @@ const img = 'https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto/gigs
 
 class ClubPage extends Component {
   state = {
-    newPost: true,
+    newPost: false,
   }
   
   onClickNewPost = () => {

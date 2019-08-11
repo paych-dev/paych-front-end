@@ -1,6 +1,6 @@
 import React from 'react'
 import Card from '../Card/Card'
-
+import {Link} from 'react-router-dom'
 import styles from './ClubCard.module.css'
 import roll from '../../assets/Rolling.gif'
 
@@ -9,13 +9,13 @@ class ClubCard extends React.Component {
     didLoad: false
   }
 
+  
   onLoad = () => {
     const didLoad = true;
     this.setState({didLoad: didLoad})
   }
 
   render(){
-    console.log(this.state.didLoad)
     return (
       <Card>
         <div className={styles.ClubCard}>
@@ -24,7 +24,16 @@ class ClubCard extends React.Component {
           </div>
           <h3 className={styles.ClubCard_title}>{this.props.title}</h3>
           <p className={styles.ClubCard_description}>{this.props.description}</p>
-          <button className="button blue-radius-btn" onClick={(e) => e.preventDefault()}>Открыть</button>
+          {console.log(this.props.price)}
+          {
+            this.props.price ? 
+            <div className={styles.ClubCard_price}>
+              <h3>${this.props.price}</h3>
+              <span>в месяц</span>
+            </div> : null}
+          <Link to={`/club/${this.props.id}`} >
+            <button className="button blue-radius-btn">Открыть</button>
+          </Link>
         </div>
     </Card>
     )

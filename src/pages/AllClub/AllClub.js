@@ -2,19 +2,19 @@ import React, {Fragment} from 'react'
 import data from '../../mock/data'
 import ClubCard from '../../components/ClubCard/ClubCard'
 
-const MyClubs = () => {
+const AllClubs = () => {
   
   return (
     <Fragment>
-      {data.myclubs.map(el => (
-        <ClubCard key = {el.id}
-          id={el.id} 
+      {data.allclubs.map(el => (
+        <ClubCard key = {el.id} 
           title={el.title} 
-          img={el.image} 
+          img={el.image}
+          price={el.price} 
           description={el.description}/>
       ))}
     </Fragment> 
   )
 }
 
-export default MyClubs
+export default AllClubs

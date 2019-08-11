@@ -6,7 +6,7 @@
   justify-content: flex-start;
 }
 
-.ClubCard_logo{
+.ClubCard_logo {
   width: 90px;
   height: 90px;
   border-radius: 50%;
@@ -36,4 +36,36 @@
   text-align: center;
   color: #959595;
   margin-bottom: 22px
+}
+
+.ClubCard_price {
+  margin-bottom: 10px;
+}
+
+.ClubCard_price h3 {
+  font-family: 'Gilroy-bold';
+  font-size: 20px;
+  line-height: 0.8;
+  color: #090909;
+}
+
+.ClubCard_price span {
+  font-size: 12px;
+  line-height: 1.33;
+  text-align: center;
+  color: #090909;
+  display: block;
+}
+
+@media (min-width: 600px) {
+  .ClubCard_logo {
+    width: 110px;
+    height: 110px;
+  }
+  .ClubCard_title {
+    font-size: 20px;
+  }
+  .ClubCard_price h3 {
+    font-size: 24px
+  }
 }

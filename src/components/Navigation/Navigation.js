@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 
 import styles from './Navigation.module.css'
 import logo from '../../assets/logo.png'
@@ -29,11 +29,12 @@ class Navigation extends React.Component {
       <nav className={styles.navMenu}>
         <div className={styles.menu}>
           <div className={styles.Logo}>
+            <Link to='/' />
             <img src={logo} alt={logo}/>
           </div>
 
           <ul className={styles.navWrap}>
-            <li><Link to='/' className={styles.navElement}>My Clubs</Link></li>
+            <li><Link to='/myclubs' className={styles.navElement}>My Clubs</Link></li>
             <li><Link to='/register' className={styles.navElement}>Registration</Link></li>
           </ul>
 
@@ -55,12 +56,21 @@ class Navigation extends React.Component {
             </div>
             <h3>Мой профиль</h3>
           </Link>
-          <Link to='myclubs' className={styles.toggleMenu_element} onClick={this.toggleNavMenu}>
+          <Link to='/myclubs' className={styles.toggleMenu_element} onClick={this.toggleNavMenu}>
             <div className={`${styles.toggleMenu_img} ${styles.toggleMenu_myclubs}`}>
               <img src={myclubs} alt={myclubs}/>
             </div>
             <h3>Мои клубы</h3>
             <span>На счету $0</span>
+          </Link>
+          <Link to='/createclub' className={`${styles.toggleMenu_element} toBottom`} onClick={this.toggleNavMenu}>
+            <span className={styles.error}>Create Club</span>
+          </Link>
+          <Link to='/register' className={`${styles.toggleMenu_element} toBottom`} onClick={this.toggleNavMenu}>
+            <span className={styles.error}>Registration</span>
+          </Link>
+          <Link to='/login' className={`${styles.toggleMenu_element} toBottom`} onClick={this.toggleNavMenu}>
+            <span className={styles.error}>Login</span>
           </Link>
           <Link to='/' className={`${styles.toggleMenu_element} toBottom`} onClick={this.toggleNavMenu}>
             <span className={styles.error}>СООБЩИТЬ О ПРОБЛЕМЕ</span>

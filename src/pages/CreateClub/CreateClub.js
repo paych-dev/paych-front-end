@@ -47,23 +47,23 @@ class CreateClub extends React.Component {
   
             <fieldset className='formGroup'>
               <label htmlFor='name' className='formLabel'>НАЗВАНИЕ:</label>
-              <input onChange={this.onChangeHandler} maxLength='40' id='name' type='text' placeholder='Введите название' />
+              <input onChange={this.onChangeHandler} maxLength='40' autoComplete='off' id='name' type='text' placeholder='Введите название' />
             </fieldset>
   
             <fieldset className='formGroup'>
               <label htmlFor='desc' className='formLabel'>ОПИСАНИЕ:</label>
-              <textarea id='desc' placeholder='Придумайте описание'></textarea>  
+              <textarea id='desc' autoComplete='off' placeholder='Придумайте описание'></textarea>  
             </fieldset>
   
             <fieldset className='formGroup'>
               <label htmlFor='link' className='formLabel'>ССЫЛКА НА КЛУБ:</label>
-              <input id='link' type='text' placeholder='Paych.me/ Название клуба' />
+              <input id='link' type='text' autoComplete='off' placeholder='Paych.me/ Название клуба' />
             </fieldset>
   
             <fieldset className='formGroup'>
               <label htmlFor='money' className='formLabel'>СТОИМОСТЬ В МЕСЯЦ:</label>
               <span className='dolar'>
-                <input type='number' id='money' />
+                <input type='number' autoComplete='off' id='money' />
               </span>
             </fieldset>
           </div>
