@@ -6,3 +6,17 @@
 .Main {
   padding-top: 57px;
 }
+
+@media (min-width: 600px) {
+  .Main {
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center
+  }
+  .Wrap {
+    padding: 30px 40px 0;
+    height: 100vh;
+  }
+}
