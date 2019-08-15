@@ -65,6 +65,12 @@ input {
   border-radius: 29px;
 }
 
+.blue-radius-btn {
+  border-radius: 10px;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
 .blue-big-btn {
   width: 100%;
 }

@@ -12,6 +12,21 @@
   height: 37px;
   width: 37px;
   overflow: hidden;
+  margin-right: 13px;
+}
+
+.navMenu a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-decoration: none;
+}
+
+.Paych {
+  display: none;
+  color: white;
+  font-size: 20px;
+  font-family: 'Gilroy-bold'
 }
 
 .Logo img {
@@ -108,6 +123,9 @@ li {
     height: 50px;
   }
 
+  .Paych {
+    display: block;
+  }
   .navMenu {
     position: relative;
     padding: 0 0 20px;

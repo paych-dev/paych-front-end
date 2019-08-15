@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 import styles from './Navigation.module.css'
 import logo from '../../assets/logo.png'
@@ -9,13 +9,14 @@ import clubs from '../../assets/clubs.png'
 import profile from '../../assets/profile.png'
 import myclubs from '../../assets/myclubs.png'
 
-// TODO: 
-//   1.REFACTOR NAV
+import LogInLinks from './LoginLinks/LoginLinks'
+import NotLogInLinks from './NotLoginLinks/NotLoginLinks'
 
 class Navigation extends React.Component {
 
   state = {
-    toggle: true
+    toggle: true,
+    userLogIn: false
   }
 
   toggleNavMenu = () => {
@@ -24,18 +25,29 @@ class Navigation extends React.Component {
     this.setState({toggle: toggle})
   }
 
+  userLogIn = () => {
+    let userLogIn = this.state.userLogIn
+    userLogIn = !userLogIn
+    this.setState({userLogIn: userLogIn})
+  }
+
   render(){
     return (
       <nav className={styles.navMenu}>
         <div className={styles.menu}>
-          <div className={styles.Logo}>
-            <Link to='/' />
-            <img src={logo} alt={logo}/>
-          </div>
+          
+          <Link to='/'>
+            <div className={styles.Logo}>
+              <img src={logo} alt={logo}/>
+            </div>
+            <h1 className={styles.Paych}>Paych</h1>
+          </Link>   
+          
 
           <ul className={styles.navWrap}>
-            <li><Link to='/myclubs' className={styles.navElement}>My Clubs</Link></li>
-            <li><Link to='/register' className={styles.navElement}>Registration</Link></li>
+           {this.state.userLogIn 
+              ? <LogInLinks style={styles.navElement} logIn={this.userLogIn}/> 
+              : <NotLogInLinks style={styles.navElement}  logIn={this.userLogIn}/>}
           </ul>
 
           <div className={`${styles.Logo} ${styles.toggleMenu_icon}`}>
@@ -43,7 +55,8 @@ class Navigation extends React.Component {
           </div>         
         </div>
 
-        {!this.state.toggle ? <div className={styles.toggleMenu}>
+        {!this.state.toggle 
+          ? <div className={styles.toggleMenu}>
           <Link to='/' className={styles.toggleMenu_element} onClick={this.toggleNavMenu}>
             <div className={`${styles.toggleMenu_img} ${styles.toggleMenu_club}`}>
               <img src={clubs} alt={clubs} />
@@ -62,15 +75,6 @@ class Navigation extends React.Component {
             </div>
             <h3>Мои клубы</h3>
             <span>На счету $0</span>
-          </Link>
-          <Link to='/createclub' className={`${styles.toggleMenu_element} toBottom`} onClick={this.toggleNavMenu}>
-            <span className={styles.error}>Create Club</span>
-          </Link>
-          <Link to='/register' className={`${styles.toggleMenu_element} toBottom`} onClick={this.toggleNavMenu}>
-            <span className={styles.error}>Registration</span>
-          </Link>
-          <Link to='/login' className={`${styles.toggleMenu_element} toBottom`} onClick={this.toggleNavMenu}>
-            <span className={styles.error}>Login</span>
           </Link>
           <Link to='/' className={`${styles.toggleMenu_element} toBottom`} onClick={this.toggleNavMenu}>
             <span className={styles.error}>СООБЩИТЬ О ПРОБЛЕМЕ</span>

@@ -30,12 +30,13 @@ class ClubPage extends Component {
             </div>
           </div>
           <div className="clubPage__clubInfo_menu">
-            <div className="clubPage__clubInfo_menu__img" onClick={this.onClickNewPost}>
+            <div className="clubPage__clubInfo_menu__img">
               <img src={more} alt={more} />
             </div>
           </div>
         </div>
-        {!this.state.newPost ? <ClubPost /> : <NewPost />}
+        <button className='button blue-radius-btn' onClick={this.onClickNewPost}>Новый пост</button>
+        {!this.state.newPost ? <ClubPost /> : <NewPost close={this.onClickNewPost}/>}
       </div>
     );
   };

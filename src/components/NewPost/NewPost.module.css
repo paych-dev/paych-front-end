@@ -1,8 +1,51 @@
+.NewPost_wrap {
+  position: absolute;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  padding: 30px 20px 50px;
+  background-color: #080808;
+}
+
+.NewPost_card{
+  width: 100%;
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 15px;
+  height: 100%;
+}
+
+.closebtn{
+  text-decoration: none;
+  z-index: 10;
+  font-size: 37px;
+  font-weight: 900;
+  color: #080808;
+  position: absolute;
+  right: 0;
+  top: -14px;
+  padding: 0;
+  display: block;
+  transition: 0.3s;
+  font-family: 'Gilroy-bold';
+}
+
+.NewPost_formWrap {
+  height: 100%;
+}
 .NewPost {
   padding: 20px 25px 0;
+  height: 76%;
 }
 
 .NewPost__header {
+  position: relative;
+}
+
+.NewPost__header h2 {
   font-family: 'Gilroy-bold';
   font-size: 18px;
   line-height: 1;
@@ -11,9 +54,9 @@
 }
 
 .NewPost_addFile {
-  margin: 0;
-  
+  margin: 0; 
 }
+
 .NewPost__add {
   display: flex;
   align-items: center;
@@ -24,7 +67,7 @@
 
 .NewPost__text {
   border: 0;
-  height: 200px;
+  height: 100%;
 }
 
 .NewPost__fileImg {
