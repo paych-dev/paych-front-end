@@ -9,12 +9,11 @@ class ClubCard extends React.Component {
     didLoad: false
   }
 
-  
   onLoad = () => {
     const didLoad = true;
     this.setState({didLoad: didLoad})
   }
-
+  
   render(){
     return (
       <Card>

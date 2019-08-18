@@ -10,9 +10,23 @@ const img = 'https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto/gigs
 class ClubPage extends Component {
   state = {
     newPost: false,
-    popoverOpen: false
+    popoverOpen: false,
+    clubPosts: []
   }
   
+  // componentDidMount(){
+  //   const getUser = async id => {
+  //     let response = await fetch(`https://jsonplaceholder.typicode.com/posts`)
+  //     let data = await response.json();
+  //     return data;
+  //   }
+
+  //   (async () => {
+  //     let user = await getUser(2);
+  //     console.log(user)
+  //   })();
+  // }
+
   onClickNewPost = () => {
     const newPost = !this.state.newPost;
     this.setState({newPost: newPost})
