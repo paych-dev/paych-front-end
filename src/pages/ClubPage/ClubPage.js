@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import NewPost from '../../components/NewPost/NewPost';
 import ClubPost from '../../components/ClubPost/ClubPost';
+import Popover from '../../components/Popover/Popover';
 
 import './ClubPage.css'
 import more from '../../assets/more.png';
@@ -9,6 +10,7 @@ const img = 'https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto/gigs
 class ClubPage extends Component {
   state = {
     newPost: false,
+    popoverOpen: false
   }
   
   onClickNewPost = () => {
@@ -16,10 +18,16 @@ class ClubPage extends Component {
     this.setState({newPost: newPost})
   }
 
+  toggle = () => {
+    const toggle = !this.state.popoverOpen;
+    this.setState({popoverOpen: toggle});
+  }
+
   render() {
     return (
       <div className="clubPage_wrap">
         <div className="clubPage__clubInfo">
+
           <div className="clubPage__clubInfo_logoText">
             <div className="clubPage__clubInfo_logo">
               <img src={img} alt={img} />
@@ -29,11 +37,15 @@ class ClubPage extends Component {
               <span className="clubPage__clubInfo_text__info">Last updated 1 day ago</span>
             </div>
           </div>
-          <div className="clubPage__clubInfo_menu">
-            <div className="clubPage__clubInfo_menu__img">
+
+          <div className="clubPage__clubInfo_menu" >
+            <div className="clubPage__clubInfo_menu__img" onClick={this.toggle}>
               <img src={more} alt={more} />
             </div>
           </div>
+
+          {this.state.popoverOpen && <Popover />}
+    
         </div>
         <button className='button blue-radius-btn' onClick={this.onClickNewPost}>Новый пост</button>
         {!this.state.newPost ? <ClubPost /> : <NewPost close={this.onClickNewPost}/>}

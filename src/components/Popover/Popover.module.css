@@ -1,0 +1,30 @@
+.popup_top_corner {
+  background: #6e6aea;
+  border-radius: 10px;
+  position: absolute;
+  padding: 15px 25px 10px;
+  width: 160px;
+  right: 0;
+  top: 50px;
+  text-align: left;
+  color: white;
+  z-index: 500;
+}
+
+.popup_top_corner ul li{
+  font-family: 'Gilroy-bold';
+  font-size: 14px;
+  line-height: 2.29;
+  margin-bottom: 5px;
+}
+
+.popup_top_corner:before {
+  content: '';
+  border: 7px solid transparent;
+  border-bottom: 7px solid #6e6aea;
+  position: absolute;
+  left: 50%;
+  margin-left: 55px;
+  top: -13px;
+  width: 0;
+}

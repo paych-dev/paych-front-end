@@ -92,6 +92,9 @@ li {
   font-weight: 800;
 }
 
+.toggleMenu_icon {
+  margin-right: 0
+}
 .toggleMenu_img {
   margin-bottom: 20px;
 }
