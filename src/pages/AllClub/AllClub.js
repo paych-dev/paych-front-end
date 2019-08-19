@@ -1,7 +1,6 @@
 import React, {Fragment} from 'react'
 import data from '../../mock/data'
 import ClubCard from '../../components/ClubCard/ClubCard'
-import { async } from 'q';
 
 class AllClubs extends React.Component {
   render(){
