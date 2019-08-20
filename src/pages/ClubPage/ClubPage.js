@@ -4,7 +4,7 @@ import ClubPost from '../../components/ClubPost/ClubPost';
 import Popover from '../../components/Popover/Popover';
 
 import PayDone from '../../components/Stubs/PaymantComplete/PaymantComplete';
-
+import PayFalse from '../../components/Stubs/PaymantFailed/PaymantFailed';
 import './ClubPage.css'
 import more from '../../assets/more.png';
 const img = 'https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto/gigs/126298669/original/be3d2a3d4eeea095ba6f9086ecdc5c503d38caa1/create-you-a-fully-custom-esports-gem-styled-logo.png'
@@ -13,7 +13,8 @@ class ClubPage extends Component {
   state = {
     newPost: false,
     popoverOpen: false,
-    payDone: true,
+    payDone: false,
+    payFalse: true,
     clubPosts: []
   }
   
@@ -65,8 +66,13 @@ class ClubPage extends Component {
           {this.state.popoverOpen && <Popover />}
     
         </div>
-        <button className='button blue-radius-btn' onClick={this.onClickNewPost}>Новый пост</button>
-        {!this.state.newPost ? <ClubPost /> : <NewPost close={this.onClickNewPost}/>}
+
+        {!this.state.payFalse ?
+        <div>
+          <button className='button blue-radius-btn' onClick={this.onClickNewPost}>Новый пост</button>
+          {!this.state.newPost ? <ClubPost /> : <NewPost close={this.onClickNewPost}/>}
+        </div> : <PayFalse />}
+        
       </div>
     );
   };
