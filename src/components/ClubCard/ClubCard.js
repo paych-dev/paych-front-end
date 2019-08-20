@@ -31,7 +31,7 @@ class ClubCard extends React.Component {
               <span>в месяц</span>
             </div> : null}
           <Link to={`/club/${this.props.id}`} >
-            <button className="button blue-radius-btn">Открыть</button>
+            <button className="button blue-radius-btn29">Открыть</button>
           </Link>
         </div>
     </Card>

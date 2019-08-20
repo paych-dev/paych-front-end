@@ -3,6 +3,8 @@ import NewPost from '../../components/NewPost/NewPost';
 import ClubPost from '../../components/ClubPost/ClubPost';
 import Popover from '../../components/Popover/Popover';
 
+import PayDone from '../../components/Stubs/PaymantComplete/PaymantComplete';
+
 import './ClubPage.css'
 import more from '../../assets/more.png';
 const img = 'https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto/gigs/126298669/original/be3d2a3d4eeea095ba6f9086ecdc5c503d38caa1/create-you-a-fully-custom-esports-gem-styled-logo.png'
@@ -11,6 +13,7 @@ class ClubPage extends Component {
   state = {
     newPost: false,
     popoverOpen: false,
+    payDone: true,
     clubPosts: []
   }
   
@@ -38,6 +41,7 @@ class ClubPage extends Component {
   }
 
   render() {
+    if(this.state.payDone) return <PayDone />
     return (
       <div className="clubPage_wrap">
         <div className="clubPage__clubInfo">

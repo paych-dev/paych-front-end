@@ -1,0 +1,47 @@
+.PaymentComplete_Wrap {
+  padding: 0px 50px;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.PaymentComplete_img_wrap {
+  position: relative;
+  overflow: hidden;
+  width: 118px;
+  height: 118px;
+}
+
+.PaymentComplete_img_wrap img {
+  z-index: 40;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.PaymentComplete_img_circle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 20;
+  height: 100%;
+  background-color: #6e6aea;
+  border-radius: 50%
+}
+
+.PaymantComplete_text {
+  font-size: 12px;
+  line-height: 1.5;
+  text-align: center;
+  color: white;
+}
+
+.PaymantComplete_text h3{
+  font-family: 'Gilroy-bold';
+  font-size: 22px;
+  text-align: center;
+  margin-bottom: 13px;
+}
