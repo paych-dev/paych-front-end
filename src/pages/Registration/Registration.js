@@ -24,7 +24,7 @@ const Registration = () => {
           </fieldset>
         </div>
         
-        <button className='button blue-radius-btn register-btn' onClick={(e) => e.preventDefault()}>Зарегистрироваться</button>
+        <button className='button blue-radius-btn29 register-btn' onClick={(e) => e.preventDefault()}>Зарегистрироваться</button>
       
         <div className='alreadySignUp'>
           <p>Уже есть аккаунт?</p>
