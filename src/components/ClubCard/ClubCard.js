@@ -23,7 +23,6 @@ class ClubCard extends React.Component {
           </div>
           <h3 className={styles.ClubCard_title}>{this.props.title}</h3>
           <p className={styles.ClubCard_description}>{this.props.description}</p>
-          {console.log(this.props.price)}
           {
             this.props.price ? 
             <div className={styles.ClubCard_price}>

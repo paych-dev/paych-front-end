@@ -1,24 +1,43 @@
 .Wrap {
   padding: 20px 20px 0;
-  height: 100vh;
 }
 
 .Main {
-  padding-top: 57px;
-  height: 100%;
+  position: relative;
+}
+
+.Main_Navigate {
+  display: none;
 }
 
 @media (min-width: 600px) {
   .Main {
-    padding: 0;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center
+    justify-content: space-evenly;
+    align-items: center;
   }
 
   .Wrap {
     padding: 30px 40px 0;
-    height: 100vh;
   }
+
+  .Main_Navigate {
+    width: 100%;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .Main_Navigate a {
+    text-decoration: none;
+    opacity: 0.3;
+    font-family: 'Gilroy-bold';
+    font-size: 32px;
+    color: #ffffff;
+  }
+
+  .Main_Navigate a:first-child {
+    margin-right: 50px;
+  }  
 }

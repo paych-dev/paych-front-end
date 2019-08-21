@@ -1,18 +1,13 @@
 .navMenu {
   width: 100%;
-  top: 0;
-  left: 0;
-  padding: 20px;
-  position: fixed;
+  padding-bottom: 15px;
   background-color: #0e0e0edc;
-  z-index: 999;
 }
 
 .Logo {
   height: 37px;
   width: 37px;
   overflow: hidden;
-  margin-right: 13px;
 }
 
 .navMenu a {
@@ -26,7 +21,7 @@
   display: none;
   color: white;
   font-size: 20px;
-  font-family: 'Gilroy-bold'
+  font-family: 'Gilroy-bold';
 }
 
 .Logo img {
@@ -57,78 +52,17 @@ li {
   justify-content: space-between;
 }
 
-.toggleMenu {
-  width: 100%;
-  height: 100vh;
-  padding: 60px 0 100px;
-  display: flex;
-  flex-direction: column;
-}
-
-.toggleMenu_element {
-  text-decoration: none;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 40px;
-}
-
-.toggleMenu_element h3 {
-  font-family: 'Gilroy-bold';
-  font-size: 18px;
-  font-weight: 800;
-  color: white
-}
-
-.toggleMenu_element span {
-  font-size: 12px;
-  color: white;
-  margin-top: 5px;
-}
-
-.error {
-  font-family: 'Gilroy-bold';
-  font-size: 10px;
-  font-weight: 800;
-}
-
-.toggleMenu_icon {
-  margin-right: 0
-}
-.toggleMenu_img {
-  margin-bottom: 20px;
-}
-
-.toggleMenu_img img {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-}
-
-.toggleMenu_club {
-  width: 40px;
-  height: 32px;
-}
-
-.toggleMenu_profile {
-  width: 33.8px;
-  height: 32px;
-}
-
-.toggleMenu_myclubs {
-  width: 36px;
-  height: 36px;
-}
-
 @media (min-width: 600px) {
   .Logo {
     width: 50px;
     height: 50px;
+    margin-right: 13px;
   }
 
   .Paych {
     display: block;
   }
+
   .navMenu {
     position: relative;
     padding: 0 0 20px;

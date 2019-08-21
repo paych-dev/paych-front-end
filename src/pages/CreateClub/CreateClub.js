@@ -77,7 +77,7 @@ class CreateClub extends React.Component {
             Наша комисия составляет 9%
           </div>
   
-          <button className='button blue-radius-btn register-btn' >Создать клуб</button>   
+          <button className='button blue-radius-btn29 register-btn' >Создать клуб</button>   
         </form>
       </div>
     )

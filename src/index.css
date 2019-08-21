@@ -58,7 +58,7 @@ input {
   color: white;
   font-weight: 800;
 
-  padding: 14px 50px;
+  padding: 14px 25px;
 }
 
 .blue-radius-btn29 {
@@ -69,6 +69,12 @@ input {
   border-radius: 10px;
   width: 100%;
   margin-bottom: 15px;
+}
+
+.outline-button {
+  background: none;
+  border-radius: 25px;
+  border: solid 1px #ffffff41;
 }
 
 .blue-big-btn {
@@ -196,16 +202,17 @@ input[type='number']::-webkit-outer-spin-button {
   color: white
 }
 
+.activeLink{
+  opacity: 1 !important;
+  text-decoration: none
+}
+
 @media (min-width: 600px) {
   .form {
     width: 400px;
   }
 
   .formWrap {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
   }
 
   .alreadySignUp p {
@@ -214,5 +221,9 @@ input[type='number']::-webkit-outer-spin-button {
 
   .alreadySignUp a {
     font-size: 16px
+  }
+
+  .active {
+    opacity: 1;
   }
 }

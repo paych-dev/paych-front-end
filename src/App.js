@@ -17,11 +17,11 @@ const App = () => {
         <Suspense fallback={<Loader />}>
           <Switch>
             <Route exact path="/" component={AllClubs} />
-            <Route path="/:userId/myclubs" component={MyClubs} />
-            <Route path="/register" component={Registration} />
-            <Route path="/login" component={Login} />
-            <Route path="/createclub" component={CreateClub} />
-            <Route path="/club/:id" component={ClubPage} />
+            <Route exact path="/myclubs/:id" component={MyClubs} />
+            <Route exact path="/register" component={Registration} />
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/createclub" component={CreateClub} />
+            <Route exact path="/club/:id" component={ClubPage} />
           </Switch>
         </Suspense>
       </Layout>
