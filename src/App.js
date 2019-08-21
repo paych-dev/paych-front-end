@@ -17,7 +17,7 @@ const App = () => {
         <Suspense fallback={<Loader />}>
           <Switch>
             <Route exact path="/" component={AllClubs} />
-            <Route exact path="/myclubs" component={MyClubs} />
+            <Route path="/:userId/myclubs" component={MyClubs} />
             <Route path="/register" component={Registration} />
             <Route path="/login" component={Login} />
             <Route path="/createclub" component={CreateClub} />
