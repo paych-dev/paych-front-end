@@ -13,8 +13,8 @@ class ClubPage extends Component {
   state = {
     newPost: false,
     popoverOpen: false,
-    payDone: false,
-    payFalse: true,
+    payDone: true,
+    payFalse: false,
     clubPosts: []
   }
   
