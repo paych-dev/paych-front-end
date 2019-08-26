@@ -33,7 +33,7 @@ const ToggleNav = ({clicked}) => (
     <h3>Мои клубы</h3>
     <span>На счету $0</span>
     </Link>
-    <Link to='/' className={`${style.toggleMenu_element} toBottom`} onClick={clicked}>
+    <Link to='/' className={style.toggleMenu_element} onClick={clicked}>
     <span className={style.error}>СООБЩИТЬ О ПРОБЛЕМЕ</span>
     </Link>
   </div>

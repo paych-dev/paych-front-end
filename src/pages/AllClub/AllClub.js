@@ -1,11 +1,11 @@
-import React, {Fragment} from 'react'
+import React from 'react'
 import data from '../../mock/data'
 import ClubCard from '../../components/ClubCard/ClubCard'
 
 class AllClubs extends React.Component {
   render(){
     return (
-      <Fragment>
+      <div className='club-grid'>
         {data.allclubs.map(el => (
           <ClubCard key = {el.id}
             id={el.id} 
@@ -14,7 +14,7 @@ class AllClubs extends React.Component {
             price={el.price} 
             description={el.description}/>
         ))}
-      </Fragment> 
+      </div> 
     )
   }
 }

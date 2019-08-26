@@ -202,17 +202,20 @@ input[type='number']::-webkit-outer-spin-button {
   color: white
 }
 
-.activeLink{
+.activeLink {
   opacity: 1 !important;
   text-decoration: none
 }
 
-@media (min-width: 600px) {
+.club-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 15px;
+}
+
+@media screen and (min-width: 726px) {
   .form {
     width: 400px;
-  }
-
-  .formWrap {
   }
 
   .alreadySignUp p {
@@ -225,5 +228,15 @@ input[type='number']::-webkit-outer-spin-button {
 
   .active {
     opacity: 1;
+  }
+
+  .club-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (min-width: 1060px) {
+  .club-grid {
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }

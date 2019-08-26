@@ -3,10 +3,9 @@
   background-color: white;
   border-radius: 10px;
   overflow: hidden;
-  margin-bottom: 15px;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 726px) {
   .card {
     width: 330px;
   }

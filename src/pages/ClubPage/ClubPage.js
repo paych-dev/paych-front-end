@@ -9,27 +9,38 @@ import './ClubPage.css'
 import more from '../../assets/more.png';
 const img = 'https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto/gigs/126298669/original/be3d2a3d4eeea095ba6f9086ecdc5c503d38caa1/create-you-a-fully-custom-esports-gem-styled-logo.png'
 
+const FETCH_SETTING = {
+  headers: {
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Headers': '*'
+  },
+  mode: 'cors'
+};
+
 class ClubPage extends Component {
   state = {
     newPost: false,
     popoverOpen: false,
-    payDone: true,
+    payDone: false,
     payFalse: false,
     clubPosts: []
   }
   
-  // componentDidMount(){
-  //   const getUser = async id => {
-  //     let response = await fetch(`https://jsonplaceholder.typicode.com/posts`)
-  //     let data = await response.json();
-  //     return data;
-  //   }
+  componentDidMount(){
+    const proxyUrl = "https://cors-anywhere.herokuapp.com/";
 
-  //   (async () => {
-  //     let user = await getUser(2);
-  //     console.log(user)
-  //   })();
-  // }
+    const getUser = async id => {
+      let response = await fetch(proxyUrl + `https://api.paych.sergo.if.ua/channels/${id}/posts`)
+      let data = await response.json();
+      return data;
+    }
+
+    (async () => {
+      let clubPosts = await getUser(2);
+      this.setState({clubPosts: clubPosts.data})
+      console.log(this.state.clubPosts)
+    })();
+  }
 
   onClickNewPost = () => {
     const newPost = !this.state.newPost;
@@ -70,7 +81,7 @@ class ClubPage extends Component {
         {!this.state.payFalse ?
         <div>
           <button className='button blue-radius-btn' onClick={this.onClickNewPost}>Новый пост</button>
-          {!this.state.newPost ? <ClubPost /> : <NewPost close={this.onClickNewPost}/>}
+          {!this.state.newPost ? this.state.clubPosts.map(el => <ClubPost key={el.id} time={el.created_at} text={el.text}/>) : <NewPost close={this.onClickNewPost}/>}
         </div> : <PayFalse />}
         
       </div>
