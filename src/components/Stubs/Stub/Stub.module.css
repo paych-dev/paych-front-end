@@ -1,6 +1,9 @@
 .Stub_Wrap {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   padding: 0px 50px;
-  height: 80%;
   display: flex;
   flex-direction: column;
   justify-content: center;

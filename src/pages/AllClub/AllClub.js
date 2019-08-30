@@ -1,22 +1,20 @@
-import React from 'react'
-import data from '../../mock/data'
-import ClubCard from '../../components/ClubCard/ClubCard'
-
+import React from 'react';
+import ClubCards from '../../components/ClubCards/ClubCards';
+import {connect} from 'react-redux'
 class AllClubs extends React.Component {
   render(){
+    const { clubs } = this.props
+    console.log(clubs)
     return (
       <div className='club-grid'>
-        {data.allclubs.map(el => (
-          <ClubCard key = {el.id}
-            id={el.id} 
-            title={el.title} 
-            img={el.image}
-            price={el.price} 
-            description={el.description}/>
-        ))}
+        <ClubCards data={clubs}/>
       </div> 
     )
   }
 }
 
-export default AllClubs
+const mapStateToProps = ({clubs}) => { 
+  return { clubs }
+}
+
+export default connect(mapStateToProps, null)(AllClubs)

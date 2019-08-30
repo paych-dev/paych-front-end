@@ -5,6 +5,7 @@ import ToggleNav from './ToggleNav/ToggleNav'
 import styles from './Navigation.module.css'
 
 import logo from '../../assets/logo.png'
+import purplelogo from '../../assets/purplelogo.svg'
 import menuIcon from '../../assets/menu.png'
 
 import LogInLinks from './LoginLinks/LoginLinks'
@@ -36,8 +37,10 @@ class Navigation extends React.Component {
           
           <Link to='/'>
             <div className={styles.Logo}>
-              <img src={logo} alt={logo}/>
+              <img src={logo} alt={logo} className={styles.whiteLogo}/>
+              <img src={purplelogo} alt={logo} className={styles.purpleLogo}/>
             </div>
+
             <h1 className={styles.Paych}>Paych</h1>
           </Link>   
           

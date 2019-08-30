@@ -235,6 +235,19 @@ input[type='number']::-webkit-outer-spin-button {
   }
 }
 
+.card {
+  width: 100%;
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+@media (min-width: 726px) {
+  .card {
+    width: 330px;
+  }
+}
+
 @media screen and (min-width: 1060px) {
   .club-grid {
     grid-template-columns: 1fr 1fr 1fr;

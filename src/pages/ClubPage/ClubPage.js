@@ -1,21 +1,16 @@
 import React, { Component } from 'react';
 import NewPost from '../../components/NewPost/NewPost';
-import ClubPost from '../../components/ClubPost/ClubPost';
+import ClubPosts from '../../components/ClubPosts/ClubPosts';
 import Popover from '../../components/Popover/Popover';
+import {withRouter} from 'react-router-dom'
 
 import PayDone from '../../components/Stubs/PaymantComplete/PaymantComplete';
 import PayFalse from '../../components/Stubs/PaymantFailed/PaymantFailed';
 import './ClubPage.css'
 import more from '../../assets/more.png';
-const img = 'https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto/gigs/126298669/original/be3d2a3d4eeea095ba6f9086ecdc5c503d38caa1/create-you-a-fully-custom-esports-gem-styled-logo.png'
 
-const FETCH_SETTING = {
-  headers: {
-    'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Headers': '*'
-  },
-  mode: 'cors'
-};
+import { connect } from 'react-redux';
+import * as actionTypes from '../../store/actions'
 
 class ClubPage extends Component {
   state = {
@@ -23,14 +18,11 @@ class ClubPage extends Component {
     popoverOpen: false,
     payDone: false,
     payFalse: false,
-    clubPosts: []
   }
   
   componentDidMount(){
-    const proxyUrl = "https://cors-anywhere.herokuapp.com/";
-
     const getUser = async id => {
-      let response = await fetch(proxyUrl + `https://api.paych.sergo.if.ua/channels/${id}/posts`)
+      let response = await fetch(`https://api.paych.sergo.if.ua/channels/${id}/posts`)
       let data = await response.json();
       return data;
     }
@@ -60,16 +52,16 @@ class ClubPage extends Component {
 
           <div className="clubPage__clubInfo_logoText">
             <div className="clubPage__clubInfo_logo">
-              <img src={img} alt={img} />
+              <img src={more} alt={more} />
             </div>
             <div className="clubPage__clubInfo_text">
-              <h4 className="clubPage__clubInfo_text__header">Бизнес Секреты</h4>
+              <h4 className="clubPage__clubInfo_text__header">{this.state.clubName}</h4>
               <span className="clubPage__clubInfo_text__info">Last updated 1 day ago</span>
             </div>
           </div>
 
-          <div className="clubPage__clubInfo_menu" >
-            <div className="clubPage__clubInfo_menu__img" onClick={this.toggle}>
+          <div className="clubPage__clubInfo_menu" onClick={this.toggle}>
+            <div className="clubPage__clubInfo_menu__img">
               <img src={more} alt={more} />
             </div>
           </div>
@@ -81,7 +73,7 @@ class ClubPage extends Component {
         {!this.state.payFalse ?
         <div>
           <button className='button blue-radius-btn' onClick={this.onClickNewPost}>Новый пост</button>
-          {!this.state.newPost ? this.state.clubPosts.map(el => <ClubPost key={el.id} time={el.created_at} text={el.text}/>) : <NewPost close={this.onClickNewPost}/>}
+          {!this.state.newPost ? <ClubPosts data={this.props.posts} /> : <NewPost newPost={this.props.addNewPost} close={this.onClickNewPost}/>}
         </div> : <PayFalse />}
         
       </div>
@@ -89,4 +81,18 @@ class ClubPage extends Component {
   };
 };
 
-export default ClubPage
+const mapStateToProps = state => {
+  return {
+    posts: state.clubPosts,
+    clubs: state.clubs
+  }
+}
+
+
+const mapDispatchToProps = dispatch => {
+  return {
+    addNewPost: (postData) => dispatch({type: actionTypes.ADD_POST, newPost: postData})
+  }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(ClubPage))

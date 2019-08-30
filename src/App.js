@@ -1,5 +1,6 @@
 import React, {Fragment, Suspense, lazy} from 'react';
 import { Route, Switch } from "react-router-dom";
+
 import Layout from './hoc/Layout';
 import Loader from './components/Loader/Loader';
 import AllClubs from './pages/AllClub/AllClub';
@@ -17,11 +18,11 @@ const App = () => {
         <Suspense fallback={<Loader />}>
           <Switch>
             <Route exact path="/" component={AllClubs} />
-            <Route exact path="/myclubs/:id" component={MyClubs} />
-            <Route exact path="/register" component={Registration} />
-            <Route exact path="/login" component={Login} />
-            <Route exact path="/createclub" component={CreateClub} />
-            <Route exact path="/club/:id" component={ClubPage} />
+            <Route path="/myclubs/:id" component={MyClubs} />
+            <Route path="/register" component={Registration} />
+            <Route path="/login" component={Login} />
+            <Route path="/createclub" component={CreateClub} />
+            <Route path="/club/:id" component={ClubPage} />
           </Switch>
         </Suspense>
       </Layout>

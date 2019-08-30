@@ -22,16 +22,8 @@
   }
 }
 
-.ldsRolling {
-  position: relative;
-  margin: 0 auto;
-  width: 200px;
-  height: 200px;
-}
-
 .ldsRolling div,
 .ldsRolling div:after {
-  position: absolute;
   width: 160px;
   height: 160px;
   border: 20px solid #6663d5;
@@ -52,6 +44,11 @@
 }
 
 .ldsRolling {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
   width: 200px !important;
   height: 200px !important;
   -webkit-transform: translate(-100px, -100px) scale(1) translate(100px, 100px);

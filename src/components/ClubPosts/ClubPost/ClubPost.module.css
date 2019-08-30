@@ -1,3 +1,7 @@
+.clubPost_wrap {
+  margin-bottom: 10px;
+}
+
 .clubHeader {
   padding: 16px 20px;
   display: flex;
@@ -48,6 +52,5 @@
   font-size: 12px;
   line-height: 1.5;
   color: #000000;
-
   padding: 5px 20px 20px;
 }

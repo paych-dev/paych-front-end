@@ -10,6 +10,10 @@
   overflow: hidden;
 }
 
+.purpleLogo {
+  display: none;
+}
+
 .navMenu a {
   display: flex;
   justify-content: space-between;
@@ -44,7 +48,7 @@ li {
   font-size: 16px;
   color: white;
   text-decoration: none;
-  margin-left: 10px;
+  margin-left: 20px;
 }
 
 .menu {
@@ -59,6 +63,14 @@ li {
     margin-right: 13px;
   }
 
+  .whiteLogo {
+    display: none;
+  }
+
+  .purpleLogo {
+    display: block;
+  }
+  
   .Paych {
     display: block;
   }
