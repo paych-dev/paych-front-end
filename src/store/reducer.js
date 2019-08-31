@@ -26,7 +26,7 @@ let allClubs = [{
   img: 'https://designiconic.com/maker/wp-content/uploads/2019/03/Anime-Logo.png',
   desc: 'Enterpreneur investor. Cofounder at AirBNB. Love football, books and cars.'
 }, {
-  id: 5,
+  id: 6,
   title: 'KINGDOM',
   img: 'https://cdn1.designhill.com/uploads/personal_designs/fa8df761b8e563bcf8bd60f74f2ea4ca-c31c9b35ef5d46e05e1b454ba5eb9cab15565412399598.png?ver=2.9.50',
   desc: 'Enterpreneur investor. Cofounder at AirBNB. Love football, books and cars.'

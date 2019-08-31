@@ -1,8 +1,10 @@
 {
   "name": "paych-app",
   "version": "0.1.0",
+  "homepage": "https://paych-b5f22.firebaseapp.com/",
   "private": true,
   "dependencies": {
+    "gh-pages": "^2.1.1",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
@@ -12,6 +14,8 @@
     "redux-thunk": "^2.3.0"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

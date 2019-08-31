@@ -34,7 +34,8 @@ class ClubPage extends Component {
     })();
   }
 
-  onClickNewPost = () => {
+  onClickNewPost = (event) => {
+    event.preventDefault();
     const newPost = !this.state.newPost;
     this.setState({newPost: newPost})
   }
@@ -45,17 +46,20 @@ class ClubPage extends Component {
   }
 
   render() {
+    const { clubName, img } = this.props.location.state;
+
     if(this.state.payDone) return <PayDone />
+
     return (
       <div className="clubPage_wrap">
         <div className="clubPage__clubInfo">
 
           <div className="clubPage__clubInfo_logoText">
             <div className="clubPage__clubInfo_logo">
-              <img src={more} alt={more} />
+              <img src={img} alt={img} />
             </div>
             <div className="clubPage__clubInfo_text">
-              <h4 className="clubPage__clubInfo_text__header">{this.state.clubName}</h4>
+              <h4 className="clubPage__clubInfo_text__header">{clubName}</h4>
               <span className="clubPage__clubInfo_text__info">Last updated 1 day ago</span>
             </div>
           </div>

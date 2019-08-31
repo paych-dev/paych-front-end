@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 100%;
   padding: 28px 37px;
   justify-content: flex-start;
 }
@@ -54,7 +55,8 @@
   font-weight: 800;
   line-height: 1.25;
   color: #090909;
-  margin-bottom: 15px
+  margin-bottom: 15px;
+  text-align: center;
 }
 
 .ClubCard_description {
@@ -64,6 +66,10 @@
   text-align: center;
   color: #959595;
   margin-bottom: 22px
+}
+
+.ClubCard_button {
+  margin-top: auto
 }
 
 .ClubCard_price {
