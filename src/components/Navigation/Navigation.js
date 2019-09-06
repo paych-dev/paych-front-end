@@ -14,20 +14,13 @@ import NotLogInLinks from './NotLoginLinks/NotLoginLinks'
 class Navigation extends React.Component {
 
   state = {
-    toggle: true,
-    userLogIn: false
+    toggle: true
   }
 
   toggleNavMenu = () => {
     let toggle = this.state.toggle
     toggle = !toggle
     this.setState({toggle: toggle})
-  }
-
-  userLogIn = () => {
-    let userLogIn = this.state.userLogIn
-    userLogIn = !userLogIn
-    this.setState({userLogIn: userLogIn})
   }
 
   render(){
@@ -46,8 +39,8 @@ class Navigation extends React.Component {
           
           <ul className={styles.navWrap}>
            {this.state.userLogIn 
-              ? <LogInLinks style={styles.navElement} logIn={this.userLogIn}/> 
-              : <NotLogInLinks style={styles.navElement}  logIn={this.userLogIn}/>}
+              ? <LogInLinks style={styles.navElement} /> 
+              : <NotLogInLinks style={styles.navElement} />}
           </ul>
 
           {this.state.toggle ? 
@@ -64,6 +57,5 @@ class Navigation extends React.Component {
     )
   }
 }
-
 
 export default Navigation

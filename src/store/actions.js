@@ -1,1 +1,7 @@
 export const ADD_POST = 'ADD_POST';
+
+export const USER_LOGIN_START = 'USER_LOGIN_START';
+export const USER_LOGIN_SUCCESS = 'USER_LOGIN_SUCCESS';
+export const USER_LOGIN_FAILED = 'USER_LOGIN_FAILED';
+
+export const USER_REGISTER = 'USER_REGISTER_START';

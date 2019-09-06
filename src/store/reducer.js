@@ -30,6 +30,31 @@ let allClubs = [{
   title: 'KINGDOM',
   img: 'https://cdn1.designhill.com/uploads/personal_designs/fa8df761b8e563bcf8bd60f74f2ea4ca-c31c9b35ef5d46e05e1b454ba5eb9cab15565412399598.png?ver=2.9.50',
   desc: 'Enterpreneur investor. Cofounder at AirBNB. Love football, books and cars.'
+}, {
+  id: 2,
+  title: 'Nintendo Switch',
+  img: 'https://i1.ytimg.com/vi/f5uik5fgIaI/maxresdefault.jpg',
+  desc: 'Enterpreneur investor. Cofounder at AirBNB. Love football, books and cars.'
+}, {
+  id: 3,
+  title: 'Voyage Americas',
+  img: 'https://www.skydesigner.me/wp-content/uploads/2018/12/Voyage-logo.png',
+  desc: 'Enterpreneur investor. Cofounder at AirBNB. Love football, books and cars.'
+}, {
+  id: 4,
+  title: 'Japan Branding Awards 2019 - 1961',
+  img: 'https://news.panasonic.com/global/images/01_Japan_Branding_Awards_2018_thumb.jpg',
+  desc: 'Enterpreneur investor. Cofounder at AirBNB. Love football, books and cars.'
+}, {
+  id: 5,
+  title: 'Anime ( Not a gay)',
+  img: 'https://designiconic.com/maker/wp-content/uploads/2019/03/Anime-Logo.png',
+  desc: 'Enterpreneur investor. Cofounder at AirBNB. Love football, books and cars.'
+}, {
+  id: 6,
+  title: 'KINGDOM',
+  img: 'https://cdn1.designhill.com/uploads/personal_designs/fa8df761b8e563bcf8bd60f74f2ea4ca-c31c9b35ef5d46e05e1b454ba5eb9cab15565412399598.png?ver=2.9.50',
+  desc: 'Enterpreneur investor. Cofounder at AirBNB. Love football, books and cars.'
 }];
 
 const initialState = {
