@@ -6,11 +6,11 @@ import {withRouter} from 'react-router-dom'
 
 import PayDone from '../../components/Stubs/PaymantComplete/PaymantComplete';
 import PayFalse from '../../components/Stubs/PaymantFailed/PaymantFailed';
-import './ClubPage.css'
+import './ClubPage.scss'
 import more from '../../assets/more.png';
 
 import { connect } from 'react-redux';
-import * as actionTypes from '../../store/actions'
+import * as actions from '../../store/actions/index'
 
 class ClubPage extends Component {
   state = {
@@ -95,7 +95,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    addNewPost: (postData) => dispatch({type: actionTypes.ADD_POST, newPost: postData})
+    addNewPost: (postData) => dispatch(actions.addPost(postData))
   }
 };
 

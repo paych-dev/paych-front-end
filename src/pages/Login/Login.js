@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom'
 import IconHeader from '../../components/IconHeader/IconHeader'
 import signUpIcon from '../../assets/signup.png';
 
+import * as actions from '../../store/actions/index';
+import { connect } from 'react-redux';
+
 class Login extends React.Component {
   state = {
     userInfo: {
@@ -19,45 +22,13 @@ class Login extends React.Component {
   }
 
   onSubmintHandler = event => {
+    const { email, password } = this.state.userInfo
     event.preventDefault();
-
-    // (async () => {
-    //   const login = await fetch('https://api.paych.sergo.if.ua/auth/login', {
-    //     method: 'POST',
-    //     headers: {
-    //       'Accept': 'application/json',
-    //       'Content-Type': 'application/json'
-    //     },
-    //     body: JSON.stringify({'lel':'lel'})
-    //   });
-    //   const content = await login.json();
-    
-    //   console.log(content);
-    // })();
-
-    const loginUser = async userInfo => {
-      let response = await fetch(`https://api.paych.sergo.if.ua/auth/login`, {
-        method: 'POST',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(userInfo)
-      });
-
-      let data = await response.json();
-      return data;
-    }
-
-    (async () => {
-      let userToken = await loginUser(this.state.userInfo);
-      console.log(userToken)
-    })();
+    this.props.onAuth(email, password);
   }
 
   render(){
-    console.log("admin@paych.loc password")
-    
+    console.log('login user',"admin@paych.loc password")
     return (
       <div className='formWrap'>
   
@@ -68,12 +39,12 @@ class Login extends React.Component {
   
             <fieldset className='formGroup'>
               <label htmlFor='email' className='formLabel'>ЕМЕЙЛ:</label>
-              <input onChange={this.onChangeHandler} id='email' type='email' autoComplete='off' placeholder='Введите почту' />
+              <input onChange={this.onChangeHandler} id='email' type='email' autoComplete='off' placeholder='Введите почту' required />
             </fieldset>
   
             <fieldset className='formGroup'>
               <label htmlFor='password' className='formLabel'>ПАРОЛЬ:</label>
-              <input onChange={this.onChangeHandler} id='password' type='password' autoComplete='off' placeholder='Придумайте пароль' />
+              <input onChange={this.onChangeHandler} id='password' type='password' autoComplete='off' placeholder='Придумайте пароль' required />
             </fieldset>
           </div>
           
@@ -89,4 +60,10 @@ class Login extends React.Component {
   }
 }
 
-export default Login
+const mapDispatchToProps = dispatch => {
+  return {
+    onAuth: (email, password) => dispatch(actions.auth(email, password))
+  }
+}
+
+export default connect(null, mapDispatchToProps)(Login)

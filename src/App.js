@@ -10,6 +10,7 @@ const MyClubs = lazy(() => import("./pages/MyClubs/MyClubs"));
 const Login = lazy(() => import('./pages/Login/Login'));
 const CreateClub = lazy(() => import('./pages/CreateClub/CreateClub'));
 const ClubPage = lazy(() => import('./pages/ClubPage/ClubPage'));
+const Profile = lazy(() => import('./pages/Profile/Profile'))
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
             <Route path="/login" component={Login} />
             <Route path="/createclub" component={CreateClub} />
             <Route path="/club/:id" component={ClubPage} />
+            <Route path='/profile' component={Profile} />
           </Switch>
         </Suspense>
       </Layout>

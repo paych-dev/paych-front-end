@@ -11,8 +11,9 @@ import menuIcon from '../../assets/menu.png'
 import LogInLinks from './LoginLinks/LoginLinks'
 import NotLogInLinks from './NotLoginLinks/NotLoginLinks'
 
-class Navigation extends React.Component {
+import {connect} from 'react-redux';
 
+class Navigation extends React.Component {
   state = {
     toggle: true
   }
@@ -38,7 +39,7 @@ class Navigation extends React.Component {
           </Link>   
           
           <ul className={styles.navWrap}>
-           {this.state.userLogIn 
+           {this.props.userIn 
               ? <LogInLinks style={styles.navElement} /> 
               : <NotLogInLinks style={styles.navElement} />}
           </ul>
@@ -58,4 +59,9 @@ class Navigation extends React.Component {
   }
 }
 
-export default Navigation
+const mapStateToProps = state => {
+  return {
+    userIn: state.user
+  }
+}
+export default connect(mapStateToProps, null)(Navigation)

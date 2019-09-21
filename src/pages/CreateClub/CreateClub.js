@@ -34,6 +34,7 @@ class CreateClub extends React.Component {
 
   render(){
     if (this.state.createtDone) return <NewClubDone url={this.state.clubInfo.clubUrl}/>
+    
     return (
       <div className='formWrap'>
   

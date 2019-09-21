@@ -1,4 +1,14 @@
+@import '../../helpers/medias';
+
 /* WRAPs */
+
+.clubPage_wrap {
+  width: 100%;
+
+  @include for-desktop {
+    width: 600px;
+  }
+}
 
 .clubPage__clubInfo {
   display: flex;

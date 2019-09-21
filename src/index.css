@@ -35,11 +35,6 @@ body {
   background-color: #0e0e0e;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
 input {
   padding: 0 0 10px;
   background: none;
@@ -57,7 +52,6 @@ input {
   text-align: center;
   color: white;
   font-weight: 800;
-
   padding: 14px 25px;
 }
 
@@ -213,6 +207,13 @@ input[type='number']::-webkit-outer-spin-button {
   grid-gap: 15px;
 }
 
+.card {
+  width: 100%;
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
 @media screen and (min-width: 726px) {
   .form {
     width: 400px;
@@ -233,20 +234,12 @@ input[type='number']::-webkit-outer-spin-button {
   .club-grid {
     grid-template-columns: 1fr 1fr;
   }
-}
 
-.card {
-  width: 100%;
-  background-color: white;
-  border-radius: 10px;
-  overflow: hidden;
-}
-
-@media (min-width: 726px) {
   .card {
-    width: 330px;
+    max-width: 330px;
   }
 }
+
 
 @media screen and (min-width: 1060px) {
   .club-grid {

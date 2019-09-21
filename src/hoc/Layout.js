@@ -3,6 +3,8 @@ import styles from './Layout.module.css'
 import Navigation from '../components/Navigation/Navigation'
 import {NavLink, withRouter} from 'react-router-dom'
 
+import ModalStack from '../components/ModalStack/ModalStack';
+
 class Layout extends React.Component {
 
   render(){
@@ -17,6 +19,7 @@ class Layout extends React.Component {
 
     return (
       <div className={styles.Wrap}>
+        <ModalStack />
         <Navigation />
 
         {location.pathname === '/' && mainNavigate}

@@ -43,7 +43,7 @@
   font-weight: bold;
   line-height: 1.5;
   color: #ffffff;
-  
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -51,9 +51,7 @@
 
 .ClubCard_title {
   font-family: 'Gilroy-bold';
-  font-size: 16px;
-  font-weight: 800;
-  line-height: 1.25;
+  font-size: 22px;
   color: #090909;
   margin-bottom: 15px;
   text-align: center;
@@ -61,7 +59,7 @@
 
 .ClubCard_description {
   font-family: HelveticaNeue;
-  font-size: 12px;
+  font-size: 13px;
   line-height: 1.5;
   text-align: center;
   color: #959595;
@@ -91,7 +89,7 @@
   display: block;
 }
 
-@media (min-width: 600px) {
+@media sreen and (min-width: 600px) {
   .ClubCard_logo_wrap {
     width: 110px;
     height: 110px;
@@ -101,9 +99,11 @@
     width: 110px;
     height: 110px;
   }
+
   .ClubCard_title {
     font-size: 20px;
   }
+
   .ClubCard_price h3 {
     font-size: 24px
   }
