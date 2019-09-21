@@ -14,6 +14,9 @@ import * as actions from '../../store/actions/index'
 
 class ClubPage extends Component {
   state = {
+    thisPageId: '',
+  
+
     newPost: false,
     popoverOpen: false,
     payDone: false,
@@ -21,17 +24,8 @@ class ClubPage extends Component {
   }
   
   componentDidMount(){
-    const getUser = async id => {
-      let response = await fetch(`https://api.paych.sergo.if.ua/channels/${id}/posts`)
-      let data = await response.json();
-      return data;
-    }
-
-    (async () => {
-      let clubPosts = await getUser(2);
-      this.setState({clubPosts: clubPosts.data})
-      console.log(this.state.clubPosts)
-    })();
+    const currLocation = this.props.location.pathname.replace(/\D+/g,"");
+    this.props.loadPosts(currLocation, this.props.token)
   }
 
   onClickNewPost = (event) => {
@@ -88,14 +82,15 @@ class ClubPage extends Component {
 const mapStateToProps = state => {
   return {
     posts: state.clubPosts,
-    clubs: state.clubs
+    clubs: state.clubs,
+    token: state.jwtToken
   }
 }
 
-
 const mapDispatchToProps = dispatch => {
   return {
-    addNewPost: (postData) => dispatch(actions.addPost(postData))
+    //addNewPost: (postData) => dispatch(actions.addPost(postData));
+    loadPosts: (clubID, token) => dispatch(actions.loadClubPosts(clubID, token))
   }
 };
 

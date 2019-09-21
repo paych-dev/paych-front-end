@@ -3,8 +3,9 @@ export {
 } from './auth';
 
 export {
-  addPost
-} from './posts'
+  loadClubPosts,
+  createClub
+} from './clubs'
 
 export {
   deleteError

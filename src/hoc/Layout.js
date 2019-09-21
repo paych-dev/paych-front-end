@@ -1,12 +1,11 @@
 import React from 'react'
-import styles from './Layout.module.css'
+import styles from './Layout.module.scss'
 import Navigation from '../components/Navigation/Navigation'
 import {NavLink, withRouter} from 'react-router-dom'
 
 import ModalStack from '../components/ModalStack/ModalStack';
 
 class Layout extends React.Component {
-
   render(){
     const {location} = this.props;
 

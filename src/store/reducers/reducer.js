@@ -76,13 +76,6 @@ const reducer = (state = initialState, action) => {
         clubPosts: [...state.clubPosts, action.newPost]
       };
 
-    case actionTypes.CLEAR_ERROR_STACK:
-      const updatedArray = state.errorList.filter(error => error.id !== action.index);
-      return {
-        ...state,
-        errorList: updatedArray
-      };
-
     case actionTypes.USER_LOGIN_SUCCESS:
       return {
         ...state,
@@ -90,11 +83,19 @@ const reducer = (state = initialState, action) => {
           user: action.usedData.user
       };
 
-    case actionTypes.USER_LOGIN_FAILED:
+    case actionTypes.FETCH_FAILED:
       return {
         ...state,
         errorList: [...state.errorList, action.error]
       };
+      
+    case actionTypes.CLEAR_ERROR_STACK:
+      const updatedArray = state.errorList.filter(error => error.id !== action.index);
+      return {
+        ...state,
+        errorList: updatedArray
+      };
+
 
     default:
       return state

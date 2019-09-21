@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import ToggleNav from './ToggleNav/ToggleNav'
 
-import styles from './Navigation.module.css'
+import styles from './Navigation.module.scss'
 
 import logo from '../../assets/logo.png'
 import purplelogo from '../../assets/purplelogo.svg'

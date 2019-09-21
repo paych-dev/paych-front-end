@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 
 import IconHeader from '../../components/IconHeader/IconHeader'
 import signUpIcon from '../../assets/signup.png';
@@ -22,13 +22,15 @@ class Login extends React.Component {
   }
 
   onSubmintHandler = event => {
-    const { email, password } = this.state.userInfo
     event.preventDefault();
+
+    const { email, password } = this.state.userInfo
     this.props.onAuth(email, password);
   }
 
+
   render(){
-    console.log('login user',"admin@paych.loc password")
+    if (this.props.jwtToken) return <Redirect to='/' />
     return (
       <div className='formWrap'>
   
@@ -60,10 +62,18 @@ class Login extends React.Component {
   }
 }
 
+
+const mapStateToProps = state => {
+  return {
+    jwtToken: state.jwtToken,
+    user: state.user
+  }
+}
+
 const mapDispatchToProps = dispatch => {
   return {
     onAuth: (email, password) => dispatch(actions.auth(email, password))
   }
 }
 
-export default connect(null, mapDispatchToProps)(Login)
+export default connect(mapStateToProps, mapDispatchToProps)(Login)

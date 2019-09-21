@@ -1,4 +1,7 @@
 import React from 'react';
+import {connect} from 'react-redux';
+import * as actions from '../../store/actions/';
+
 import IconHeader from '../../components/IconHeader/IconHeader';
 import NewClubDone from '../../components/Stubs/NewClubDone/NewClubDone'
 
@@ -10,8 +13,10 @@ class CreateClub extends React.Component {
 
   state = {
     createtDone: false,
+    imagePreviewUrl: '',
+    selectedFile: '',
+    
     clubInfo: {
-      file: '',
       name: '',
       description: '',
       clubUrl: '',
@@ -21,15 +26,22 @@ class CreateClub extends React.Component {
 
   onChangeHandler = event => {
     const clubInfo = {...this.state.clubInfo};
-    clubInfo[event.target.id] = event.target.value;
+
+    if(event.target.id === 'file') 
+      this.setState({imagePreviewUrl: URL.createObjectURL(event.target.files[0])})
+    else if(event.target.id === 'clubUrl')
+      clubInfo[event.target.id] = `paych.me/${event.target.value}`;   
+    else 
+      clubInfo[event.target.id] = event.target.value;
+      
     this.setState({clubInfo: clubInfo});
   }
 
   onSubmintHandler = event => {
     event.preventDefault();
-    console.log(this.state.clubInfo);
-    let done = !this.state.createtDone;
-    this.setState({createtDone: done})
+    const { clubInfo, selectedFile} = this.state;  
+    this.props.createClub(clubInfo, selectedFile, this.props.jwtToken)
+    //this.setState({createtDone: !this.state.createtDone})
   }
 
   render(){
@@ -46,14 +58,14 @@ class CreateClub extends React.Component {
             <fieldset className='formGroup'>
               <input onChange={this.onChangeHandler} type='file' id='file' className='inputfile'/>
               <label htmlFor='file' className='inputImg'>
-                <img src={photo} alt={photo} className='inputImg_photo'/>
+                <img src={!this.state.imagePreviewUrl ? photo : this.state.imagePreviewUrl} alt={photo} className='inputImg_photo'/>
                 <img src={upload} alt={upload} className='inputImg_upload'/>
               </label>
             </fieldset>
   
             <fieldset className='formGroup'>
               <label htmlFor='name' className='formLabel'>НАЗВАНИЕ:</label>
-              <input onChange={this.onChangeHandler} maxLength='40' autoComplete='off' id='name' type='text' placeholder='Введите название' />
+              <input onChange={this.fileChangedHandler} maxLength='40' autoComplete='off' id='name' type='text' placeholder='Введите название' />
             </fieldset>
   
             <fieldset className='formGroup'>
@@ -85,4 +97,17 @@ class CreateClub extends React.Component {
   };
 };
 
-export default CreateClub
+const mapStateToProps = state => {
+  return {
+    jwtToken: state.jwtToken,
+    user: state.user
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    createClub: (data, file, token) => dispatch(actions.createClub(data, file, token))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CreateClub)

@@ -15,12 +15,10 @@ export const authSuccess = (authData) => {
 
 export const authFalse = (error) => {
   return {
-    type: actionTypes.USER_LOGIN_FAILED,
+    type: actionTypes.FETCH_FAILED,
     error: error
   }
 };
-
-
 
 export const auth = (email, password) => {
   return dispatch => {

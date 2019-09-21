@@ -9,7 +9,7 @@ const NewClubDone = ({url}) => (
     <IconHeader img={created} title={'Клуб создан'} desc={'Создавай контент, делись ссылкой и зарабатывай на этом'}/>
 
     <div className={style.infoText}>
-      <span className={style.urlText}>ССЫЛКА НА КЛУБ</span><br />
+      <span className={style.urlText}>ССЫЛКА НА КЛУБ</span><br/>
       <span className={style.url}>{url}</span>
     </div>
 

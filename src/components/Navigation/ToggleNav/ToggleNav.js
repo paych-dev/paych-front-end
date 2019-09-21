@@ -26,7 +26,7 @@ const ToggleNav = ({clicked}) => (
     </div>
     <h3>Мой профиль</h3>
     </Link>
-    <Link to='/myclubs' className={style.toggleMenu_element} onClick={clicked}>
+    <Link to='/myclubs/:id' className={style.toggleMenu_element} onClick={clicked}>
     <div className={`${style.toggleMenu_img} ${style.toggleMenu_myclubs}`}>
     <img src={myclubs} alt={myclubs}/>
     </div>

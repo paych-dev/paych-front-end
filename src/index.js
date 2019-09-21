@@ -6,7 +6,7 @@ import reducer from './store/reducers/reducer';
 import {BrowserRouter} from 'react-router-dom';
 import {createStore, compose, applyMiddleware} from 'redux';
 
-import './index.css';
+import './index.scss';
 import App from './App';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
