@@ -60,9 +60,26 @@ let allClubs = [{
 const initialState = {
   clubs: allClubs,
   clubPosts: [{
-    id: 1,
-    text: 'bla bla'
-  }],
+      id: 1,
+      text: 'bla bla'
+    },
+    {
+      id: 2,
+      text: 'bla bla bla bla'
+    },
+    {
+      id: 3,
+      text: 'bla bla bla blab la blabla bla'
+    },
+    {
+      id: 3,
+      text: 'bla bla bla blab la blabla bla bla bla bla blab la blabla bla bla bla bla blab la blabla bla bla bla bla blab la blabla bla bla bla bla blab la blabla blabla bla bla blab la blabla bla'
+    },
+    {
+      id: 4,
+      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Massa eget egestas purus viverra accumsan in. Leo duis ut diam quam nulla. Eget duis at tellus at urna condimentum. Amet luctus venenatis lectus magna fringilla urna porttitor rhoncus. Placerat in egestas erat imperdiet sed euismod. Nunc pulvinar sapien et ligula ullamcorper malesuada. Diam donec adipiscing tristique risus nec feugiat in fermentum posuere. Risus in hendrerit gravida rutrum quisque non tellus orci ac. Et netus et malesuada fames ac turpis egestas maecenas. Aliquet nibh praesent tristique magna sit amet. Netus et malesuada fames ac. Cras ornare arcu dui vivamus arcu. Magna fermentum iaculis eu non diam phasellus vestibulum lorem sed. At tempor commodo ullamcorper a lacus vestibulum sed.'
+    }
+  ],
   errorList: [],
   jwtToken: null,
   user: null
@@ -88,7 +105,7 @@ const reducer = (state = initialState, action) => {
         ...state,
         errorList: [...state.errorList, action.error]
       };
-      
+
     case actionTypes.CLEAR_ERROR_STACK:
       const updatedArray = state.errorList.filter(error => error.id !== action.index);
       return {

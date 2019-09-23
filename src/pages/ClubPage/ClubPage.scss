@@ -8,6 +8,10 @@
   @include for-desktop {
     width: 600px;
   }
+
+  @include for-wide-desktop {
+    width: 660px;
+  }
 }
 
 .clubPage__clubInfo {
