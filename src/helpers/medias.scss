@@ -4,6 +4,12 @@
   }
 }
 
+@mixin for-all-desktops {
+  @media (min-width: 726px) {
+    @content;
+  }
+}
+
 @mixin for-desktop {
   @media (min-width: 726px) and (max-width: 1059px) {
     @content;
@@ -14,4 +20,9 @@
   @media (min-width: 1060px) {
     @content;
   }
+}
+
+%flex-center {
+  display: flex;
+  align-items: center;
 }

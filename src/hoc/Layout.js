@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './Layout.module.scss'
-import Navigation from '../components/Navigation/Navigation'
+import Header from '../components/Header/Header'
 import {NavLink, withRouter} from 'react-router-dom'
 
 import ModalStack from '../components/ModalStack/ModalStack';
@@ -19,7 +19,7 @@ class Layout extends React.Component {
     return (
       <div className={styles.Wrap}>
         <ModalStack />
-        <Navigation />
+        <Header />
 
         {location.pathname === '/' && mainNavigate}
         {location.pathname === '/myclubs/:id' && mainNavigate}
