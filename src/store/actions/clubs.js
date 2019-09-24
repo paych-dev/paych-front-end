@@ -44,9 +44,8 @@ export const createClub_False = (error) => {
 export const loadClubPosts = (clubID, token) => {
   return dispatch => {
     dispatch(loadPost_Start());
-    const proxyUrl = "https://cors-anywhere.herokuapp.com/";
 
-    fetch(proxyUrl + `https://api.paych.sergo.if.ua/channels/${clubID}`, {
+    fetch(`https://api.paych.sergo.if.ua/channels/${clubID}/posts`, {
         headers: {
           'Accept': 'application/json',
           'Access-Control-Allow-Origin': '*',
@@ -58,7 +57,10 @@ export const loadClubPosts = (clubID, token) => {
         if (res.ok) return res.json();
         else throw new Error('load posts error');
       })
-      .then(response => dispatch(loadPost_Success(response)))
+      .then(response => {
+        console.log(response)
+        dispatch(loadPost_Success(response))
+      } )
       .catch(error => {
 
         let newError = {
@@ -74,15 +76,13 @@ export const loadClubPosts = (clubID, token) => {
 export const createClub = (data, file, token) => {
   return dispatch => {
     dispatch(loadPost_Start());
-    
-    const proxyUrl = "https://cors-anywhere.herokuapp.com/";
-    
+
     const newClub = {
       ...data,
       clubImg: file
     }
 
-    fetch(proxyUrl + `https://api.paych.sergo.if.ua/channels/`, {
+    fetch(`https://api.paych.sergo.if.ua/channels/`, {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -96,7 +96,10 @@ export const createClub = (data, file, token) => {
         if (res.ok) return res.json();
         else throw new Error('club created error');
       })
-      .then(response => dispatch(loadPost_Success(response)))
+      .then(response => {
+        dispatch(loadPost_Success(response))
+        console.log(response)
+      })
       .catch(error => {
 
         let newError = {

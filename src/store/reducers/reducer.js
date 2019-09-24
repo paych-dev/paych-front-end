@@ -72,7 +72,7 @@ const initialState = {
       text: 'bla bla bla blab la blabla bla'
     },
     {
-      id: 3,
+      id: 5,
       text: 'bla bla bla blab la blabla bla bla bla bla blab la blabla bla bla bla bla blab la blabla bla bla bla bla blab la blabla bla bla bla bla blab la blabla blabla bla bla blab la blabla bla'
     },
     {

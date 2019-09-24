@@ -29,6 +29,7 @@ export const auth = (email, password) => {
       password: password
     }
 
+
     fetch(`https://api.paych.sergo.if.ua/auth/login`, {
         method: 'POST',
         headers: {

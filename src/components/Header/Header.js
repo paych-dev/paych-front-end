@@ -5,7 +5,7 @@ import ToggleNav from './ToggleNav/ToggleNav'
 import LogInLinks from './LoginLinks/LoginLinks'
 import NotLogInLinks from './NotLoginLinks/NotLoginLinks'
 //STYLE:
-import styles from './Navigation.module.scss'
+import styles from './Header.module.scss'
 //IMAGES:
 import logo from '../../assets/logo.png'
 import purplelogo from '../../assets/purplelogo.svg'
@@ -24,6 +24,7 @@ class Header extends Component {
   render(){
     const { toggle } = this.state;
 
+    console.log(this.props.userIn)
     return (
       <header className={styles.Header}>
         <div className={styles.Logo}>
