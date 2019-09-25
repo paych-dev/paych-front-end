@@ -24,7 +24,7 @@ class Header extends Component {
   render(){
     const { toggle } = this.state;
 
-    console.log(this.props.userIn)
+    console.log(this.props.user)
     return (
       <header className={styles.Header}>
         <div className={styles.Logo}>
@@ -38,7 +38,7 @@ class Header extends Component {
         
         <nav className={styles.Navigation}>
           <ul className={styles.Navigation_List}>
-            {this.props.userIn 
+            {this.props.user
               ? <LogInLinks style={styles.Navigation_List__element} /> 
               : <NotLogInLinks style={styles.Navigation_List__element} />}
           </ul>
@@ -56,7 +56,7 @@ class Header extends Component {
 
 const mapStateToProps = state => {
   return {
-    userIn: state.user
+    user: state.user
   }
 }
 

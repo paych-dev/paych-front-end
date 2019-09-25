@@ -4,6 +4,7 @@
   "homepage": "https://paych-b5f22.firebaseapp.com/",
   "private": true,
   "dependencies": {
+    "axios": "^0.19.0",
     "gh-pages": "^2.1.1",
     "node-sass": "^4.12.0",
     "prop-types": "^15.7.2",

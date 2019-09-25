@@ -24,13 +24,15 @@ class Login extends React.Component {
   onSubmintHandler = event => {
     event.preventDefault();
 
-    const { email, password } = this.state.userInfo
-    this.props.onAuth(email, password);
+    const { email, password } = this.state.userInfo; 
+    const authData = { email: email, password: password}
+
+    this.props.onAuth(authData);
   }
 
 
   render(){
-    if (this.props.jwtToken) return <Redirect to='/' />
+    if (this.props.user) return <Redirect to='/' />
     return (
       <div className='formWrap'>
   
@@ -65,7 +67,6 @@ class Login extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    jwtToken: state.jwtToken,
     user: state.user
   }
 }

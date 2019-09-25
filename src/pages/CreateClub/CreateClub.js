@@ -1,6 +1,5 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import * as actions from '../../store/actions/';
 
 import IconHeader from '../../components/IconHeader/IconHeader';
 import NewClubDone from '../../components/Stubs/NewClubDone/NewClubDone'
@@ -106,7 +105,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    createClub: (data, file, token) => dispatch(actions.createClub(data, file, token))
+
   }
 }
 

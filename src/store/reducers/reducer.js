@@ -81,7 +81,6 @@ const initialState = {
     }
   ],
   errorList: [],
-  jwtToken: null,
   user: null
 }
 
@@ -96,8 +95,7 @@ const reducer = (state = initialState, action) => {
     case actionTypes.USER_LOGIN_SUCCESS:
       return {
         ...state,
-        jwtToken: action.usedData.token,
-          user: action.usedData.user
+        user: action.usedData
       };
 
     case actionTypes.FETCH_FAILED:
@@ -112,7 +110,6 @@ const reducer = (state = initialState, action) => {
         ...state,
         errorList: updatedArray
       };
-
 
     default:
       return state

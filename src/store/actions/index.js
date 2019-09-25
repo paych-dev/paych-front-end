@@ -3,9 +3,12 @@ export {
 } from './auth';
 
 export {
-  loadClubPosts,
-  createClub
-} from './clubs'
+  fetch_channel_posts,
+} from './posts'
+
+export {
+  fetch_channels
+} from './channels'
 
 export {
   deleteError

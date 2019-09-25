@@ -90,7 +90,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     //addNewPost: (postData) => dispatch(actions.addPost(postData));
-    loadPosts: (clubID, token) => dispatch(actions.loadClubPosts(clubID, token))
+    loadPosts: (id) => dispatch(actions.fetch_channel_posts(id))
   }
 };
 
