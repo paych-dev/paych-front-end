@@ -38,7 +38,7 @@ class Header extends Component {
         
         <nav className={styles.Navigation}>
           <ul className={styles.Navigation_List}>
-            {this.props.user
+            {localStorage.getItem('userToken')
               ? <LogInLinks style={styles.Navigation_List__element} /> 
               : <NotLogInLinks style={styles.Navigation_List__element} />}
           </ul>

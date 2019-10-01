@@ -8,7 +8,7 @@
   display: none;
 }
 
-@include for-desktop {
+@include for-all-desktops {
   .Main {
     display: flex;
     flex-wrap: wrap;
@@ -22,7 +22,7 @@
 
   .Main_Navigate {
     width: 100%;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     display: flex;
     justify-content: center;
   }

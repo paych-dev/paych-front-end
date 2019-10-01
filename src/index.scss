@@ -217,7 +217,7 @@ input[type='number']::-webkit-outer-spin-button {
   overflow: hidden;
 }
 
-@include for-desktop {
+@include for-all-desktops {
   .form {
     width: 400px;
   }
@@ -236,6 +236,7 @@ input[type='number']::-webkit-outer-spin-button {
 
   .club-grid {
     grid-template-columns: 1fr 1fr;
+    grid-gap: 25px;
   }
 
   .card {
@@ -244,8 +245,19 @@ input[type='number']::-webkit-outer-spin-button {
 }
 
 
-@include for-wide-desktop {
-  .club-grid {
-    grid-template-columns: 1fr 1fr 1fr;
+.google-btn {
+  display: flex;
+  align-items: center;
+
+  border-radius: 2px;
+  background-color: white;
+  color: #7F7F7F;
+  padding: 10px;
+
+  img {
+    width: 25px;
+    height: 100%;
+    object-fit: cover;
+    margin-right: 10px;
   }
 }

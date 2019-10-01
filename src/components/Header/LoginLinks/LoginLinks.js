@@ -1,8 +1,14 @@
 import React, {Fragment} from 'react';
 import {Link} from 'react-router-dom';
+
 import styles from './LoginLinks.module.css';
 
 const LoginLinks = ({style}) => {
+  
+  const logout = () => {
+    localStorage.clear();
+  }
+
   return (
     <Fragment>
       <li><Link to='/' className={style}>Каналы</Link></li>
@@ -14,6 +20,7 @@ const LoginLinks = ({style}) => {
         </div>   
       </li>
       <li><Link to='/createclub' ><button className='button outline-button'>Создать клуб</button></Link></li>
+      <li><button className='button outline-button' onClick={logout}>Выйти</button></li>
     </Fragment>
   )
 }

@@ -11,8 +11,8 @@ class Layout extends React.Component {
 
     const mainNavigate = (
       <div className={styles.Main_Navigate}>
-        <NavLink exact to='/' activeClassName='activeLink'>Все каналы</NavLink>
-        <NavLink exact to='/myclubs/:id' activeClassName='activeLink'>Мои каналы</NavLink>
+        <NavLink exact to='/subsctibed' activeClassName='activeLink'>Все каналы</NavLink>
+        <NavLink exact to='/own' activeClassName='activeLink'>Мои каналы</NavLink>
       </div> 
     )
 
@@ -21,8 +21,8 @@ class Layout extends React.Component {
         <ModalStack />
         <Header />
 
-        {location.pathname === '/' && mainNavigate}
-        {location.pathname === '/myclubs/:id' && mainNavigate}
+        {location.pathname === '/subsctibed' && mainNavigate}
+        {location.pathname === '/own' && mainNavigate}
         
         <main className={styles.Main}>
           {this.props.children}

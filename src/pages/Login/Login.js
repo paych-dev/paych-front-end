@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link, Redirect } from 'react-router-dom'
+import GoogleLogin from 'react-google-login';
 
 import IconHeader from '../../components/IconHeader/IconHeader'
 import signUpIcon from '../../assets/signup.png';
@@ -27,9 +28,12 @@ class Login extends React.Component {
     const { email, password } = this.state.userInfo; 
     const authData = { email: email, password: password}
 
-    this.props.onAuth(authData);
+    this.props.onAuth(authData)
   }
 
+  responseGoogle = (response) => {
+    console.log(response);
+  }
 
   render(){
     if (this.props.user) return <Redirect to='/' />
@@ -51,7 +55,15 @@ class Login extends React.Component {
               <input onChange={this.onChangeHandler} id='password' type='password' autoComplete='off' placeholder='Придумайте пароль' required />
             </fieldset>
           </div>
-          
+
+          <GoogleLogin
+            clientId="269936097376-uo0e137js8phn0kvqq100mnio48bs3bi.apps.googleusercontent.com"
+            buttonText="Войти через Google"
+            onSuccess={this.responseGoogle}
+            onFailure={this.responseGoogle}
+            cookiePolicy={'single_host_origin'}
+          />
+
           <button className='button blue-radius-btn29 register-btn'>Логин</button>
   
           <div className='alreadySignUp'>

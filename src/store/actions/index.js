@@ -1,5 +1,6 @@
 export {
-  auth
+  auth,
+  register
 } from './auth';
 
 export {

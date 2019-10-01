@@ -1,12 +1,13 @@
 import React, {Fragment, Suspense, lazy} from 'react';
 import { Route, Switch } from "react-router-dom";
+import { PrivateRoute } from './components/PrivateRoute/PrivateRoute';
 
 import Layout from './hoc/Layout';
 import Loader from './components/Loader/Loader';
-import AllClubs from './pages/AllClub/AllClub';
 
+const SubscribedChannels = lazy(() => import("./pages/SubscribedChannels/SubscribedChannels"));
 const Registration = lazy(() => import("./pages/Registration/Registration"));
-const MyClubs = lazy(() => import("./pages/MyClubs/MyClubs"));
+const OwnChannels = lazy(() => import("./pages/OwnChannels/OwnChannels"));
 const Login = lazy(() => import('./pages/Login/Login'));
 const CreateClub = lazy(() => import('./pages/CreateClub/CreateClub'));
 const ClubPage = lazy(() => import('./pages/ClubPage/ClubPage'));
@@ -18,13 +19,13 @@ const App = () => {
       <Layout>
         <Suspense fallback={<Loader />}>
           <Switch>
-            <Route exact path="/" component={AllClubs} />
-            <Route path="/myclubs/:id" component={MyClubs} />
             <Route path="/register" component={Registration} />
             <Route path="/login" component={Login} />
-            <Route path="/createclub" component={CreateClub} />
-            <Route path="/club/:id" component={ClubPage} />
-            <Route path='/profile' component={Profile} />
+            <PrivateRoute exact path="/subscribed" component={SubscribedChannels} />
+            <PrivateRoute exact path="/own" component={OwnChannels} />
+            <PrivateRoute exact path="/createclub" component={CreateClub} />
+            <PrivateRoute exact path="/club/:id" component={ClubPage} />
+            <PrivateRoute exact path='/profile' component={Profile} />
           </Switch>
         </Suspense>
       </Layout>

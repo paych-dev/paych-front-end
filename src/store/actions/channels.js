@@ -1,16 +1,29 @@
 import * as actionTypes from './actionTypes';
 import axios from '../../axios-setting';
 
-const fetch_channels_start = () => {
+const fetch_own_channels_start = () => {
   return {
-    type: actionTypes.LOAD_CLUB_POSTS_START
+    type: actionTypes.LOAD_OWN_CHANNELS_START
   };
 };
 
-const fetch_channels_success = (channels) => {
+const fetch_own_channels_success = (channels) => {
   return {
-    type: actionTypes.LOAD_CLUB_POSTS_SUCCESS,
-    payload: channels
+    type: actionTypes.LOAD_OWN_CHANNELS_SUCCESS,
+    own: channels
+  };
+};
+
+const fetch_subscribed_channels_start = () => {
+  return {
+    type: actionTypes.LOAD_OWN_CHANNELS_START
+  };
+};
+
+const fetch_subscribed_channels_success = (channels) => {
+  return {
+    type: actionTypes.LOAD_OWN_CHANNELS_SUCCESS,
+    subscribed: channels
   };
 };
 
@@ -23,12 +36,12 @@ const fetch_channels_failed = (error) => {
 
 export const fetch_channels = () => {
   return dispatch => {
-    dispatch(fetch_channels_start());
+
     axios
       .get(`/subscribed-channels/`)
       .then(response => {
         console.log('subscribed', response.data.data)
-        dispatch(fetch_channels_success(response.data))
+        dispatch(fetch_subscribed_channels_success(response.data))
       })
       .catch(error => {
         const newError = {
@@ -37,11 +50,12 @@ export const fetch_channels = () => {
         }
         dispatch(fetch_channels_failed(newError))
       });
+
     axios
       .get(`/own-channels/`)
       .then(response => {
         console.log('own', response.data.data)
-        dispatch(fetch_channels_success(response.data))
+        dispatch(fetch_own_channels_success(response.data))
       })
       .catch(error => {
         const newError = {

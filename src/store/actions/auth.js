@@ -42,3 +42,25 @@ const auth_failed = (error) => {
     error: error
   };
 };
+
+export const register = user_data => {
+  return dispatch => {
+    dispatch(auth_start());
+
+    axios
+      .post('/auth/register', user_data)
+      .then(response => {
+        const token = response.data.token;
+        const user = response.data.user;
+        localStorage.setItem('userToken', token);
+        dispatch(auth_success(user));
+      })
+      .catch(error => {
+        let newError = {
+          id: new Date().getTime(),
+          error: error.toString()
+        }
+        dispatch(auth_failed(newError))
+      })
+  };
+};
