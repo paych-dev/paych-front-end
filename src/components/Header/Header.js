@@ -1,11 +1,14 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux';
+
 //COMPONENTS:
 import ToggleNav from './ToggleNav/ToggleNav'
 import LogInLinks from './LoginLinks/LoginLinks'
 import NotLogInLinks from './NotLoginLinks/NotLoginLinks'
+
 //STYLE:
 import styles from './Header.module.scss'
+
 //IMAGES:
 import logo from '../../assets/logo.png'
 import purplelogo from '../../assets/purplelogo.svg'
@@ -23,8 +26,8 @@ class Header extends Component {
 
   render(){
     const { toggle } = this.state;
+    const { loggedIn } = this.props.user;
 
-    console.log(this.props.user)
     return (
       <header className={styles.Header}>
         <div className={styles.Logo}>
@@ -38,7 +41,7 @@ class Header extends Component {
         
         <nav className={styles.Navigation}>
           <ul className={styles.Navigation_List}>
-            {localStorage.getItem('userToken')
+            { loggedIn
               ? <LogInLinks style={styles.Navigation_List__element} /> 
               : <NotLogInLinks style={styles.Navigation_List__element} />}
           </ul>
@@ -56,7 +59,7 @@ class Header extends Component {
 
 const mapStateToProps = state => {
   return {
-    user: state.user
+    user: state.auth
   }
 }
 

@@ -1,16 +1,42 @@
 import * as actionTypes from './actionTypes';
 import axios from '../../axios-setting';
 
-export const auth = user_data => {
-  return dispatch => {
+const REDIRECT_URI = 'https://paych-b5f22.firebaseapp.com/login';
+
+export const googleAuth_Start = () =>
+  dispatch => {
+    axios
+      .get(`/auth/google/?redirect_uri=${REDIRECT_URI}`)
+      .then(resp => {
+        window.location = resp.data.url
+      })
+      .catch(err => console.log(err))
+  }
+
+export const onGoogleAuth = (params) =>
+  dispatch => {
+    axios
+      .get(`/auth/google/callback${params}&redirect_uri=${REDIRECT_URI}`)
+      .then(resp => {
+        const token = resp.data.accessToken;
+        const user = resp.data.user;
+        localStorage.setItem('accessToken', token);
+        dispatch(auth_success(user));
+      })
+      .catch(err => console.log(err))
+  }
+
+
+export const auth = user_data =>
+  dispatch => {
     dispatch(auth_start());
 
     axios
       .post('/auth/login', user_data)
       .then(response => {
-        const token = response.data.token;
+        const token = response.data.accessToken;
         const user = response.data.user;
-        localStorage.setItem('userToken', token);
+        localStorage.setItem('accessToken', token);
         dispatch(auth_success(user));
       })
       .catch(error => {
@@ -21,7 +47,6 @@ export const auth = user_data => {
         dispatch(auth_failed(newError))
       })
   };
-};
 
 const auth_start = () => {
   return {
@@ -43,6 +68,8 @@ const auth_failed = (error) => {
   };
 };
 
+
+
 export const register = user_data => {
   return dispatch => {
     dispatch(auth_start());
@@ -50,9 +77,9 @@ export const register = user_data => {
     axios
       .post('/auth/register', user_data)
       .then(response => {
-        const token = response.data.token;
+        const token = response.data.accessTokem;
         const user = response.data.user;
-        localStorage.setItem('userToken', token);
+        localStorage.setItem('accessToken', token);
         dispatch(auth_success(user));
       })
       .catch(error => {

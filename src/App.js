@@ -12,6 +12,8 @@ const Login = lazy(() => import('./pages/Login/Login'));
 const CreateClub = lazy(() => import('./pages/CreateClub/CreateClub'));
 const ClubPage = lazy(() => import('./pages/ClubPage/ClubPage'));
 const Profile = lazy(() => import('./pages/Profile/Profile'))
+const Feed = lazy(() => import('./pages/Feed/Feed'))
+const Channels = lazy(() => import("./pages/Channels/Channels"));
 
 const App = () => {
   return (
@@ -21,10 +23,12 @@ const App = () => {
           <Switch>
             <Route path="/register" component={Registration} />
             <Route path="/login" component={Login} />
-            <PrivateRoute exact path="/subscribed" component={SubscribedChannels} />
-            <PrivateRoute exact path="/own" component={OwnChannels} />
-            <PrivateRoute exact path="/createclub" component={CreateClub} />
-            <PrivateRoute exact path="/club/:id" component={ClubPage} />
+            {/* <PrivateRoute exact path="/subscribed" component={SubscribedChannels} />
+            <PrivateRoute exact path="/own" component={OwnChannels} /> */}
+            <PrivateRoute exact path='/' component={Feed} />
+            <PrivateRoute exact path='/channels' component={Channels} />
+            <PrivateRoute exact path="/create_channel" component={CreateClub} />
+            <PrivateRoute exact path="/channel/:id" component={ClubPage} />
             <PrivateRoute exact path='/profile' component={Profile} />
           </Switch>
         </Suspense>

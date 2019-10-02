@@ -28,7 +28,7 @@ class ModalStack extends Component {
 
 const mapStateToProps = state => {
   return {
-    errorList: state.errorList
+    errorList: state.error.errorList
   }
 }
 

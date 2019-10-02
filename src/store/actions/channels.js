@@ -1,46 +1,11 @@
 import * as actionTypes from './actionTypes';
 import axios from '../../axios-setting';
 
-const fetch_own_channels_start = () => {
-  return {
-    type: actionTypes.LOAD_OWN_CHANNELS_START
-  };
-};
-
-const fetch_own_channels_success = (channels) => {
-  return {
-    type: actionTypes.LOAD_OWN_CHANNELS_SUCCESS,
-    own: channels
-  };
-};
-
-const fetch_subscribed_channels_start = () => {
-  return {
-    type: actionTypes.LOAD_OWN_CHANNELS_START
-  };
-};
-
-const fetch_subscribed_channels_success = (channels) => {
-  return {
-    type: actionTypes.LOAD_OWN_CHANNELS_SUCCESS,
-    subscribed: channels
-  };
-};
-
-const fetch_channels_failed = (error) => {
-  return {
-    type: actionTypes.FETCH_FAILED,
-    error: error
-  };
-};
-
-export const fetch_channels = () => {
-  return dispatch => {
-
+export const fetch_channels = () =>
+  dispatch => {
     axios
       .get(`/subscribed-channels/`)
       .then(response => {
-        console.log('subscribed', response.data.data)
         dispatch(fetch_subscribed_channels_success(response.data))
       })
       .catch(error => {
@@ -48,13 +13,12 @@ export const fetch_channels = () => {
           id: new Date().getTime(),
           error: error.toString()
         }
-        dispatch(fetch_channels_failed(newError))
+        dispatch(fetch_failed(newError))
       });
 
     axios
       .get(`/own-channels/`)
       .then(response => {
-        console.log('own', response.data.data)
         dispatch(fetch_own_channels_success(response.data))
       })
       .catch(error => {
@@ -62,7 +26,10 @@ export const fetch_channels = () => {
           id: new Date().getTime(),
           error: error.toString()
         }
-        dispatch(fetch_channels_failed(newError))
+        dispatch(fetch_failed(newError))
       });
   };
-};
+
+const fetch_own_channels_success = channels => ({type: actionTypes.FETCH_OWN_CHANNELS_SUCCESS, payload: channels});
+const fetch_subscribed_channels_success = channels => ({type: actionTypes.FETCH_SUBSCRIBED_CHANNELS_SUCCESS, payload: channels});
+const fetch_failed = error => ({type: actionTypes.FETCH_FAILED, payload: error});

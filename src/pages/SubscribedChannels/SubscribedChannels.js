@@ -7,6 +7,7 @@ class AllClubs extends React.Component {
   componentDidMount(){
     this.props.getChannels()
   }
+  
   render(){
     const { clubs } = this.props
     console.log(clubs)

@@ -1,6 +1,8 @@
 export {
   auth,
-  register
+  googleAuth_Start,
+  register,
+  onGoogleAuth
 } from './auth';
 
 export {
@@ -14,3 +16,7 @@ export {
 export {
   deleteError
 } from './other'
+
+export {
+  fetch_feed
+} from './feed'

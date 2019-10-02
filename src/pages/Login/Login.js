@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link, Redirect } from 'react-router-dom'
-import GoogleLogin from 'react-google-login';
 
 import IconHeader from '../../components/IconHeader/IconHeader'
 import signUpIcon from '../../assets/signup.png';
@@ -24,19 +23,19 @@ class Login extends React.Component {
 
   onSubmintHandler = event => {
     event.preventDefault();
-
     const { email, password } = this.state.userInfo; 
     const authData = { email: email, password: password}
-
     this.props.onAuth(authData)
   }
 
-  responseGoogle = (response) => {
-    console.log(response);
+  componentWillMount() {
+    const params = window.location.search;
+    if(params) this.props.onGoogleAuthSecond(params)
   }
 
   render(){
     if (this.props.user) return <Redirect to='/' />
+    
     return (
       <div className='formWrap'>
   
@@ -56,14 +55,7 @@ class Login extends React.Component {
             </fieldset>
           </div>
 
-          <GoogleLogin
-            clientId="269936097376-uo0e137js8phn0kvqq100mnio48bs3bi.apps.googleusercontent.com"
-            buttonText="Войти через Google"
-            onSuccess={this.responseGoogle}
-            onFailure={this.responseGoogle}
-            cookiePolicy={'single_host_origin'}
-          />
-
+          
           <button className='button blue-radius-btn29 register-btn'>Логин</button>
   
           <div className='alreadySignUp'>
@@ -71,6 +63,7 @@ class Login extends React.Component {
             <Link to='/register'>Зарегистрироваться</Link>
           </div>
         </form>
+        <button className='button blue-radius-btn29 register-btn' onClick={this.props.onGoogleAuthFirst}>Логин GOOGLE</button>
       </div>
     )
   }
@@ -79,12 +72,14 @@ class Login extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    user: state.user
+    user: state.auth.loggedIn
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
+    onGoogleAuthFirst: () => dispatch(actions.googleAuth_Start()),
+    onGoogleAuthSecond: (code) => dispatch(actions.onGoogleAuth(code)),
     onAuth: (email, password) => dispatch(actions.auth(email, password))
   }
 }
