@@ -19,6 +19,7 @@ export function channels(state = initialState, action) {
         subscribed: action.payload
       };
 
+
     default:
       return state
   }
