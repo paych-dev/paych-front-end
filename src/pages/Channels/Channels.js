@@ -12,6 +12,7 @@ import * as actions from '../../store/actions';
 
 class Channels extends React.Component {
   state = {
+    curr: 'own',
     own: true,
     subscribed: false
   }
@@ -21,11 +22,12 @@ class Channels extends React.Component {
   }
 
   onPositonChangeHandler = event => {
-    event.preventDefault();
+    const position = event.target.id;
+    this.setState({curr: position});
   }
 
   render(){
-    const { ownPositin } = this.state;
+    const { curr } = this.state;
     const { own, subscribed } = this.props.channels;
     
     if(!own || !subscribed) return null;
@@ -34,12 +36,12 @@ class Channels extends React.Component {
       <div className='Channels-page'>
         <nav className={style.Channels_page_navigation}>
           <ul className={style.Channels_page_navigation__wrap}>
-            <li id='own' onClick={(e) => this.onPositonChangeHandler(e)} className={`${style.Channels_page_navigation__element} ${ ownPositin && style.Channels_page_navigation__element_active}`}>Мои каналы</li>
-            <li id='subscribed' onClick={(e) => this.onPositonChangeHandler(e)} className={`${style.Channels_page_navigation__element} ${ ! ownPositin && style.Channels_page_navigation__element_active}`}>Все каналы</li> 
+            <li id='own' onClick={(e) => this.onPositonChangeHandler(e)} className={`${style.Channels_page_navigation__element} ${ curr === 'own' && style.Channels_page_navigation__element_active}`}>Мои каналы</li>
+            <li id='subscribed' onClick={(e) => this.onPositonChangeHandler(e)} className={`${style.Channels_page_navigation__element} ${ curr !== 'own' && style.Channels_page_navigation__element_active}`}>Все каналы</li> 
           </ul>
         </nav>
         <div className='Channels-page-content club-grid'>
-          { ownPositin ? <ClubCards data = {own.data} /> : <ClubCards data = {subscribed.data} />}
+          { curr === 'own' ? <ClubCards data = {own.data} /> : <ClubCards data = {subscribed.data} />}
         </div>
       </div>
     )

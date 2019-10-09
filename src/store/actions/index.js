@@ -10,7 +10,8 @@ export {
 } from './posts'
 
 export {
-  fetch_channels
+  fetch_channels,
+  createChannel
 } from './channels'
 
 export {

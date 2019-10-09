@@ -1,10 +1,11 @@
 import * as actionTypes from './actionTypes';
 import axios from '../../axios-setting';
 
-const REDIRECT_URI = 'https://paych-b5f22.firebaseapp.com/login';
+const REDIRECT_URI = 'http://lvh.me:3000/login';
 
 export const googleAuth_Start = () =>
   dispatch => {
+    dispatch(auth_start());
     axios
       .get(`/auth/google/?redirect_uri=${REDIRECT_URI}`)
       .then(resp => {
@@ -23,14 +24,12 @@ export const onGoogleAuth = (params) =>
         localStorage.setItem('accessToken', token);
         dispatch(auth_success(user));
       })
-      .catch(err => console.log(err))
+      .catch(err => dispatch(auth_failed(err)))
   }
 
 
 export const auth = user_data =>
   dispatch => {
-    dispatch(auth_start());
-
     axios
       .post('/auth/login', user_data)
       .then(response => {

@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link, Redirect } from 'react-router-dom'
 
+import Loader from '../../components/Loader/Loader';
+
 import IconHeader from '../../components/IconHeader/IconHeader'
 import signUpIcon from '../../assets/signup.png';
 
@@ -34,8 +36,12 @@ class Login extends React.Component {
   }
 
   render(){
-    if (this.props.user) return <Redirect to='/' />
+    const {loggedIn, loggingIn} = this.props.auth;
+
+    if (loggedIn) return <Redirect to='/' />
     
+    if (loggingIn) return <Loader />
+
     return (
       <div className='formWrap'>
   
@@ -72,7 +78,7 @@ class Login extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    user: state.auth.loggedIn
+    auth: state.auth
   }
 }
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import * as actions from '../../store/actions';
 
 import IconHeader from '../../components/IconHeader/IconHeader';
 import NewClubDone from '../../components/Stubs/NewClubDone/NewClubDone'
@@ -15,32 +16,24 @@ class CreateClub extends React.Component {
     imagePreviewUrl: '',
     selectedFile: '',
     
-    clubInfo: {
+    channelInfo: {
       name: '',
       description: '',
-      clubUrl: '',
-      monthPay: ''
+      link: '',
+      price: ''
     }
   }
 
   onChangeHandler = event => {
-    const clubInfo = {...this.state.clubInfo};
-
-    if(event.target.id === 'file') 
-      this.setState({imagePreviewUrl: URL.createObjectURL(event.target.files[0])})
-    else if(event.target.id === 'clubUrl')
-      clubInfo[event.target.id] = `paych.me/${event.target.value}`;   
-    else 
-      clubInfo[event.target.id] = event.target.value;
-      
-    this.setState({clubInfo: clubInfo});
+    const channelInfo = {...this.state.channelInfo};
+    channelInfo[event.target.id] = event.target.value;
+    this.setState({channelInfo: channelInfo});
   }
 
   onSubmintHandler = event => {
     event.preventDefault();
-    const { clubInfo, selectedFile} = this.state;  
-    this.props.createClub(clubInfo, selectedFile, this.props.jwtToken)
-    //this.setState({createtDone: !this.state.createtDone})
+    const { channelInfo, selectedFile } = this.state;  
+    this.props.createChannel(channelInfo)
   }
 
   render(){
@@ -64,23 +57,23 @@ class CreateClub extends React.Component {
   
             <fieldset className='formGroup'>
               <label htmlFor='name' className='formLabel'>НАЗВАНИЕ:</label>
-              <input onChange={this.fileChangedHandler} maxLength='40' autoComplete='off' id='name' type='text' placeholder='Введите название' />
+              <input onChange={this.onChangeHandler} maxLength='40' autoComplete='off' id='name' type='text' placeholder='Введите название' />
             </fieldset>
   
             <fieldset className='formGroup'>
-              <label htmlFor='desc' className='formLabel'>ОПИСАНИЕ:</label>
-              <textarea onChange={this.onChangeHandler} id='desc' autoComplete='off' placeholder='Придумайте описание'></textarea>  
+              <label htmlFor='description' className='formLabel'>ОПИСАНИЕ:</label>
+              <textarea onChange={this.onChangeHandler} id='description' autoComplete='off' placeholder='Придумайте описание'></textarea>  
             </fieldset>
   
             <fieldset className='formGroup'>
               <label htmlFor='link' className='formLabel'>ССЫЛКА НА КЛУБ:</label>
-              <input onChange={this.onChangeHandler} id='clubUrl' type='text' autoComplete='off' placeholder='paych.me/' />
+              <input onChange={this.onChangeHandler} id='link' type='text' autoComplete='off' placeholder='paych.me/' />
             </fieldset>
   
             <fieldset className='formGroup'>
-              <label htmlFor='money' className='formLabel'>СТОИМОСТЬ В МЕСЯЦ:</label>
+              <label htmlFor='price' className='formLabel'>СТОИМОСТЬ В МЕСЯЦ:</label>
               <span className='dolar'>
-                <input onChange={this.onChangeHandler} type='number' autoComplete='off' id='money' />
+                <input onChange={this.onChangeHandler} type='number' autoComplete='off' id='price' />
               </span>
             </fieldset>
           </div>
@@ -105,7 +98,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-
+    createChannel: (channelInfo) => dispatch(actions.createChannel(channelInfo))
   }
 }
 

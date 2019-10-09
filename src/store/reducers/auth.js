@@ -3,7 +3,7 @@ import * as actionTypes from '../actions/actionTypes'
 let user = localStorage.getItem('accessToken');
 
 const initialState = user 
-  ? { loggedIn: true, user,loggingIn: false} 
+  ? { loggedIn: true, user, loggingIn: false} 
   : { loggedIn: false, loggingIn: false };
 
 export function auth(state = initialState, action) {

@@ -33,7 +33,7 @@ class ClubCard extends React.Component {
               <h3>${this.props.price}</h3>
               <span>в месяц</span>
             </div> : null}
-          <Link to={{ pathname: `/club/${this.props.id}`, state: {clubName: title, img: img}}} className={styles.ClubCard_button}>
+          <Link to={{ pathname: `/channel/${this.props.id}`, state: {clubName: title, img: img}}} className={styles.ClubCard_button}>
             <button className='button blue-radius-btn29'>Открыть</button>
           </Link>
         </div>
