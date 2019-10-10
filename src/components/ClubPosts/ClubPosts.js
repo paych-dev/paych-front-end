@@ -1,10 +1,6 @@
 import React from 'react';
 import ClubPost from './ClubPost/ClubPost';
 
-const ClubPosts = ({data}) => {
-  return(
-    data.map(clubPost => <ClubPost key={clubPost.id} text={clubPost.text}/>)
-  )
-} 
+const ClubPosts = ({ posts }) => posts.map(channelPost => <ClubPost key={channelPost.id} text={channelPost.text} date={channelPost.created_at}/>);
 
 export default ClubPosts

@@ -1,35 +1,23 @@
 import * as actionTypes from './actionTypes';
 import axios from '../../axios-setting';
 
-const fetch_channel_posts_start = () => {
-  return {
-    type: actionTypes.LOAD_CHANNELS_POSTS_START
-  };
-};
+const fetch_channel_posts_failed = error => ({
+  type: actionTypes.FETCH_FAILED,
+  error: error
+});
 
-const fetch_channel_posts_success = (posts) => {
-  return {
-    type: actionTypes.LOAD_CHANNELS_POSTS_SUCCESS,
-    posts: posts
-  };
-};
+const fetch_channel_posts_success = posts => ({
+  type: actionTypes.FETCH_CHANNELS_POSTS_SUCCESS,
+  payload: posts
+});
 
-const fetch_channel_posts_failed = (error) => {
-  return {
-    type: actionTypes.FETCH_FAILED,
-    error: error
-  };
-};
-
-export const fetch_channel_posts = (id) => {
+export const fetch_channel_posts = id => {
   return dispatch => {
-    dispatch(fetch_channel_posts_start());
-
     axios
-      .get(`/channels/${id}/posts`)
+      .get(`channels/${id}/posts`)
       .then(response => {
+        dispatch(fetch_channel_posts_success(response.data.data))
         console.log(response)
-        dispatch(fetch_channel_posts_success(response))
       })
       .catch(error => {
         const newError = {

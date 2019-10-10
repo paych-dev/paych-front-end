@@ -6,11 +6,12 @@ import {withRouter} from 'react-router-dom'
 
 import PayDone from '../../components/Stubs/PaymantComplete/PaymantComplete';
 import PayFalse from '../../components/Stubs/PaymantFailed/PaymantFailed';
-import './ClubPage.scss'
-import more from '../../assets/more.png';
 
+import more from '../../assets/more.png';
+import './ChannelPage.scss';
 import { connect } from 'react-redux';
 import * as actions from '../../store/actions/index'
+import Loader from '../../components/Loader/Loader';
 
 class ClubPage extends Component {
   state = {
@@ -25,7 +26,7 @@ class ClubPage extends Component {
   
   componentDidMount(){
     const currLocation = this.props.location.pathname.replace(/\D+/g,"");
-    this.props.loadPosts(currLocation, this.props.token)
+    this.props.loadPosts(currLocation)
   }
 
   onClickNewPost = (event) => {
@@ -38,14 +39,14 @@ class ClubPage extends Component {
     const toggle = !this.state.popoverOpen;
     this.setState({popoverOpen: toggle});
   }
-
   render() {
     const { clubName, img } = this.props.location.state;
+    const { posts } = this.props.posts;
 
-    if(this.state.payDone) return <PayDone />
+    if(!posts) return <Loader />
 
     return (
-      <div className="clubPage_wrap">
+      <div className="clubPage_wrap"> {console.log('loaded', posts)}
         <div className="clubPage__clubInfo">
 
           <div className="clubPage__clubInfo_logoText">
@@ -68,30 +69,20 @@ class ClubPage extends Component {
     
         </div>
 
-        {!this.state.payFalse ?
         <div>
           <button className='button blue-radius-btn' onClick={this.onClickNewPost}>Новый пост</button>
-          {!this.state.newPost ? <ClubPosts data={this.props.posts} /> : <NewPost newPost={this.props.addNewPost} close={this.onClickNewPost}/>}
-        </div> : <PayFalse />}
+          <ClubPosts posts = {posts} />
+        </div>
         
       </div>
     );
   };
 };
 
-const mapStateToProps = state => {
-  return {
-    posts: state.clubPosts,
-    clubs: state.clubs,
-    token: state.jwtToken
-  }
-}
+const mapStateToProps = state => ({ posts: state.posts }) 
 
-const mapDispatchToProps = dispatch => {
-  return {
-    //addNewPost: (postData) => dispatch(actions.addPost(postData));
-    loadPosts: (id) => dispatch(actions.fetch_channel_posts(id))
-  }
-};
+const mapDispatchToProps = dispatch => ({
+  loadPosts: (id) => dispatch(actions.fetch_channel_posts(id))
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(ClubPage))

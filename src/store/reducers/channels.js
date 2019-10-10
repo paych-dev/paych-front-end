@@ -18,8 +18,6 @@ export function channels(state = initialState, action) {
         ...state,
         subscribed: action.payload
       };
-
-
     default:
       return state
   }
