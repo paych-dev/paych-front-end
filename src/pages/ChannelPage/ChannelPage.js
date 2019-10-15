@@ -4,8 +4,8 @@ import ClubPosts from '../../components/ClubPosts/ClubPosts';
 import Popover from '../../components/Popover/Popover';
 import {withRouter} from 'react-router-dom'
 
-import PayDone from '../../components/Stubs/PaymantComplete/PaymantComplete';
-import PayFalse from '../../components/Stubs/PaymantFailed/PaymantFailed';
+// import PayDone from '../../components/Stubs/PaymantComplete/PaymantComplete';
+// import PayFalse from '../../components/Stubs/PaymantFailed/PaymantFailed';
 
 import more from '../../assets/more.png';
 import './ChannelPage.scss';
@@ -16,14 +16,13 @@ import Loader from '../../components/Loader/Loader';
 class ClubPage extends Component {
   state = {
     thisPageId: '',
-  
-
     newPost: false,
+
     popoverOpen: false,
     payDone: false,
     payFalse: false,
   }
-  
+
   componentDidMount(){
     const currLocation = this.props.location.pathname.replace(/\D+/g,"");
     this.props.loadPosts(currLocation)
@@ -39,14 +38,16 @@ class ClubPage extends Component {
     const toggle = !this.state.popoverOpen;
     this.setState({popoverOpen: toggle});
   }
+
   render() {
     const { clubName, img } = this.props.location.state;
-    const { posts } = this.props.posts;
+    const { posts, newPost } = this.props.posts;
 
     if(!posts) return <Loader />
 
+    if( newPost ) return <NewPost />
     return (
-      <div className="clubPage_wrap"> {console.log('loaded', posts)}
+      <div className="clubPage_wrap">
         <div className="clubPage__clubInfo">
 
           <div className="clubPage__clubInfo_logoText">
@@ -66,14 +67,12 @@ class ClubPage extends Component {
           </div>
 
           {this.state.popoverOpen && <Popover />}
-    
         </div>
 
         <div>
           <button className='button blue-radius-btn' onClick={this.onClickNewPost}>Новый пост</button>
           <ClubPosts posts = {posts} />
         </div>
-        
       </div>
     );
   };

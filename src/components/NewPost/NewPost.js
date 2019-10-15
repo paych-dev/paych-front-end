@@ -5,8 +5,8 @@ import style from './NewPost.module.css'
 class NewPost extends React.Component {
   state = {
     newPost: {
-      id: new Date(),
-      text: ''
+      text: '',
+      files: []
     }
   }
 
@@ -15,13 +15,11 @@ class NewPost extends React.Component {
     const newPost = {...this.state.newPost};
     newPost[event.target.id] = event.target.value;
     this.setState({newPost: newPost});
-    console.log(this.state.newPost)
   }
-  
+
   onSubmit = (event) => {
     event.preventDefault();
     this.props.newPost(this.state.newPost)
-    this.props.close()
   }
 
   render(){

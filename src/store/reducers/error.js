@@ -18,7 +18,7 @@ export function error(state = initialState, action) {
         ...state,
         errorList: updatedArray
       };
-      
+
     default:
       return state
   }

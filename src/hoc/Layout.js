@@ -13,7 +13,7 @@ class Layout extends React.Component {
       <div className={styles.Wrap}>
         <ModalStack />
         <Header />
-        
+
         <main className={styles.Main}>
           {this.props.children}
         </main>
