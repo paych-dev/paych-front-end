@@ -26,7 +26,7 @@ const App = () => {
             <Route path="/login" component={Login} />
             {/* <PrivateRoute exact path="/subscribed" component={SubscribedChannels} />
             <PrivateRoute exact path="/own" component={OwnChannels} /> */}
-            <PrivateRoute exact path='/ß' component={Feed} />
+            <PrivateRoute exact path='/' component={Feed} />
             <PrivateRoute exact path='/channels' component={Channels} />
             <PrivateRoute exact path="/create_channel" component={CreateChannel} />
             <PrivateRoute exact path="/channel/:id" component={ClubPage} />

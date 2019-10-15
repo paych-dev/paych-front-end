@@ -18,12 +18,12 @@ class Feed extends React.Component {
     if(!feed) return <Loader />
 
     return (
-      <div>
-        { feed.map(el => <FeedElement key = {el.id} text = {el.text} />) } 
+      <div className='feed-wrap'>
+        { feed.map(el => <FeedElement key = {el.id} content = {el} />) }
       </div>
-    )
+    );
   }
-}
+};
 
 const mapStateToProps = state => {
   return {

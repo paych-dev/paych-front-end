@@ -1,0 +1,19 @@
+.feed_card {
+  max-width: 600px;
+  margin-bottom: 30px;
+}
+
+.feed_header {
+  padding: 10px 0;
+  color: white;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.feed_content {
+  background-color: white;
+  border-radius: 10px;
+  padding: 25px;
+}

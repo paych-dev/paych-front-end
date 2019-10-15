@@ -29,7 +29,7 @@ class Channels extends React.Component {
   render(){
     const { curr } = this.state;
     const { own, subscribed } = this.props.channels;
-    
+
     if(!own || !subscribed) return null;
 
     return (
@@ -49,11 +49,7 @@ class Channels extends React.Component {
 };
 
 
-const mapState = state => {
-  return {
-    channels: state.channels
-  }
-}
+const mapState = state => ({channels: state.channels})
 
 const mapDispatch = dispatch => {
   return {
