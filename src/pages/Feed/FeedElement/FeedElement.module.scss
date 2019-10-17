@@ -1,15 +1,33 @@
 .feed_card {
   width: 100%;
-  margin-bottom: 30px;
+  margin-bottom: 50px;
 }
 
 .feed_header {
-  padding: 10px 0;
   color: white;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 20px;
+
+  .feed_header_left {
+    display: flex;
+    align-items: center;
+  
+    .feed_logo {
+      width: 40px;
+      height: 40px;
+      overflow: hidden;
+      border-radius: 50%;
+      margin-right: 12px;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
 }
 
 .feed_content {

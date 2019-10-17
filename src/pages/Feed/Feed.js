@@ -13,9 +13,9 @@ class Feed extends React.Component {
   }
 
   render(){
-    const {feed} = this.props
+    const {feed} = this.props;
 
-    if(!feed) return <Loader />
+    if(!feed) return <Loader />;
 
     return (
       <div className='feed-wrap'>
@@ -23,18 +23,18 @@ class Feed extends React.Component {
       </div>
     );
   }
-};
+}
 
 const mapStateToProps = state => {
   return {
     feed: state.feed.feed
   }
-}
+};
 
 const mapDispatchToProps = dispatch => {
   return {
     fetch_feed: () => dispatch(actions.fetch_feed())
   }
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Feed)
