@@ -18,6 +18,7 @@
   font-family: 'HelveticaNeue';
   src: url(./assets/fonts/helvetica-neue/HelveticaNeue.ttf) format('truetype');
 }
+
 //PAGES:
 @import './styles/pages/feed';
 //COMPONENTS:
@@ -52,7 +53,7 @@ body {
   &.around {
     justify-content: space-around;
   }
-  
+
   &.column {
     flex-direction: column;
   }

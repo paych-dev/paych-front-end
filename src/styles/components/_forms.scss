@@ -1,3 +1,5 @@
+@import '../../helpers/medias.scss';
+
 input {
   width: 100%;
   color: white;
@@ -15,6 +17,9 @@ input {
 
 .form_wrap {
   width: 400px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
   overflow: hidden;
 
   .form_link {
@@ -24,6 +29,10 @@ input {
     text-decoration: none;
     border-bottom: 1px solid rgba(255, 255, 255, 0.11);
     padding-bottom: 6px;
+
+    &.mob {
+      display: none;
+    }
   }
 
   .form_header {
@@ -151,4 +160,36 @@ input[type='number']::-webkit-outer-spin-button {
   left: 0;
   z-index: 1;
   color: white
+}
+
+@include for-phone-only {
+  .form_wrap {
+    width: 100%;
+    position: relative;
+    transform: none;
+
+    .form_link {
+      &.mob {
+        display: block;
+        margin-top: 30px;
+      }
+    }
+
+    .form_header {
+      display: none;
+    }
+
+    .social_buttons {
+      flex-direction: column;
+
+      .social {
+        width: 100%;
+        padding: 17px 26px;
+      }
+
+      .social:last-child {
+        margin-top: 14px;
+      }
+    }
+  }
 }

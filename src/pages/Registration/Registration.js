@@ -65,7 +65,11 @@ class Registration extends React.Component {
             </fieldset>
           </div>
           
-          <button className='btn rad-35 register-btn'>Регистрация</button>          
+          <button className='btn rad-35 register-btn'>Регистрация</button>
+          
+          <Link to='/login' className='form_link mob'>
+            Уже есть аккаунт
+          </Link>          
         </form>
 
         <div className='rules'>
