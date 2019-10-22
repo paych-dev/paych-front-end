@@ -23,6 +23,7 @@
 @import './styles/pages/feed';
 //COMPONENTS:
 @import './styles/components/forms';
+@import './styles/components/header';
 //OTHERS:
 @import './styles/others/buttons';
 
@@ -45,6 +46,10 @@ body {
 .flex {
   display: flex;
   align-items: center;
+
+  &.flex-end {
+    justify-content: flex-end;
+  }
 
   &.between {
     justify-content: space-between;

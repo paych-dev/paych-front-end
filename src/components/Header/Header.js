@@ -1,17 +1,14 @@
-import React, {Component} from 'react'
+import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import { Link } from 'react-router-dom';
 
 //COMPONENTS:
 import ToggleNav from './ToggleNav/ToggleNav'
 import LogInLinks from './LoginLinks/LoginLinks'
 import NotLogInLinks from './NotLoginLinks/NotLoginLinks'
 
-//STYLE:
-import styles from './Header.module.scss'
-
 //IMAGES:
-import logo from '../../assets/logo.png'
-import purplelogo from '../../assets/purplelogo.svg'
+import logo from '../../assets/purplelogo.svg'
 import menuIcon from '../../assets/menu.png'
 
 class Header extends Component {
@@ -29,23 +26,20 @@ class Header extends Component {
     const { loggedIn } = this.props.user;
 
     return (
-      <header className={styles.Header}>
-        <div className={styles.Logo}>
-          <div className={`${styles.Logo_image} ${styles.Header_images}` }>
-            <img src={purplelogo} alt={logo} className={styles.purpleLogo}/>
-          </div>
-          <h1 className={styles.Logo_text}>Paych</h1>
+      <header className='Header'>
+        <div className='Header_logo'>
+          <Link to='/' className='Logo'>
+            <div className='Logo_image Header_images'>
+              <img src={logo} alt={logo} className='purpleLogo'/>
+            </div>
+            <h1 className='Logo_text'>Paych</h1>
+          </Link>
         </div>
 
-        <nav className={styles.Navigation}>
-          <ul className={styles.Navigation_List}>
-            { loggedIn
-              ? <LogInLinks style={styles.Navigation_List__element} />
-              : <NotLogInLinks style={styles.Navigation_List__element} />}
-          </ul>
-        </nav>
 
-        <div className={`${styles.Header_images} ${styles.Toggle_images}`}>
+        { loggedIn ? <LogInLinks /> : <NotLogInLinks /> }
+
+        <div className='Header_images Toggle_images'>
           {!toggle && <img src={menuIcon} alt={menuIcon} onClick={this.toggleNavMenu} />}
         </div>
         {toggle && <ToggleNav clicked={this.toggleNavMenu}/>}

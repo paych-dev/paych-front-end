@@ -3,9 +3,7 @@
 .Header {
   width: 100%;
   padding-bottom: 15px;
-
   @extend %flex-center;
-  justify-content: space-between;
 }
 
 .Header_images {
@@ -21,8 +19,10 @@
 }
 
 .Logo {
+  margin-right: 40px;
   overflow: hidden;
   @extend %flex-center;
+  text-decoration: none;
 
   .Logo_image {
     float: left;
@@ -32,25 +32,29 @@
     display: none;
     color: white;
     font-size: 20px;
-    font-family: 'Gilroy-bold';
   }
 }
 
 .Navigation {
   display: none;
-  align-items: center;
 
   .Navigation_List {
     list-style-type: none;
-    @extend %flex-center;
+
+    :last-child {
+      margin-left: auto;
+    }
   }
 
   .Navigation_List__element {
-    font-family: "Gilroy-bold";
-    font-size: 16px;
-    color: white;
-    text-decoration: none;
     margin-left: 20px;
+
+    a {
+      font-family: 'Gilroy-light';
+      font-size: 16px;
+      color: white;
+      text-decoration: none;
+    }
   }
 }
 
@@ -62,7 +66,14 @@
   }
 
   .Navigation {
-    display: block;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &.end {
+      justify-content: flex-end;
+    }
   }
 
   .Logo {
