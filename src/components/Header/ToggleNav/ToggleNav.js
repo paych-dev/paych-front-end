@@ -15,26 +15,26 @@ const ToggleNav = ({clicked}) => (
     </div>
 
     <Link to='/' className={style.toggleMenu_element} onClick={clicked}>
-    <div className={`${style.toggleMenu_img} ${style.toggleMenu_club}`}>
-    <img src={clubs} alt={clubs} />
-    </div>
-    <h3 className={style.toggleMenu_text}>Клубы</h3>
+      <div className={`${style.toggleMenu_img} ${style.toggleMenu_club}`}>
+        <img src={clubs} alt={clubs} />
+      </div>
+      <h3 className={style.toggleMenu_text}>Клубы</h3>
     </Link>
     <Link to='/' className={style.toggleMenu_element} onClick={clicked}>
-    <div className={`${style.toggleMenu_img} ${style.toggleMenu_profile}`}>
-    <img src={profile} alt={profile}/>
-    </div>
-    <h3>Мой профиль</h3>
+      <div className={`${style.toggleMenu_img} ${style.toggleMenu_profile}`}>
+        <img src={profile} alt={profile}/>
+      </div>
+      <h3>Мой профиль</h3>
     </Link>
     <Link to='/myclubs/:id' className={style.toggleMenu_element} onClick={clicked}>
-    <div className={`${style.toggleMenu_img} ${style.toggleMenu_myclubs}`}>
-    <img src={myclubs} alt={myclubs}/>
-    </div>
-    <h3>Мои клубы</h3>
-    <span>На счету $0</span>
+      <div className={`${style.toggleMenu_img} ${style.toggleMenu_myclubs}`}>
+        <img src={myclubs} alt={myclubs}/>
+      </div>
+      <h3>Мои клубы</h3>
+      <span>На счету $0</span>
     </Link>
     <Link to='/' className={style.toggleMenu_element} onClick={clicked}>
-    <span className={style.error}>СООБЩИТЬ О ПРОБЛЕМЕ</span>
+      <span className={style.error}>СООБЩИТЬ О ПРОБЛЕМЕ</span>
     </Link>
   </div>
 )

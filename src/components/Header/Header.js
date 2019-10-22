@@ -32,17 +32,15 @@ class Header extends Component {
       <header className={styles.Header}>
         <div className={styles.Logo}>
           <div className={`${styles.Logo_image} ${styles.Header_images}` }>
-            <img src={logo} alt={logo} className={styles.whiteLogo}/>
             <img src={purplelogo} alt={logo} className={styles.purpleLogo}/>
           </div>
-          
           <h1 className={styles.Logo_text}>Paych</h1>
-        </div>  
-        
+        </div>
+
         <nav className={styles.Navigation}>
           <ul className={styles.Navigation_List}>
             { loggedIn
-              ? <LogInLinks style={styles.Navigation_List__element} /> 
+              ? <LogInLinks style={styles.Navigation_List__element} />
               : <NotLogInLinks style={styles.Navigation_List__element} />}
           </ul>
         </nav>
@@ -50,8 +48,7 @@ class Header extends Component {
         <div className={`${styles.Header_images} ${styles.Toggle_images}`}>
           {!toggle && <img src={menuIcon} alt={menuIcon} onClick={this.toggleNavMenu} />}
         </div>
-               
-        {toggle && <ToggleNav clicked={this.toggleNavMenu}/>}      
+        {toggle && <ToggleNav clicked={this.toggleNavMenu}/>}
       </header>
     )
   }

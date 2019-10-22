@@ -26,10 +26,6 @@
 
   .Logo_image {
     float: left;
-
-    .purpleLogo {
-      display: none;
-    }
   }
 
   .Logo_text {
@@ -72,16 +68,6 @@
   .Logo {
     .Logo_text {
       display: inline;
-    }
-
-    .Logo_image {
-      .whiteLogo {
-        display: none;
-      }
-
-      .purpleLogo {
-        display: block;
-      }
     }
   }
 
