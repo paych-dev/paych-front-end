@@ -8,6 +8,12 @@
 }
 
 @font-face {
+  font-family: 'Gilroy-semiBold';
+  src: url(./assets/fonts/gilroy/Gilroy-SemiBold.ttf) format('truetype');
+  font-weight: 600;
+}
+
+@font-face {
   font-family: 'Gilroy-light';
   src: url(./assets/fonts/gilroy/Gilroylight.ttf) format('truetype'),
     url(./assets/fonts/gilroy/Gilroylight.woff) format('woff');

@@ -2,6 +2,7 @@
 
 .btn {
   cursor: pointer;
+  font-family: 'Gilroy-semiBold';
   font-size: 14px;
   line-height: 1.43;
   text-align: center;
@@ -33,7 +34,6 @@
   &.none {
     background: transparent;
     padding: 15px;
-    font-family: "Gilroy-light";
     font-size: 16px;
   }
 
@@ -42,7 +42,6 @@
     padding: 15px 20px;
     border-radius: 25px;
     background: transparent;
-    font-family: "Gilroy-light";
     border: solid 1px #ffffff41;
   }
 }
