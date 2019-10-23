@@ -11,10 +11,11 @@ import App from './App';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)));
+const browserHistory = BrowserRouter.browserHistory;
 
 const app = (
 	<Provider store={store}>
-		<BrowserRouter>
+		<BrowserRouter history={browserHistory}>
 			<App />
 		</BrowserRouter>
 	</Provider>

@@ -28,6 +28,8 @@ const ClubPost = props => {
         <div className={style.clubContent__text}>
           {props.text}
         </div>
+
+        { props.files[0] ? <img src={props.files[0].original_path} alt='' /> : null}
       </div>
     </div>
   )

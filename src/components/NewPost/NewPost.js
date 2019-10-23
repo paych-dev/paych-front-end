@@ -2,24 +2,42 @@ import React from 'react'
 import addPhoto from '../../assets/addphoto.png'
 import style from './NewPost.module.css'
 
+import { connect } from 'react-redux';
+import axios from '../../axios-setting';
+
 class NewPost extends React.Component {
   state = {
-    newPost: {
-      text: '',
-      files: []
+    text: '',
+    files: undefined
+  }
+
+  componentDidMount() {
+    console.log('moint', this.props.pageId)
+  }
+
+  onChange = event => {
+    let text = this.state.text;
+    text = event.target.value;
+    this.setState({text: text});
+  }
+
+  onSubmit = (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    const photos = document.querySelector('input[type="file"][multiple]');
+   
+    for (let i = 0; i < photos.files.length; i++) {
+      formData.append('files[]', photos.files[i]);
     }
-  }
 
-  onChangeHandler = event => {
-    event.preventDefault();
-    const newPost = {...this.state.newPost};
-    newPost[event.target.id] = event.target.value;
-    this.setState({newPost: newPost});
-  }
+    formData.append('text', this.state.text)
 
-  onSubmit = (event) => {
-    event.preventDefault();
-    this.props.newPost(this.state.newPost)
+    axios
+      .post(`/channels/${this.props.pageId}/posts` , formData)
+      .then( resp => console.log(resp))
+      .catch( err => {
+        console.log(err)
+      })
   }
 
   render(){
@@ -32,10 +50,13 @@ class NewPost extends React.Component {
                 <h2>Новый пост</h2>
                 <a href='#0' onClick={this.props.close} className={style.closebtn}>&times;</a>
               </div>
-              <textarea onChange={this.onChangeHandler} id='text' className={style.NewPost__text} placeholder="Вы можете написать здесь текст или только добавить фото и видео.."></textarea>  
+              <textarea 
+                onChange={this.onChange}
+                id='text' className={style.NewPost__text} 
+                placeholder="Вы можете написать здесь текст или только добавить фото и видео.."></textarea>  
             </div>
             <div className= {style.NewPost_control}>
-              <input type='file' id='file' className='inputfile'/>
+              <input multiple type='file' id='file' className='inputfile'/>
               <label htmlFor='file' className={style.NewPost__add}>
                 <img src={addPhoto} alt={addPhoto} className={style.NewPost__fileImg}/>
                 <span className={style.NewPost__fileText}>ДОБАВИТЬ ФОТО ИЛИ ВИДЕО</span>
@@ -49,4 +70,10 @@ class NewPost extends React.Component {
   }
 }
 
-export default NewPost 
+const mapStateToProps = state => ({ posts: state.posts }) 
+
+const mapDispatchToProps = dispatch => ({
+
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(NewPost) 

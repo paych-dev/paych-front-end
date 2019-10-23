@@ -32,7 +32,7 @@ class CreateClub extends React.Component {
 
   onSubmintHandler = event => {
     event.preventDefault();
-    const { channelInfo, selectedFile } = this.state;  
+    const { channelInfo } = this.state;  
     this.props.createChannel(channelInfo)
   }
 

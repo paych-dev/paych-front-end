@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import NewPost from '../../components/NewPost/NewPost';
 import ClubPosts from '../../components/ClubPosts/ClubPosts';
 import Popover from '../../components/Popover/Popover';
-import {withRouter} from 'react-router-dom'
+import { withRouter } from 'react-router-dom';
 
 // import PayDone from '../../components/Stubs/PaymantComplete/PaymantComplete';
 // import PayFalse from '../../components/Stubs/PaymantFailed/PaymantFailed';
@@ -15,7 +15,7 @@ import Loader from '../../components/Loader/Loader';
 
 class ClubPage extends Component {
   state = {
-    thisPageId: '',
+    pageId: null,
     newPost: false,
 
     popoverOpen: false,
@@ -28,8 +28,7 @@ class ClubPage extends Component {
     this.props.loadPosts(currLocation)
   }
 
-  onClickNewPost = (event) => {
-    event.preventDefault();
+  onClickNewPost = () => {
     const newPost = !this.state.newPost;
     this.setState({newPost: newPost})
   }
@@ -41,11 +40,11 @@ class ClubPage extends Component {
 
   render() {
     const { clubName, img } = this.props.location.state;
-    const { posts, newPost } = this.props.posts;
+    const { posts } = this.props.posts;
 
     if(!posts) return <Loader />
-
-    if( newPost ) return <NewPost />
+    const currLocation = this.props.location.pathname.replace(/\D+/g,"");
+    if( this.state.newPost ) return <NewPost pageId = {currLocation} />
     return (
       <div className="clubPage_wrap">
         <div className="clubPage__clubInfo">
