@@ -26,10 +26,13 @@
 }
 
 //PAGES:
+@import './styles/pages/channels';
 @import './styles/pages/feed';
 //COMPONENTS:
 @import './styles/components/forms';
 @import './styles/components/header';
+@import './styles/components/channelPost';
+@import './styles/components/dateComponent';
 //OTHERS:
 @import './styles/others/buttons';
 
@@ -37,16 +40,14 @@
   padding: 0;
   border: 0;
   margin: 0;
-  font-family: 'HelveticaNeue';
+  font-family: 'HelveticaNeue', serif;
   outline: none;
   box-sizing: border-box;
 }
 
 body {
-  background-color: #262739;
-  background: url('./assets/background.png') no-repeat #262739;
+  background: #262739 url('./assets/background.png') no-repeat fixed;
   background-size: cover;
-  background-attachment: fixed;
 }
 
 .flex {
@@ -112,23 +113,5 @@ body {
 
   .card {
     max-width: 330px;
-  }
-}
-
-
-.google-btn {
-  display: flex;
-  align-items: center;
-
-  border-radius: 2px;
-  background-color: white;
-  color: #7F7F7F;
-  padding: 10px;
-
-  img {
-    width: 25px;
-    height: 100%;
-    object-fit: cover;
-    margin-right: 10px;
   }
 }

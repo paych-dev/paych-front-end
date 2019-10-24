@@ -1,10 +1,7 @@
 import React from 'react';
+import DateComponent from '../../../components/DateComponent/DateComponent';
 
 const FeedElement = ({content}) => {
-  const dateHandler = sec => {
-    let data = new Date(sec * 1000);
-    return data.toLocaleDateString()
-  }
   return (
     <div className='feed_card'>
       <div className='feed_header'>
@@ -14,10 +11,7 @@ const FeedElement = ({content}) => {
           </div>
           <h3 className='feed_title'>{content.channel.name}</h3>
         </div>
-
-        <div className='feed_date'>
-          {dateHandler(content.created_at)}
-        </div>
+        <DateComponent date = {content.created_at}/>
       </div>
       <div className='feed_content'>{content.text}</div>
     </div>

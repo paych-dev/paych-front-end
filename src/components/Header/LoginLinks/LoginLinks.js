@@ -11,8 +11,8 @@ const LoginLinks = () => {
     <nav className='Navigation'>
       <ul className='Navigation_List flex center'>
         <li className='Navigation_List__element'><Link to='/'>Лента</Link></li>
-        <li className='Navigation_List__element'><Link to='/channels' >Сообщества</Link></li>
-        <li className='Navigation_List__element'><Link to='/channels' >Мои сообщества</Link></li>
+        <li className='Navigation_List__element'><Link to='/subscribed'>Сообщества</Link></li>
+        <li className='Navigation_List__element'><Link to='/own'>Мои сообщества</Link></li>
         <li></li>
       </ul>
       <button className='btn out' onClick={logout}>Выйти</button>

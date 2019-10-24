@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import NewPost from '../../components/NewPost/NewPost';
-import ClubPosts from '../../components/ClubPosts/ClubPosts';
+import ChannelPosts from '../../components/ChannelPosts/ChannelPosts';
 import Popover from '../../components/Popover/Popover';
-import { withRouter } from 'react-router-dom';
-
 // import PayDone from '../../components/Stubs/PaymantComplete/PaymantComplete';
 // import PayFalse from '../../components/Stubs/PaymantFailed/PaymantFailed';
 
@@ -13,7 +11,7 @@ import { connect } from 'react-redux';
 import * as actions from '../../store/actions/index'
 import Loader from '../../components/Loader/Loader';
 
-class ClubPage extends Component {
+class ChannelPage extends Component {
   state = {
     pageId: null,
     newPost: false,
@@ -31,30 +29,30 @@ class ClubPage extends Component {
   onClickNewPost = () => {
     const newPost = !this.state.newPost;
     this.setState({newPost: newPost})
-  }
+  };
 
   toggle = () => {
     const toggle = !this.state.popoverOpen;
     this.setState({popoverOpen: toggle});
-  }
+  };
 
   render() {
-    const { clubName, img } = this.props.location.state;
+    // const { clubName, img } = this.props.location.state;
     const { posts } = this.props.posts;
 
     if(!posts) return <Loader />
     const currLocation = this.props.location.pathname.replace(/\D+/g,"");
-    if( this.state.newPost ) return <NewPost pageId = {currLocation} />
+    if( this.state.newPost ) return <NewPost pageId = {currLocation} close={this.onClickNewPost} />;
     return (
       <div className="clubPage_wrap">
         <div className="clubPage__clubInfo">
 
           <div className="clubPage__clubInfo_logoText">
             <div className="clubPage__clubInfo_logo">
-              <img src={img} alt={img} />
+              {/*<img src={img} alt={img} />*/}
             </div>
             <div className="clubPage__clubInfo_text">
-              <h4 className="clubPage__clubInfo_text__header">{clubName}</h4>
+              {/*<h4 className="clubPage__clubInfo_text__header">{clubName}</h4>*/}
               <span className="clubPage__clubInfo_text__info">Last updated 1 day ago</span>
             </div>
           </div>
@@ -69,18 +67,18 @@ class ClubPage extends Component {
         </div>
 
         <div>
-          <button className='button blue-radius-btn' onClick={this.onClickNewPost}>Новый пост</button>
-          <ClubPosts posts = {posts} />
+          <button className='btn rad-10 blue' onClick={this.onClickNewPost}>Новый пост</button>
+          <ChannelPosts posts = {posts.reverse()} />
         </div>
       </div>
     );
   };
 };
 
-const mapStateToProps = state => ({ posts: state.posts }) 
+const mapStateToProps = state => ({ posts: state.posts });
 
 const mapDispatchToProps = dispatch => ({
   loadPosts: (id) => dispatch(actions.fetch_channel_posts(id))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(withRouter(ClubPage))
+export default connect(mapStateToProps, mapDispatchToProps)(ChannelPage)

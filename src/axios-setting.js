@@ -8,12 +8,12 @@ const options = {
   }
 };
 
-let deAxios = axios.create(options);
+let deffAxios = axios.create(options);
 
-deAxios.interceptors.request.use( config => {
+deffAxios.interceptors.request.use( config => {
   const token = localStorage.getItem('accessToken');
-  config.headers.Authorization = token ? `Bearer ${token}` : '';
+  config.headers.Authorization = token ? `Bearer ${token}`:'';
   return config
 });
 
-export default deAxios
+export default deffAxios

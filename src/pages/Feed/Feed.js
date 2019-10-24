@@ -1,5 +1,4 @@
 import React from 'react';
-
 //COMPONENTS
 import FeedElement from './FeedElement/FeedElement';
 import Loader from '../../components/Loader/Loader'

@@ -14,22 +14,22 @@ class Registration extends React.Component {
       password: '',
       password_confirmation: ''
     }
-  }
+  };
   
   onChangeHandler = event => {
     const userInfo = {...this.state.userInfo};
     userInfo[event.target.id] = event.target.value;
     this.setState({userInfo: userInfo});
-  }
+  };
 
-  onSubmintHandler = event => {
+  onSubmitHandler = event => {
     event.preventDefault();
     const userInfo = this.state.userInfo;
     this.props.onAuth(userInfo);
-  }
+  };
 
   render(){
-    const { googleAuth } = this.props
+    const { googleAuth } = this.props;
 
     return (
       <div className='form_wrap'>
@@ -51,7 +51,7 @@ class Registration extends React.Component {
           </button>
         </div>
 
-        <form className='form flex column' onSubmit={this.onSubmintHandler}>
+        <form className='form flex column' onSubmit={this.onSubmitHandler}>
           <span className='else'>или</span>
           <div className='form_fields'>
             <fieldset className='formGroup'>
@@ -65,7 +65,7 @@ class Registration extends React.Component {
             </fieldset>
           </div>
           
-          <button className='btn rad-35 register-btn'>Регистрация</button>
+          <button className='btn rad-35 blue register-btn'>Регистрация</button>
           
           <Link to='/login' className='form_link mob'>
             Уже есть аккаунт

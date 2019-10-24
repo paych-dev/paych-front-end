@@ -1,0 +1,19 @@
+.DateComponent {
+  .Date_img {
+    margin-right: 5px;
+  }
+
+  .Date_text {
+    font-family: 'Gilroy-bold', serif;
+    text-transform: capitalize;
+    font-size: 12px;
+    line-height: 1.8;
+    color: #080808;
+
+    &.feed {
+      font-family: 'HelveticaNeue', serif;
+      font-size: 12px;
+      color: #ffffff;
+    }
+  }
+}

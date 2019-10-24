@@ -7,38 +7,37 @@ import axios from '../../axios-setting';
 
 class NewPost extends React.Component {
   state = {
-    text: '',
-    files: undefined
-  }
-
-  componentDidMount() {
-    console.log('moint', this.props.pageId)
-  }
+    text: ''
+  };
 
   onChange = event => {
     let text = this.state.text;
     text = event.target.value;
     this.setState({text: text});
-  }
+  };
 
   onSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData();
-    const photos = document.querySelector('input[type="file"][multiple]');
-   
-    for (let i = 0; i < photos.files.length; i++) {
-      formData.append('files[]', photos.files[i]);
+    const images = document.querySelector('input[type="file"][multiple]');
+
+    for (let i = 0; i < images.files.length; i++) {
+      formData.append('files[]', images.files[i]);
     }
 
     formData.append('text', this.state.text)
 
     axios
       .post(`/channels/${this.props.pageId}/posts` , formData)
-      .then( resp => console.log(resp))
+      .then( resp => {
+        console.log(resp);
+        this.props.close()
+      })
       .catch( err => {
+        alert("Error")
         console.log(err)
       })
-  }
+  };
 
   render(){
     return(
@@ -48,21 +47,21 @@ class NewPost extends React.Component {
             <div className={style.NewPost}>
               <div className={style.NewPost__header}>
                 <h2>Новый пост</h2>
-                <a href='#0' onClick={this.props.close} className={style.closebtn}>&times;</a>
+                <span onClick={this.props.close} className={style.closebtn}>&times;</span>
               </div>
               <textarea 
                 onChange={this.onChange}
                 id='text' className={style.NewPost__text} 
-                placeholder="Вы можете написать здесь текст или только добавить фото и видео.."></textarea>  
+                placeholder="Вы можете написать здесь текст или только добавить фото и видео.." />
             </div>
-            <div className= {style.NewPost_control}>
+            <div className={style.NewPost_control}>
               <input multiple type='file' id='file' className='inputfile'/>
               <label htmlFor='file' className={style.NewPost__add}>
                 <img src={addPhoto} alt={addPhoto} className={style.NewPost__fileImg}/>
                 <span className={style.NewPost__fileText}>ДОБАВИТЬ ФОТО ИЛИ ВИДЕО</span>
               </label>
-              <button className='button blue-big-btn'>Опубликовать</button>
-            </div> 
+              <button className='btn blue width100'>Опубликовать</button>
+            </div>
           </form>
         </div>
       </div>

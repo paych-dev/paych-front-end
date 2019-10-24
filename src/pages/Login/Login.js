@@ -15,20 +15,20 @@ class Login extends React.Component {
       email: '',
       password: ''
     }
-  }
+  };
 
   onChangeHandler = event => {
     const userInfo = {...this.state.userInfo};
     userInfo[event.target.id] = event.target.value;
     this.setState({userInfo: userInfo});
-  }
+  };
 
-  onSubmintHandler = event => {
+  onSubmitHandler = event => {
     event.preventDefault();
     const { email, password } = this.state.userInfo; 
     const authData = { email: email, password: password}
     this.props.onAuth(authData)
-  }
+  };
 
   componentWillMount() {
     const params = window.location.search;
@@ -39,9 +39,9 @@ class Login extends React.Component {
     const {loggedIn, loggingIn} = this.props.auth;
     const { googleAuth } = this.props
 
-    if (loggedIn) return <Redirect to='/' />
+    if (loggedIn) return <Redirect to='/' />;
     
-    if (loggingIn) return <Loader />
+    if (loggingIn) return <Loader />;
 
     return (
       <div className='form_wrap'>
@@ -63,7 +63,7 @@ class Login extends React.Component {
           </button>
         </div>
 
-        <form className='form flex column' onSubmit={this.onSubmintHandler}>
+        <form className='form flex column' onSubmit={this.onSubmitHandler}>
           <span className='else'>или</span>
           <div className='form_fields'>
             <fieldset className='formGroup'>
@@ -73,7 +73,7 @@ class Login extends React.Component {
               <input onChange={this.onChangeHandler} id='password' type='password' autoComplete='off' placeholder='Придумайте пароль' required />
             </fieldset>
           </div>
-          <button className='btn rad-35 register-btn'>Логин</button>
+          <button className='btn rad-35 blue register-btn'>Логин</button>
 
           <Link to='/register' className='form_link mob'>
             Нету аккаунта?
