@@ -8,10 +8,12 @@
   z-index: 999;
   position: fixed;
   overflow: hidden;
+  transition: 1s ease-in;
 
   display: flex;
   flex-direction: column;
   background-color: #0e0e0edc;
+
 }
 
 .toggleMenu_element {

@@ -9,7 +9,8 @@ import NotLogInLinks from './NotLoginLinks/NotLoginLinks'
 
 //IMAGES:
 import logo from '../../assets/purplelogo.svg'
-import menuIcon from '../../assets/menu.png'
+import menuIcon from '../../assets/menu.svg'
+import ToggleBtn from "./ToggleBtn/ToggleBtn";
 
 class Header extends Component {
   state = {
@@ -26,7 +27,7 @@ class Header extends Component {
     const { loggedIn } = this.props.user;
 
     return (
-      <header className='Header'>
+      <header className='Header flex between'>
         <div className='Header_logo'>
           <Link to='/' className='Logo'>
             <div className='Logo_image Header_images'>
@@ -35,12 +36,11 @@ class Header extends Component {
             <h1 className='Logo_text'>Paych</h1>
           </Link>
         </div>
-
-
+ß
         { loggedIn ? <LogInLinks /> : <NotLogInLinks /> }
 
         <div className='Header_images Toggle_images'>
-          {!toggle && <img src={menuIcon} alt={menuIcon} onClick={this.toggleNavMenu} />}
+          <ToggleBtn open={this.state.toggle} onClick={this.toggleNavMenu} color='white'/>
         </div>
         {toggle && <ToggleNav clicked={this.toggleNavMenu}/>}
       </header>
