@@ -16,6 +16,7 @@ class ChannelCard extends React.Component {
   render(){
     const { title, description, img } = this.props;
 
+    console.log(img)
     return (
       <div className="card">
         <div className={styles.ClubCard}>

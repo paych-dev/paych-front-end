@@ -8,6 +8,7 @@ import NewClubDone from '../../components/Stubs/NewClubDone/NewClubDone'
 import photo from '../../assets/photo.png'
 import upload from '../../assets/upload.png'
 import newClub from '../../assets/newclub.png'
+import axios from "../../axios-setting";
 
 class CreateClub extends React.Component {
 
@@ -32,9 +33,19 @@ class CreateClub extends React.Component {
 
   onSubmintHandler = event => {
     event.preventDefault();
-    const { channelInfo } = this.state;  
-    this.props.createChannel(channelInfo)
-  }
+
+    const { name, description, link, price} = this.state.channelInfo;
+    const formData = new FormData();
+    const avatar = document.querySelector('input[type="file"]');
+
+    formData.append('avatar', avatar.files[0]);
+    formData.append('name', name);
+    formData.append('description', description);
+    formData.append('link', link);
+    formData.append('price', price);
+
+    this.props.createChannel(formData);
+  };
 
   render(){
     if (this.state.createtDone) return <NewClubDone url={this.state.clubInfo.clubUrl}/>

@@ -2,13 +2,14 @@ import React from 'react';
 import ChannelCard from './ChannelCard/ChannelCard';
 
 const ChannelList = ({data}) => {
+  console.log(data)
   return(
-    data.map(clubCard => 
-      <ChannelCard key={clubCard.id} 
-        id={clubCard.id} 
-        title={clubCard.name} 
-        img={clubCard.img} 
-        description={clubCard.description}/>
+    data.map(channel =>
+      <ChannelCard key={channel.id}
+        id={channel.id}
+        title={channel.name}
+        img={channel.avatar_image}
+        description={channel.description}/>
     )
   );
 };
