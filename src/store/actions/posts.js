@@ -17,7 +17,6 @@ export const fetch_channel_posts = id => {
       .get(`channels/${id}/posts`)
       .then(response => {
         dispatch(fetch_channel_posts_success(response.data.data))
-        console.log(response)
       })
       .catch(error => {
         const newError = {

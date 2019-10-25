@@ -3,7 +3,6 @@
 .Header {
   width: 100%;
   padding-bottom: 15px;
-  @extend %flex-center;
 }
 
 .Header_images {
@@ -29,7 +28,7 @@
   }
 
   .Logo_text {
-    font-family: 'Gilroy-bold';
+    font-family: 'Gilroy-bold', serif;
     display: none;
     color: white;
     font-size: 20px;
@@ -42,9 +41,9 @@
   .Navigation_List {
     list-style-type: none;
 
-    :last-child {
-      margin-left: auto;
-    }
+    // :last-child {
+    //   margin-left: auto;
+    // }
   }
 
   .Navigation_List__element {
@@ -85,5 +84,32 @@
 
   .Toggle_images {
     display: none;
+  }
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(-2%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes shrink {
+  0% {
+    width: 95%;
+  }
+  100% {
+    width: 90%;
   }
 }

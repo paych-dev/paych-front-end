@@ -11,7 +11,8 @@ export {
 
 export {
   fetch_channels,
-  createChannel
+  createChannel,
+  fetch_own_channels
 } from './channels'
 
 export {
