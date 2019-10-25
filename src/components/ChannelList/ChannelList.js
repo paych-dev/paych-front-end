@@ -2,7 +2,6 @@ import React from 'react';
 import ChannelCard from './ChannelCard/ChannelCard';
 
 const ChannelList = ({data}) => {
-  console.log(data)
   return(
     data.map(channel =>
       <ChannelCard key={channel.id}

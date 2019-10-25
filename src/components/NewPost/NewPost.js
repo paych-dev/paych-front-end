@@ -16,6 +16,7 @@ class NewPost extends React.Component {
     this.setState({text: text});
   };
 
+  //TODO: FIX THIS CODE
   onSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData();
@@ -30,12 +31,9 @@ class NewPost extends React.Component {
     axios
       .post(`/channels/${this.props.pageId}/posts` , formData)
       .then( resp => {
-        console.log(resp);
         this.props.close()
       })
       .catch( err => {
-        alert("Error")
-        console.log(err)
       })
   };
 

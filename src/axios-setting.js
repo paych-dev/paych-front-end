@@ -8,12 +8,24 @@ const options = {
   }
 };
 
-let deffAxios = axios.create(options);
+let client = axios.create(options);
 
-deffAxios.interceptors.request.use( config => {
-  const token = localStorage.getItem('accessToken');
-  config.headers.Authorization = token ? `Bearer ${token}`:'';
+client.interceptors.request.use(config => {
+  const accessToken = localStorage.getItem('accessToken');
+  config.headers.Authorization = accessToken ? `Bearer ${accessToken}` : '';
   return config
+}, error => {
+  return error
 });
 
-export default deffAxios
+client.interceptors.response.use(done => {
+  return done
+}, error => {
+  if (error.response.status === 401 || error.response.status === 422) {
+    // window.location = '/login';
+    // localStorage.clear();
+    console.error('ERROR', error)
+  }
+});
+
+export default client

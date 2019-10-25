@@ -30,7 +30,7 @@ class Login extends React.Component {
     this.props.onAuth(authData)
   };
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     const params = window.location.search;
     if(params) this.props.onGoogleAuthSecond(params)
   }

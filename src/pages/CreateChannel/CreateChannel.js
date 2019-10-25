@@ -7,41 +7,45 @@ import NewClubDone from '../../components/Stubs/NewClubDone/NewClubDone'
 
 import photo from '../../assets/photo.png'
 import upload from '../../assets/upload.png'
-import newClub from '../../assets/newclub.png'
-import axios from "../../axios-setting";
 
 class CreateClub extends React.Component {
-
   state = {
-    createtDone: false,
+    createdDone: false,
     imagePreviewUrl: '',
     selectedFile: '',
     
     channelInfo: {
-      name: '',
-      description: '',
-      link: '',
-      price: ''
+      avatar: '',
+      name: 'asdas',
+      description: 'asdasd',
+      link: 'asda',
+      price: '11'
     }
-  }
+  };
 
   onChangeHandler = event => {
     const channelInfo = {...this.state.channelInfo};
-    channelInfo[event.target.id] = event.target.value;
-    this.setState({channelInfo: channelInfo});
-  }
+    if(event.target.id === 'avatar'){
+      this.setState({
+        imagePreviewUrl: URL.createObjectURL(event.target.files[0]),
+        selectedFile: event.target.files[0]
+      });
+    } else {
+      channelInfo[event.target.id] = event.target.value;
+      this.setState({channelInfo: channelInfo});
+    }
+  };
 
-  onSubmintHandler = event => {
+  onSubmitHandler = event => {
     event.preventDefault();
 
-    const { name, description, link, price} = this.state.channelInfo;
+    const { name, description, link, price, avatar} = this.state.channelInfo;
     const formData = new FormData();
-    const avatar = document.querySelector('input[type="file"]');
 
-    formData.append('avatar', avatar.files[0]);
+    formData.append('avatar', this.state.selectedFile);
     formData.append('name', name);
     formData.append('description', description);
-    formData.append('link', link);
+    formData.append('link', 'paych.me/' + link);
     formData.append('price', price);
 
     this.props.createChannel(formData);
@@ -52,15 +56,12 @@ class CreateClub extends React.Component {
     
     return (
       <div className='formWrap'>
-  
-        <IconHeader img={newClub} title={'Новый клуб'}/>
-  
-        <form className='form' onSubmit={this.onSubmintHandler}>
+        <form className='form' onSubmit={this.onSubmitHandler}>
           <div className='formFields'>
   
             <fieldset className='formGroup'>
-              <input onChange={this.onChangeHandler} type='file' id='file' className='inputfile'/>
-              <label htmlFor='file' className='inputImg'>
+              <input onChange={this.onChangeHandler} type='file' id='avatar' className='inputfile'/>
+              <label htmlFor='avatar' className='inputImg'>
                 <img src={!this.state.imagePreviewUrl ? photo : this.state.imagePreviewUrl} alt={photo} className='inputImg_photo'/>
                 <img src={upload} alt={upload} className='inputImg_upload'/>
               </label>
@@ -73,7 +74,7 @@ class CreateClub extends React.Component {
   
             <fieldset className='formGroup'>
               <label htmlFor='description' className='formLabel'>ОПИСАНИЕ:</label>
-              <textarea onChange={this.onChangeHandler} id='description' autoComplete='off' placeholder='Придумайте описание'></textarea>  
+              <textarea onChange={this.onChangeHandler} id='description' autoComplete='off' placeholder='Придумайте описание' />
             </fieldset>
   
             <fieldset className='formGroup'>

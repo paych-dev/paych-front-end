@@ -3,26 +3,19 @@ import { connect } from 'react-redux';
 // import * as actionTypes from '../../store/actions/index';
 
 class Profile extends React.Component {
-  componentDidMount(){
-    console.log('Profile did Mount');
-
-  };
+  componentDidMount(){};
 
   render(){
-    return <div></div>
+    return <div><h1>Profile PAGE</h1></div>
   };
 };
 
 const mapStateToProps = state => {
-  return {
-    jwtToken: state.jwtToken
-  }
+  return
 }
 
 const mapDispatchToProps = dispatch => {
-  return {
-    
-  }
+  return
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Profile)

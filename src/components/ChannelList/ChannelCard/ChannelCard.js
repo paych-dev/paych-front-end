@@ -6,17 +6,15 @@ import roll from '../../../assets/Rolling.gif'
 class ChannelCard extends React.Component {
   state = {
     didLoad: false
-  }
+  };
 
   onLoad = () => {
     const didLoad = true;
     this.setState({didLoad: didLoad})
-  }
+  };
   
   render(){
     const { title, description, img } = this.props;
-
-    console.log(img)
     return (
       <div className="card">
         <div className={styles.ClubCard}>
