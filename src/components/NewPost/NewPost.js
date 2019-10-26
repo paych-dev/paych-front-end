@@ -7,26 +7,33 @@ import axios from '../../axios-setting';
 
 class NewPost extends React.Component {
   state = {
+    images: [],
     text: ''
   };
 
   onChange = event => {
     let text = this.state.text;
-    text = event.target.value;
-    this.setState({text: text});
+    if(event.target.id === 'file'){
+      this.setState({
+        images: [...this.state.images, ...event.target.files]
+      });
+    } else {
+      text = event.target.value;
+      this.setState({text: text});
+    }
   };
 
-  //TODO: FIX THIS CODE
-  onSubmit = (e) => {
-    e.preventDefault();
+  onSubmit = event => {
+    event.preventDefault();
+
     const formData = new FormData();
-    const images = document.querySelector('input[type="file"][multiple]');
+    const { images } = this.state;
+
+    formData.append('text', this.state.text);
 
     for (let i = 0; i < images.files.length; i++) {
       formData.append('files[]', images.files[i]);
     }
-
-    formData.append('text', this.state.text)
 
     axios
       .post(`/channels/${this.props.pageId}/posts` , formData)

@@ -6,7 +6,7 @@ import {connect} from 'react-redux';
 import * as actions from '../../store/actions';
 import Loader from "../../components/Loader/Loader";
 import DontHaveClubs from "../../components/Stubs/DontHaveClubs/DontHaveClubs";
-import debounce from "lodash.debounce";
+// import debounce from "lodash.debounce";
 
 class Channels extends React.Component {
   constructor(props) {
@@ -18,16 +18,16 @@ class Channels extends React.Component {
       users: [],
     };
 
-    window.onscroll = debounce(() => {
-      if (
-        window.innerHeight + document.documentElement.scrollTop
-        === document.documentElement.offsetHeight
-      ) {
-        if(this.props.channels.own.links.next){
-          this.props.loadOwn(this.props.channels.own.links.next);
-        }
-      }
-    }, 200);
+    // window.onscroll = debounce(() => {
+    //   if (
+    //     window.innerHeight + document.documentElement.scrollTop
+    //     === document.documentElement.offsetHeight
+    //   ) {
+    //     if(this.props.channels.own.links.next){
+    //       this.props.loadOwn(this.props.channels.own.links.next);
+    //     }
+    //   }
+    // }, 200);
   }
 
   componentDidMount() {

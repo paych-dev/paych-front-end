@@ -15,7 +15,7 @@ const DontHaveClubs = () => (
       desc={'Вы можете найти и подписаться на каналы или создать свой'} />
 
     <Link to='/create'>
-      <button className='button blue-radius-btn29'>Создать канал</button>
+      <button className='btn rad-25 blue'>Создать канал</button>
     </Link>
 
   </Stub>

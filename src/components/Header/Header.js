@@ -9,7 +9,6 @@ import NotLogInLinks from './NotLoginLinks/NotLoginLinks'
 
 //IMAGES:
 import logo from '../../assets/purplelogo.svg'
-import menuIcon from '../../assets/menu.svg'
 import ToggleBtn from "./ToggleBtn/ToggleBtn";
 
 class Header extends Component {
@@ -36,7 +35,7 @@ class Header extends Component {
             <h1 className='Logo_text'>Paych</h1>
           </Link>
         </div>
-ß
+
         { loggedIn ? <LogInLinks /> : <NotLogInLinks /> }
 
         <div className='Header_images Toggle_images'>

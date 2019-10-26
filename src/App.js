@@ -32,6 +32,6 @@ const App = () => {
       </Layout>
     </Fragment>
   );
-}
+};
 
 export default App;

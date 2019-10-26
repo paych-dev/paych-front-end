@@ -13,8 +13,8 @@ const NewClubDone = ({url}) => (
       <span className={style.url}>{url}</span>
     </div>
 
-    <button className='button blue-radius-btn29'>Создать первый пост</button>
+    <button className='btn rad-25 blue'>Создать первый пост</button>
   </Stub>
-)
+);
 
 export default NewClubDone

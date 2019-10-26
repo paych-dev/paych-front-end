@@ -2,7 +2,6 @@ import React from 'react';
 import {connect} from 'react-redux';
 import * as actions from '../../store/actions';
 
-import IconHeader from '../../components/IconHeader/IconHeader';
 import NewClubDone from '../../components/Stubs/NewClubDone/NewClubDone'
 
 import photo from '../../assets/photo.png'
@@ -15,11 +14,10 @@ class CreateClub extends React.Component {
     selectedFile: '',
     
     channelInfo: {
-      avatar: '',
-      name: 'asdas',
-      description: 'asdasd',
-      link: 'asda',
-      price: '11'
+      name: '',
+      description: '',
+      link: '',
+      price: ''
     }
   };
 
@@ -39,7 +37,7 @@ class CreateClub extends React.Component {
   onSubmitHandler = event => {
     event.preventDefault();
 
-    const { name, description, link, price, avatar} = this.state.channelInfo;
+    const { name, description, link, price } = this.state.channelInfo;
     const formData = new FormData();
 
     formData.append('avatar', this.state.selectedFile);

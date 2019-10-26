@@ -1,0 +1,44 @@
+.PopupMenu {
+  background: #6e6aea;
+  border-radius: 10px;
+  position: absolute;
+  padding: 15px 25px 10px;
+  width: 160px;
+  right: 0;
+  top: 50px;
+  text-align: left;
+  color: #fff;
+  z-index: 500;
+
+  ul {
+    list-style-type: none;
+
+    li {
+      cursor: pointer;
+      font-family: Gilroy-bold, serif;
+      font-size: 14px;
+      line-height: 2.29;
+      margin-bottom: 5px;
+      color: #e1e1e1;
+      transition: .3s;
+
+      &:hover {
+        color: #ffffff;
+      }
+    }
+  }
+
+  ::before {
+    content: "";
+    border: 7px solid transparent;
+    border-bottom-color: #6e6aea;
+    position: absolute;
+    left: 50%;
+    margin-left: 55px;
+    top: -13px;
+    width: 0;
+  }
+}
+
+
+

@@ -15,10 +15,10 @@ export const googleAuth_Start = () =>
         let newError = {
           id: new Date().getTime(),
           error: error.toString()
-        }
+        };
         dispatch(auth_failed(newError))
       })
-  }
+  };
 
 export const onGoogleAuth = (params) =>
   dispatch => {
@@ -34,10 +34,10 @@ export const onGoogleAuth = (params) =>
         let newError = {
           id: new Date().getTime(),
           error: error.toString()
-        }
+        };
         dispatch(auth_failed(newError))
       })
-  }
+  };
 
 
 export const auth = user_data =>
@@ -54,7 +54,7 @@ export const auth = user_data =>
         let newError = {
           id: new Date().getTime(),
           error: error.toString()
-        }
+        };
         dispatch(auth_failed(newError))
       })
   };
@@ -88,16 +88,17 @@ export const register = user_data => {
     axios
       .post('/auth/register', user_data)
       .then(response => {
-        const token = response.data.accessTokem;
+        const token = response.data.accessToken;
         const user = response.data.user;
         localStorage.setItem('accessToken', token);
         dispatch(auth_success(user));
+        window.location = '/';
       })
       .catch(error => {
         let newError = {
           id: new Date().getTime(),
           error: error.toString()
-        }
+        };
         dispatch(auth_failed(newError))
       })
   };

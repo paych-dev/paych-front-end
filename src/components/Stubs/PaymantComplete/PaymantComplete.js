@@ -16,7 +16,7 @@ const PaymantComplete = () => (
       <p>Рады приветствовать тебя в нашем клубе. Ты узнаешь здесь много интересного</p>
     </div>
 
-    <button className='button blue-radius-btn29'>Начать читать</button>
+    <button className='btn rad-25 blue'>Начать читать</button>
   </div>
 )
 
