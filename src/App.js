@@ -3,7 +3,7 @@ import { Route, Switch } from "react-router-dom";
 import { PrivateRoute } from './components/PrivateRoute/PrivateRoute';
 
 import Layout from './hoc/Layout';
-import Loader from './components/Loader/Loader';
+import { Loader } from './components/Loader/Loader';
 
 const Registration = lazy(() => import("./pages/Registration/Registration"));
 const Login = lazy(() => import('./pages/Login/Login'));

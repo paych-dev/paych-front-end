@@ -9,7 +9,7 @@ import more from '../../assets/more.png';
 import './ChannelPage.scss';
 import {connect} from 'react-redux';
 import * as actions from '../../store/actions/index'
-import Loader from '../../components/Loader/Loader';
+import { Loader } from '../../components/Loader/Loader';
 import axios from "../../axios-setting";
 
 class ChannelPage extends Component {

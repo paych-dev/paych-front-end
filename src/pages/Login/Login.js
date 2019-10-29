@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, Redirect } from 'react-router-dom'
 
-import Loader from '../../components/Loader/Loader';
+import { Loader } from '../../components/Loader/Loader';
 
 import * as actions from '../../store/actions/index';
 import { connect } from 'react-redux';

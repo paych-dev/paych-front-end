@@ -4,7 +4,7 @@ import ChannelList from '../../components/ChannelList/ChannelList';
 //REDUX
 import {connect} from 'react-redux';
 import * as actions from '../../store/actions';
-import Loader from "../../components/Loader/Loader";
+import { Loader } from "../../components/Loader/Loader";
 import DontHaveClubs from "../../components/Stubs/DontHaveClubs/DontHaveClubs";
 // import debounce from "lodash.debounce";
 
