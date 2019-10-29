@@ -1,4 +1,4 @@
-import * as actionTypes from './actionTypes';
+import * as actionTypes from '../actionsTypes';
 import axios from '../../axios-setting';
 
 export const fetch_feed = () =>

@@ -1,4 +1,4 @@
-import * as actionTypes from './actionTypes';
+import * as actionTypes from '../actionsTypes'
 
 export const deleteError = (index) => {
   return{

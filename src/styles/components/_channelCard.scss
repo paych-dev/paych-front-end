@@ -1,0 +1,109 @@
+.channelCard {
+  width: 100%;
+  padding: 28px 37px;
+  border-radius: 15px;
+  background-color: white;
+}
+
+.channelCard_logo_wrap {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  margin-bottom: 18px;
+
+  .channelCard_logo {
+    position: relative;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .newPostCount {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #35cb8a;
+    border: 4px solid white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+
+    font-family: Arial;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 1.5;
+    color: #ffffff;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.channelCard_title {
+  font-family: 'Gilroy-bold', sans-serif;
+  font-size: 22px;
+  color: #090909;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.channelCard_description {
+  font-family: 'HelveticaNeue';
+  font-size: 13px;
+  line-height: 1.5;
+  text-align: center;
+  color: #959595;
+  margin-bottom: 22px
+}
+
+.channelCard_button {
+  margin-top: auto
+}
+
+.channelCard_price h3 {
+  font-family: 'Gilroy-bold';
+  font-size: 20px;
+  line-height: 0.8;
+  color: #090909;
+}
+
+.channelCard_price span {
+  font-size: 12px;
+  line-height: 1.33;
+  text-align: center;
+  color: #090909;
+  display: block;
+}
+
+@media sreen and (min-width: 600px) {
+  .channelCard {
+    width: 330px;
+    height: 366px;
+  }
+
+  .channelCard_logo_wrap {
+    width: 110px;
+    height: 110px;
+  }
+
+  .channelCard_logo {
+    width: 110px;
+    height: 110px;
+  }
+
+  .channelCard_title {
+    font-size: 20px;
+  }
+
+  .channelCard_price h3 {
+    font-size: 24px
+  }
+}

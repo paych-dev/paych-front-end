@@ -36,11 +36,10 @@ class Login extends React.Component {
   }
 
   render(){
-    const {loggedIn, loggingIn} = this.props.auth;
+    const { loggedIn, loggingIn } = this.props.auth;
     const { googleAuth } = this.props
 
     if (loggedIn) return <Redirect to='/' />;
-    
     if (loggingIn) return <Loader />;
 
     return (

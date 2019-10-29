@@ -1,4 +1,4 @@
-import * as actionTypes from './actionTypes';
+import * as actionTypes from '../actionsTypes'
 import axios from '../../axios-setting';
 
 const REDIRECT_URI = 'https://paych-b5f22.firebaseapp.com/login';

@@ -21,9 +21,9 @@ client.interceptors.request.use(config => {
 client.interceptors.response.use(done => {
   return done
 }, error => {
-  if (error.response.status === 401 || error.response.status === 422) {
-    // window.location = '/login';
-    // localStorage.clear();
+  if (error.response.status === 401) {
+    window.location = '/login';
+    localStorage.clear();
     console.error('ERROR', error)
   }
 });
