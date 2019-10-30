@@ -8,7 +8,7 @@ import LogInLinks from './LoginLinks/LoginLinks'
 import NotLogInLinks from './NotLoginLinks/NotLoginLinks'
 
 //IMAGES:
-import logo from '../../assets/purplelogo.svg'
+import logo from '../../../assets/purplelogo.svg'
 import ToggleBtn from "./ToggleBtn/ToggleBtn";
 
 class Header extends Component {

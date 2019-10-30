@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 
-import clubs from '../../../assets/clubs.png'
-import profile from '../../../assets/profile.png'
-import myclubs from '../../../assets/myclubs.png'
+import clubs from '../../../../assets/clubs.png'
+import profile from '../../../../assets/profile.png'
+import myclubs from '../../../../assets/myclubs.png'
 
 import style from './ToggleNav.module.css'
 

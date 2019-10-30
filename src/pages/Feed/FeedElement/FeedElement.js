@@ -11,7 +11,7 @@ const FeedElement = ({content}) => {
           </div>
           <h3 className='feed_title'>{content.channel.name}</h3>
         </div>
-        <DateComponent date = {content.created_at}/>
+        <DateComponent date = {content.created_at} page={'feed'}/>
       </div>
       <div className='feed_content'>{content.text}</div>
     </div>

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import NewPost from '../../components/NewPost/NewPost';
+import NewPost from '../../components/Post/New/New';
 import ChannelPosts from '../../components/ChannelPosts/ChannelPosts';
 import PopupMenu from '../../components/PopupMenu/PopupMenu';
 // import PayDone from '../../components/Stubs/PaymantComplete/PaymantComplete';

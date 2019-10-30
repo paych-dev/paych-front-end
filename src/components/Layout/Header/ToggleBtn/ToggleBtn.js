@@ -23,7 +23,7 @@ class ToggleBtn extends React.Component {
     const styles = {
       container: {
         position: this.state.open ? 'fixed' : 'relative',
-        zIndex: 1000,
+        zIndex: 800,
         height: '32px',
         width: '32px',
         display: 'flex',

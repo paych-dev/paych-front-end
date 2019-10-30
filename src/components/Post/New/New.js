@@ -1,11 +1,11 @@
 import React from 'react'
-import addPhoto from '../../assets/addphoto.png'
+import addPhoto from '../../../assets/addphoto.png'
 import style from './NewPost.module.css'
 
 import { connect } from 'react-redux';
-import axios from '../../axios-setting';
+import axios from '../../../axios-setting';
 
-class NewPost extends React.Component {
+class New extends React.Component {
   state = {
     images: [],
     text: ''
@@ -26,21 +26,18 @@ class NewPost extends React.Component {
   onSubmit = event => {
     event.preventDefault();
 
-    const formData = new FormData();
     const { images } = this.state;
+    const formData = new FormData();
 
     formData.append('text', this.state.text);
-
-    for (let i = 0; i < images.files.length; i++) {
-      formData.append('files[]', images.files[i]);
-    }
+    formData.append('files[]', images[0]);
 
     axios
-      .post(`/channels/${this.props.pageId}/posts` , formData)
-      .then( resp => {
-        this.props.close()
-      })
-      .catch( err => {
+      .post(`/channels/${this.props.pageId}/posts`, formData)
+      .then(resp => {
+        if (resp.status === 201) {
+          this.props.close()
+        }
       })
   };
 
@@ -54,13 +51,13 @@ class NewPost extends React.Component {
                 <h2>Новый пост</h2>
                 <span onClick={this.props.close} className={style.closebtn}>&times;</span>
               </div>
-              <textarea 
+              <textarea
                 onChange={this.onChange}
-                id='text' className={style.NewPost__text} 
+                id='text' className={style.NewPost__text}
                 placeholder="Вы можете написать здесь текст или только добавить фото и видео.." />
             </div>
             <div className={style.NewPost_control}>
-              <input multiple type='file' id='file' className='inputfile'/>
+              <input type='file' id='file' className='inputfile' onChange={this.onChange}/>
               <label htmlFor='file' className={style.NewPost__add}>
                 <img src={addPhoto} alt={addPhoto} className={style.NewPost__fileImg}/>
                 <span className={style.NewPost__fileText}>ДОБАВИТЬ ФОТО ИЛИ ВИДЕО</span>
@@ -74,10 +71,10 @@ class NewPost extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({ posts: state.posts }) 
+const mapStateToProps = state => ({ posts: state.posts })
 
 const mapDispatchToProps = dispatch => ({
 
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(NewPost) 
+export default connect(mapStateToProps, mapDispatchToProps)(New)
