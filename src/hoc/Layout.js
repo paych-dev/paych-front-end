@@ -6,6 +6,7 @@ import styles from './Layout.module.scss'
 //COMPONENTS
 import Header from '../components/Header/Header'
 import ModalStack from '../components/ModalStack/ModalStack';
+import Footer from '../components/Footer/Footer';
 
 class Layout extends React.Component {
   render(){
@@ -17,6 +18,7 @@ class Layout extends React.Component {
         <main className={styles.Main}>
           {this.props.children}
         </main>
+        <Footer />
       </div>
     )
   };

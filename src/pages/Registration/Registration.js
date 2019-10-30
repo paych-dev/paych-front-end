@@ -15,7 +15,7 @@ class Registration extends React.Component {
       password_confirmation: ''
     }
   };
-  
+
   onChangeHandler = event => {
     const userInfo = {...this.state.userInfo};
     userInfo[event.target.id] = event.target.value;
@@ -64,12 +64,10 @@ class Registration extends React.Component {
               <input onChange={this.onChangeHandler} id='password_confirmation' type='password' autoComplete='off' placeholder='Подтвердите пароль' />
             </fieldset>
           </div>
-          
           <button className='btn rad-35 blue register-btn'>Регистрация</button>
-          
           <Link to='/login' className='form_link mob'>
             Уже есть аккаунт
-          </Link>          
+          </Link>
         </form>
 
         <div className='rules'>
@@ -79,7 +77,6 @@ class Registration extends React.Component {
       </div>
     );
   }
-  
 };
 
 

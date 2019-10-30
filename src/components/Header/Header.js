@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { Link, withRouter } from 'react-router-dom';
 
 //COMPONENTS:
 import ToggleNav from './ToggleNav/ToggleNav'
@@ -24,6 +24,7 @@ class Header extends Component {
   render(){
     const { toggle } = this.state;
     const { loggedIn } = this.props.user;
+    console.log(this.props)
 
     return (
       <header className='Header flex between'>
@@ -34,6 +35,10 @@ class Header extends Component {
             </div>
             <h1 className='Logo_text'>Paych</h1>
           </Link>
+        </div>
+
+        <div className='pageName'>
+          <span></span>
         </div>
 
         { loggedIn ? <LogInLinks /> : <NotLogInLinks /> }
@@ -53,4 +58,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, null)(Header)
+export default connect(mapStateToProps, null)(withRouter(Header))

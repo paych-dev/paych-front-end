@@ -29,6 +29,7 @@
 @import './styles/pages/channels';
 @import './styles/pages/feed';
 //COMPONENTS:
+@import './styles/components/footer';
 @import './styles/components/popupMenu';
 @import './styles/components/forms';
 @import './styles/components/header';
@@ -72,11 +73,6 @@ body {
   &.column {
     flex-direction: column;
   }
-}
-
-.activeLink {
-  opacity: 1 !important;
-  text-decoration: none
 }
 
 .club-grid {

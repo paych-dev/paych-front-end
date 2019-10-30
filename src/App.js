@@ -19,7 +19,7 @@ const App = () => {
       <Layout>
         <Suspense fallback={ <Loader /> }>
           <Switch>
-            <Route path="/register" component={Registration} />
+            <Route path='/register'component={Registration} />
             <Route path="/login" component={Login} />
             <PrivateRoute exact path='/' component={Feed} />
             <PrivateRoute exact path='/own' component={Channels} />
