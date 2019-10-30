@@ -7,7 +7,7 @@ const FeedElement = ({content}) => {
       <div className='feed_header'>
         <div className='feed_header_left'>
           <div className='feed_logo'>
-            <img src='https://about.canva.com/wp-content/uploads/sites/3/2016/08/Band-Logo.png' alt='' />
+            <img src={content.avatar_image} alt='' />
           </div>
           <h3 className='feed_title'>{content.channel.name}</h3>
         </div>

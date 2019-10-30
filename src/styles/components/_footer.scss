@@ -1,17 +1,25 @@
-.footer {
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  position: fixed;
-  padding: 0 40px 37px;
-  color: #ffffff40;
+@import '../../helpers/medias.scss';
 
-  .footer-links a {
-    display: inline-block;
-    margin-right: 20px;
+.footer {
+  display: none !important;
+}
+
+@include for-all-desktops {
+  .footer {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    position: fixed;
+    padding: 0 40px 37px;
     color: #ffffff40;
-    padding-bottom: 5px;
-    text-decoration: none;
-    border-bottom: 1px solid;
+
+    .footer-links a {
+      display: inline-block;
+      margin-right: 20px;
+      color: #ffffff40;
+      padding-bottom: 5px;
+      text-decoration: none;
+      border-bottom: 1px solid;
+    }
   }
 }

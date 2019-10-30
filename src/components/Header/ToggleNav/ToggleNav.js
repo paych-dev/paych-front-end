@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 import clubs from '../../../assets/clubs.png'
 import profile from '../../../assets/profile.png'
 import myclubs from '../../../assets/myclubs.png'
-import closeIcon from '../../../assets/close.png'
 
 import style from './ToggleNav.module.css'
 

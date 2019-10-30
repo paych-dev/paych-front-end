@@ -133,8 +133,8 @@ textarea {
   color: #959595
 }
 
-.dolar input {
-  padding-left: 35px;
+.currency input {
+  padding-left: 45px;
   color: white;
   font-size: 40px;
   font-family: 'Gilroy-bold';
@@ -147,17 +147,17 @@ input[type='number']::-webkit-outer-spin-button {
   margin: 0;
 }
 
-.dolar {
+.currency {
   position: relative;
   font-size: 40px;
   font-family: 'Gilroy-bold';
 }
 
-.dolar:before {
+.currency:before {
   content: '$';
   position: absolute;
   top: 0;
-  left: 0;
+  left: 15px;
   z-index: 1;
   color: white
 }

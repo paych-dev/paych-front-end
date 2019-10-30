@@ -12,25 +12,30 @@ class CreateClub extends React.Component {
     createdDone: false,
     imagePreviewUrl: '',
     selectedFile: '',
-    
+
     channelInfo: {
       name: '',
       description: '',
       link: '',
-      price: ''
+      price: 0
     }
   };
 
   onChangeHandler = event => {
-    const channelInfo = {...this.state.channelInfo};
-    if(event.target.id === 'avatar'){
+    const channelInfo = {
+      ...this.state.channelInfo
+    };
+
+    if (event.target.id === 'avatar') {
       this.setState({
         imagePreviewUrl: URL.createObjectURL(event.target.files[0]),
         selectedFile: event.target.files[0]
       });
-    } else {
+     } else {
       channelInfo[event.target.id] = event.target.value;
-      this.setState({channelInfo: channelInfo});
+      this.setState({
+        channelInfo: channelInfo
+      });
     }
   };
 
@@ -51,12 +56,12 @@ class CreateClub extends React.Component {
 
   render(){
     if (this.state.createtDone) return <NewClubDone url={this.state.clubInfo.clubUrl}/>
-    
+
     return (
       <div className='formWrap'>
         <form className='form' onSubmit={this.onSubmitHandler}>
           <div className='formFields'>
-  
+
             <fieldset className='formGroup'>
               <input onChange={this.onChangeHandler} type='file' id='avatar' className='inputfile'/>
               <label htmlFor='avatar' className='inputImg'>
@@ -64,35 +69,35 @@ class CreateClub extends React.Component {
                 <img src={upload} alt={upload} className='inputImg_upload'/>
               </label>
             </fieldset>
-  
+
             <fieldset className='formGroup'>
               <label htmlFor='name' className='formLabel'>НАЗВАНИЕ:</label>
-              <input onChange={this.onChangeHandler} maxLength='40' autoComplete='off' id='name' type='text' placeholder='Введите название' />
+              <input onChange={this.onChangeHandler} type='text' maxLength='40' id='name'  placeholder='Введите название' />
             </fieldset>
-  
+
             <fieldset className='formGroup'>
               <label htmlFor='description' className='formLabel'>ОПИСАНИЕ:</label>
-              <textarea onChange={this.onChangeHandler} id='description' autoComplete='off' placeholder='Придумайте описание' />
+              <textarea onChange={this.onChangeHandler} id='description' placeholder='Придумайте описание' />
             </fieldset>
-  
+
             <fieldset className='formGroup'>
               <label htmlFor='link' className='formLabel'>ССЫЛКА НА КЛУБ:</label>
               <input onChange={this.onChangeHandler} id='link' type='text' autoComplete='off' placeholder='paych.me/' />
             </fieldset>
-  
+
             <fieldset className='formGroup'>
               <label htmlFor='price' className='formLabel'>СТОИМОСТЬ В МЕСЯЦ:</label>
-              <span className='dolar'>
-                <input onChange={this.onChangeHandler} type='number' autoComplete='off' id='price' />
+              <span className='currency'>
+                <input onChange={this.onChangeHandler} type='text' id='price' />
               </span>
             </fieldset>
           </div>
-  
+
           <div className='alreadySignUp'>
             Наша комисия составляет 9%
           </div>
-  
-          <button className='button blue-radius-btn29 register-btn' >Создать клуб</button>   
+
+          <button className='btn blue rad-25'>Создать клуб</button>
         </form>
       </div>
     )

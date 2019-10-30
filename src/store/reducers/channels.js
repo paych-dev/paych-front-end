@@ -23,17 +23,19 @@ export function channels(state = initialState, action) {
       return {
         ...state,
         own: {
-          data: [...state.own.data, ...action.data],
-          links: {...action.links}
-        },
-        own_loaded: true
+            data: [...action.data],
+            links: {
+              ...action.links
+            }
+          },
+          own_loaded: true
       };
 
     case actionTypes.FETCH_SUBSCRIBED_CHANNELS_SUCCESS:
       return {
         ...state,
         subscribed: action.payload,
-        subscribed_loaded: true
+          subscribed_loaded: true
       };
 
     default:
