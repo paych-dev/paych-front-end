@@ -17,7 +17,7 @@ class ChannelPage extends Component {
     channel: '',
     pageId: null,
     newPost: false,
-
+    posts: '',
     popoverOpen: false,
     payDone: false,
     payFalse: false,
@@ -41,11 +41,25 @@ class ChannelPage extends Component {
       });
   };
 
+  fetch_channel_posts = id => {
+    axios
+    .get(`channels/${id}/posts`)
+    .then(response => {
+      const posts = response.data.data
+      this.setState({posts: posts});
+    })
+    .catch(error => {
+      console.log(error);
+    });
+  }
+
   componentDidMount() {
     const currLocation = this.props.location.pathname.replace(/\D+/g, "");
     this.fetch_channel_info(currLocation);
-    this.props.loadPosts(currLocation)
+    this.fetch_channel_posts(currLocation);
   }
+
+  componentWillMount
 
   onClickNewPost = () => {
     const newPost = !this.state.newPost;
@@ -59,7 +73,7 @@ class ChannelPage extends Component {
 
   render() {
     const {name, avatar_image} = this.state.channel;
-    const {posts} = this.props.posts;
+    const {posts} = this.state;
 
     if (!posts) return <Loader/>;
 

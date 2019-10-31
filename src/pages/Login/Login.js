@@ -25,7 +25,7 @@ class Login extends React.Component {
 
   onSubmitHandler = event => {
     event.preventDefault();
-    const { email, password } = this.state.userInfo; 
+    const { email, password } = this.state.userInfo;
     const authData = { email: email, password: password}
     this.props.onAuth(authData)
   };

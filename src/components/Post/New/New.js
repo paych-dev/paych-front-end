@@ -30,8 +30,9 @@ class New extends React.Component {
     const formData = new FormData();
 
     formData.append('text', this.state.text);
-    formData.append('files[]', images[0]);
-
+    if(images){
+      formData.append('files[]', images[0]);
+    }
     axios
       .post(`/channels/${this.props.pageId}/posts`, formData)
       .then(resp => {
