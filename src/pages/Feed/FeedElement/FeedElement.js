@@ -7,7 +7,7 @@ const FeedElement = ({content}) => {
       <div className='feed_header'>
         <div className='feed_header_left'>
           <div className='feed_logo'>
-            <img src={content.avatar_image} alt='' />
+            <img src={content.channel.avatar_image} alt='' />
           </div>
           <h3 className='feed_title'>{content.channel.name}</h3>
         </div>

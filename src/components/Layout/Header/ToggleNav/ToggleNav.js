@@ -1,11 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
-
-import clubs from '../../../../assets/clubs.png'
-import profile from '../../../../assets/profile.png'
-import myclubs from '../../../../assets/myclubs.png'
-
-import style from './ToggleNav.module.css'
+import { Link } from 'react-router-dom';
 
 const ToggleNav = ({clicked}) => {
   const logout = () => {
@@ -14,32 +8,21 @@ const ToggleNav = ({clicked}) => {
   };
 
   return (
-    <div className={style.toggleMenu}>
-      <Link to='/subscribed' className={style.toggleMenu_element} onClick={clicked}>
-        <div className={`${style.toggleMenu_img} ${style.toggleMenu_club}`}>
-          <img src={clubs} alt={clubs} />
-        </div>
-        <h3 className={style.toggleMenu_text}>Клубы</h3>
-      </Link>
-      <Link to='/profile' className={style.toggleMenu_element} onClick={clicked}>
-        <div className={`${style.toggleMenu_img} ${style.toggleMenu_profile}`}>
-          <img src={profile} alt={profile}/>
-        </div>
-        <h3>Мой профиль</h3>
-      </Link>
-      <Link to='/own' className={style.toggleMenu_element} onClick={clicked}>
-        <div className={`${style.toggleMenu_img} ${style.toggleMenu_myclubs}`}>
-          <img src={myclubs} alt={myclubs}/>
-        </div>
-        <h3>Мои клубы</h3>
-        <span>На счету $0</span>
-      </Link>
-      <Link to='/' className={style.toggleMenu_element} onClick={logout}>
-        <span className={style.error}>Exit</span>
-      </Link>
-      <Link to='/' className={style.toggleMenu_element} onClick={clicked}>
-        <span className={style.error}>СООБЩИТЬ О ПРОБЛЕМЕ</span>
-      </Link>
+    <div className='toggleNav flex column'>
+      <ul className='toggleBigLinks flex column'>
+        <li><Link to='/' onClick={clicked}>Лента</Link></li>
+        <li><Link to='/subscribed' onClick={clicked}>Сообщества</Link></li>
+        <li><Link to='/own' onClick={clicked}>Мои сообщества</Link></li>
+      </ul>
+      <ul className='toggleSmallLinks flex column'>
+        <li><Link to='/profile' onClick={clicked}>Профиль</Link></li>
+        <li><Link to='/statistic' onClick={clicked}>Статистика</Link></li>
+        <li><span onClick={logout} onClick={clicked}>Выход</span></li>
+      </ul>
+      <div className="footer-links flex ">
+        <Link to="/" onClick={clicked}>Правила пользования</Link>
+        <Link to="/" onClick={clicked}>Напишите нам</Link>
+      </div>
     </div>
   )
 };

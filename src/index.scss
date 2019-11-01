@@ -29,10 +29,11 @@
 @import './styles/pages/channels';
 @import './styles/pages/feed';
 //COMPONENTS:
+@import './styles/components/header';
 @import './styles/components/footer';
+@import 'styles/components/toggleNav';
 @import './styles/components/popupMenu';
 @import './styles/components/forms';
-@import './styles/components/header';
 @import './styles/components/channelPost';
 @import './styles/components/dateComponent';
 @import './styles/components/channelCard';

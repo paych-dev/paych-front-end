@@ -6,8 +6,8 @@
 }
 
 .Header_images {
-  height: 37px;
-  width: 37px;
+  width: 42px;
+  height: 42px;
   overflow: hidden;
 
   img {
@@ -40,17 +40,13 @@
 
   .Navigation_List {
     list-style-type: none;
-
-    // :last-child {
-    //   margin-left: auto;
-    // }
   }
 
   .Navigation_List__element {
     margin-left: 20px;
 
     a {
-      font-family: 'Gilroy-semiBold';
+      font-family: 'Gilroy-semiBold', serif;
       font-size: 16px;
       color: white;
       text-decoration: none;
