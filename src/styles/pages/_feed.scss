@@ -1,3 +1,5 @@
+@import '../../helpers/medias.scss';
+
 .feed_card {
   width: 100%;
   margin-bottom: 50px;
@@ -34,4 +36,10 @@
   background-color: white;
   border-radius: 10px;
   padding: 25px;
+}
+
+@include for-all-desktops {
+  .feed-wrap {
+    width: 600px;
+  }
 }

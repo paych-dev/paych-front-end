@@ -13,7 +13,12 @@ const FeedElement = ({content}) => {
         </div>
         <DateComponent date = {content.created_at} page={'feed'}/>
       </div>
-      <div className='feed_content'>{content.text}</div>
+      <div className='feed_content'>
+        <div className='channel_image'>
+          { content.files[0] ? <img src={content.files[0].original_path} alt='' /> : null}
+        </div>
+        <div className=''>{content.text}</div>
+      </div>
     </div>
   )
 }
