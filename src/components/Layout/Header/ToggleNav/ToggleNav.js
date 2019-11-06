@@ -17,7 +17,7 @@ const ToggleNav = ({clicked}) => {
       <ul className='toggleSmallLinks flex column'>
         <li><Link to='/profile' onClick={clicked}>Профиль</Link></li>
         <li><Link to='/statistic' onClick={clicked}>Статистика</Link></li>
-        <li><span onClick={logout} onClick={clicked}>Выход</span></li>
+        <li><span onClick={logout}>Выход</span></li>
       </ul>
       <div className="footer-links flex ">
         <Link to="/" onClick={clicked}>Правила пользования</Link>

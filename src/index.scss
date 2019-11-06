@@ -51,7 +51,7 @@
 }
 
 body {
-  background: #262739 url('./assets/background.png') no-repeat fixed;
+  background: #262739 url('./assets/background-mobile.png') no-repeat fixed;
   background-size: cover;
 }
 
@@ -90,6 +90,10 @@ body {
 }
 
 @include for-all-desktops {
+  body {
+    background: #262739 url('./assets/background.png') no-repeat fixed;
+    background-size: cover;
+  }
   .form {
     width: 400px;
   }
