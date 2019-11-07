@@ -10,6 +10,11 @@
   color: #fff;
   z-index: 500;
 
+  &.header {
+    right: 33px;
+    top: 80px;
+  }
+
   ul {
     list-style-type: none;
 
