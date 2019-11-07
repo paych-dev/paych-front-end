@@ -91,7 +91,7 @@ class ChannelPage extends Component {
             </div>
           </div>
 
-          {this.state.popoverOpen && <PopupMenu/>}
+          {this.state.popoverOpen && <PopupMenu place={'channel'}/>}
         </div>
         <div>
           {parseInt(userId) === parseInt(ownerId) ? <button className='btn rad-10 blue' onClick={this.onClickNewPost}>Новый пост</button> : null}

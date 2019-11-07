@@ -2,6 +2,17 @@ import React from 'react';
 import DateComponent from "../../DateComponent/DateComponent";
 
 const ChannelPost = ({date, clicked, ...props}) => {
+  const images = () => {
+    if (props.files[0]) {
+      return (
+        <div className='channel_image'>
+          {props.files[0] ? <img src={props.files[0].original_path} alt=''/> : null}
+        </div>
+      )
+    } else {
+      return null
+    }
+  };
   return (
     <div className='card clubPost_wrap'>
       <div className='clubHeader'>
@@ -11,9 +22,7 @@ const ChannelPost = ({date, clicked, ...props}) => {
         <div className='clubHeader__new' onClick={clicked}>Новое</div>
       </div>
       <div className='clubContent'>
-        <div className='channel_image'>
-          { props.files[0] ? <img src={props.files[0].original_path} alt='' /> : null}
-        </div>
+        {images()}
         <div className='clubContent__text'>
           {props.text}
         </div>

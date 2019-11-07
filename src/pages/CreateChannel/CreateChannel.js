@@ -48,7 +48,7 @@ class CreateClub extends React.Component {
     formData.append('avatar', this.state.selectedFile);
     formData.append('name', name);
     formData.append('description', description);
-    formData.append('link', 'paych.me/' + link);
+    formData.append('link', link);
     formData.append('price', price);
 
     this.props.createChannel(formData);
