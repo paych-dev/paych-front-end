@@ -15,6 +15,8 @@ import axios from "../../axios-setting";
 class ChannelPage extends Component {
   state = {
     channel: '',
+    userId: localStorage.getItem('userId'),
+    ownerId: this.props.location.state.owner_id,
     pageId: null,
     newPost: false,
     posts: '',
@@ -32,13 +34,7 @@ class ChannelPage extends Component {
         const channel = response.data.data;
         this.setState({channel: channel});
       })
-      .catch(error => {
-        const newError = {
-          id: new Date().getTime(),
-          error: error.toString()
-        };
-        console.log(newError)
-      });
+      .catch(error => {});
   };
 
   fetch_channel_posts = id => {
@@ -49,7 +45,6 @@ class ChannelPage extends Component {
       this.setState({posts: posts});
     })
     .catch(error => {
-      console.log(error);
     });
   }
 
@@ -58,8 +53,6 @@ class ChannelPage extends Component {
     this.fetch_channel_info(currLocation);
     this.fetch_channel_posts(currLocation);
   }
-
-  componentWillMount
 
   onClickNewPost = () => {
     const newPost = !this.state.newPost;
@@ -73,8 +66,7 @@ class ChannelPage extends Component {
 
   render() {
     const {name, avatar_image} = this.state.channel;
-    const {posts} = this.state;
-
+    const {posts, userId, ownerId} = this.state;
     if (!posts) return <Loader/>;
 
     const currLocation = this.props.location.pathname.replace(/\D+/g, "");
@@ -101,9 +93,8 @@ class ChannelPage extends Component {
 
           {this.state.popoverOpen && <PopupMenu/>}
         </div>
-
         <div>
-          <button className='btn rad-10 blue' onClick={this.onClickNewPost}>Новый пост</button>
+          {parseInt(userId) === parseInt(ownerId) ? <button className='btn rad-10 blue' onClick={this.onClickNewPost}>Новый пост</button> : null}
           <ChannelPosts posts={posts.reverse()}/>
         </div>
       </div>
@@ -111,7 +102,10 @@ class ChannelPage extends Component {
   };
 }
 
-const mapStateToProps = state => ({posts: state.posts});
+const mapStateToProps = state => ({
+  posts: state.posts,
+  auth: state.auth
+});
 
 const mapDispatchToProps = dispatch => ({
   loadPosts: (id) => dispatch(actions.fetch_channel_posts(id))

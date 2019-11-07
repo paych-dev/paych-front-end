@@ -15,14 +15,12 @@ client.interceptors.request.use(config => {
   config.headers.Authorization = accessToken ? `Bearer ${accessToken}` : '';
   return config
 }, error => {
-  console.log(error)
   return error
 });
 
 client.interceptors.response.use(done => {
   return done
 }, error => {
-  console.log(error.response)
   if (error.response.status === 401) {
     window.location = '/login';
     localStorage.clear();

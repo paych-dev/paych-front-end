@@ -24,8 +24,6 @@ class Header extends Component {
   render(){
     const { toggle } = this.state;
     const { loggedIn } = this.props.user;
-    console.log(this.props)
-
     return (
       <header className='Header flex between'>
         <div className='Header_logo'>

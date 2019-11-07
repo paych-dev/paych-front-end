@@ -17,17 +17,6 @@ class Channels extends React.Component {
       isLoading: false,
       users: [],
     };
-
-    // window.onscroll = debounce(() => {
-    //   if (
-    //     window.innerHeight + document.documentElement.scrollTop
-    //     === document.documentElement.offsetHeight
-    //   ) {
-    //     if(this.props.channels.own.links.next){
-    //       this.props.loadOwn(this.props.channels.own.links.next);
-    //     }
-    //   }
-    // }, 200);
   }
 
   componentDidMount() {

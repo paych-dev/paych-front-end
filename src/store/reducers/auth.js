@@ -1,9 +1,10 @@
 import * as actionTypes from '../actionsTypes'
 
-let user = localStorage.getItem('accessToken');
+let accessToken = localStorage.getItem('accessToken');
+let userId = localStorage.getItem('userId');
 
-const initialState = user 
-  ? { loggedIn: true, user, loggingIn: false} 
+const initialState = accessToken
+  ? { loggedIn: true, accessToken, userId, loggingIn: false}
   : { loggedIn: false, loggingIn: false };
 
 export function auth(state = initialState, action) {
@@ -18,7 +19,6 @@ export function auth(state = initialState, action) {
       return {
         ...state,
         loggedIn: true,
-        user: action.payload,
         loggingIn: false
       };
 

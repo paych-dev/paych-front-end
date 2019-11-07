@@ -13,7 +13,7 @@ class ChannelCard extends React.Component {
   };
 
   render(){
-    const { title, description, img } = this.props;
+    const { title, description, img, ownerId } = this.props;
     return (
       <div className='channelCard flex column'>
         <div className='channelCard_logo_wrap'>
@@ -24,7 +24,7 @@ class ChannelCard extends React.Component {
         </div>
         <h3 className='channelCard_title'>{title}</h3>
         <p className='channelCard_description'>{description}</p>
-        <Link to={{ pathname: `/channel/${this.props.id}`, state: {clubName: title, img: img}}} className='channelCard_button'>
+        <Link to={{ pathname: `/channel/${this.props.id}`, state: {clubName: title, img: img, owner_id: ownerId}}} className='channelCard_button'>
           <button className='btn blue rad-25'>Читать</button>
         </Link>
       </div>

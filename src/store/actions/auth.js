@@ -1,13 +1,13 @@
 import * as actionTypes from '../actionsTypes'
 import axios from '../../axios-setting';
 
-const REDIRECT_URI = 'https://paych-b5f22.firebaseapp.com/login';
+const REDIRECT_URI = 'http://lvh.me:3000/login';
 
 export const googleAuth_Start = () =>
   dispatch => {
     dispatch(auth_start());
     axios
-      .get(`/auth/google/?redirect_uri=${REDIRECT_URI}`)
+      .get(`/auth/google/?redirect_uri=${window.location}`)
       .then(resp => {
         window.location = resp.data.url
       })
@@ -28,6 +28,7 @@ export const onGoogleAuth = (params) =>
         const token = resp.data.accessToken;
         const user = resp.data.user;
         localStorage.setItem('accessToken', token);
+        localStorage.setItem('userId', user.id);
         dispatch(auth_success(user));
       })
       .catch(error => {
@@ -48,6 +49,7 @@ export const auth = user_data =>
         const token = response.data.accessToken;
         const user = response.data.user;
         localStorage.setItem('accessToken', token);
+        localStorage.setItem('userId', user.id);
         dispatch(auth_success(user));
       })
       .catch(error => {
@@ -68,7 +70,7 @@ const auth_start = () => {
 const auth_success = (authData) => {
   return {
     type: actionTypes.USER_LOGIN_SUCCESS,
-    usedData: authData
+    payload: authData
   };
 };
 

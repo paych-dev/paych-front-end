@@ -5,7 +5,6 @@ export const fetch_feed = () =>
   dispatch =>
     axios.get('/feed')
       .then(response => {
-        console.log(response.data.data);
         dispatch(fetch_feed_success(response.data.data))
       })
       .catch(error => {
