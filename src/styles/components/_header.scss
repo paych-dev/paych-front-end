@@ -40,16 +40,57 @@
 
   .Navigation_List {
     list-style-type: none;
+
+    .Navigation_List__element {
+      margin-left: 20px;
+
+      a {
+        font-family: 'Gilroy-semiBold', serif;
+        font-size: 16px;
+        color: white;
+        text-decoration: none;
+      }
+    }
   }
 
-  .Navigation_List__element {
-    margin-left: 20px;
+  .profile-btn {
+    cursor: pointer;
 
-    a {
+    .profile-text {
+      margin-right: 11px;
       font-family: 'Gilroy-semiBold', serif;
       font-size: 16px;
+      color: #ffffff;
+    }
+
+    .arrow-wrap {
+      position: relative;
+      text-align: center;
+      width: 20px;
+      height: 20px;
       color: white;
-      text-decoration: none;
+      border-radius: 50%;
+      background: #6e6aea;
+      cursor: pointer;
+
+      span {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: none;
+      }
+
+      .fas {
+        transition: all .3s ease-in;
+      }
+
+      .fa-angle-up {
+        margin: 0;
+      }
+
+      .fa-angle-down {
+        margin-top: 3px;
+      }
     }
   }
 }

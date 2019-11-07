@@ -35,10 +35,6 @@ class Header extends Component {
           </Link>
         </div>
 
-        <div className='pageName'>
-          <span></span>
-        </div>
-
         { loggedIn ? <LogInLinks /> : <NotLogInLinks /> }
 
         <div className='Header_images Toggle_images'>

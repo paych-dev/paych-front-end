@@ -1,11 +1,9 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
+import ProfileBtn from "../ProfileBtn/ProfileBtn";
 
 const LoginLinks = () => {
-  const logout = () => {
-    localStorage.clear();
-    window.location = '/login';
-  };
+  const [toggle, setToggle] = useState(false);
 
   return (
     <nav className='Navigation'>
@@ -14,7 +12,7 @@ const LoginLinks = () => {
         <li className='Navigation_List__element'><Link to='/subscribed'>Сообщества</Link></li>
         <li className='Navigation_List__element'><Link to='/own'>Мои сообщества</Link></li>
       </ul>
-      <button className='btn out' onClick={logout}>Выйти</button>
+      <ProfileBtn clicked={setToggle} toggle={toggle}/>
     </nav>
   )
 };
