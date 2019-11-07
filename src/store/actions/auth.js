@@ -1,7 +1,8 @@
 import * as actionTypes from '../actionsTypes'
 import axios from '../../axios-setting';
 
-const REDIRECT_URI = 'http://lvh.me:3000/login';
+// const REDIRECT_URI = 'http://lvh.me:3000/login';
+const REDIRECT_URI = 'https://paych-b5f22.firebaseapp.com/login';
 
 export const googleAuth_Start = () =>
   dispatch => {

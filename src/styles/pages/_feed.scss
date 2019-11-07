@@ -16,6 +16,11 @@
     display: flex;
     align-items: center;
 
+    .feed_title {
+      font-family: 'Gilroy-bold';
+      font-size: 16px;
+    }
+
     .feed_logo {
       width: 40px;
       height: 40px;
