@@ -18,6 +18,7 @@ class Feed extends React.Component {
 
     return (
       <div className='feed-wrap'>
+        <h1 className='page-title'>Моя лента</h1>
         { feed.map(el => <FeedElement key = {el.id} content = {el} />) }
       </div>
     );

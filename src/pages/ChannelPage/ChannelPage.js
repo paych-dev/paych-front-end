@@ -92,7 +92,7 @@ class ChannelPage extends Component {
           {this.state.popoverOpen && <PopupMenu place={'channel'}/>}
         </div>
         <div>
-          { is_owner ? <button className='btn rad-10 blue' onClick={this.onClickNewPost}>Новый пост</button> : null}
+          { is_owner ? <button className='btn rad-10 blue brd15' onClick={this.onClickNewPost}>Новый пост</button> : null}
           <ChannelPosts posts={posts.reverse()} channelInfo={this.state.channel}/>
         </div>
       </div>

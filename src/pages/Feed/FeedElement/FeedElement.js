@@ -27,8 +27,8 @@ const FeedElement = ({content}) => {
         </div>
       </div>
       <div className='post_content'>
-          {images()}
         <div className='post_text'>{content.text}</div>
+        {images()}
       </div>
     </div>
   )

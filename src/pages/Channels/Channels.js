@@ -30,6 +30,7 @@ class Channels extends React.Component {
     if (own_loaded && subscribed_loaded) {
       return (
         <div className='Channels-page'>
+          <h1 className='page-title'>Сообщества</h1>
           {own.data.length === 0 && < DontHaveClubs/>}
           <div className='Channels-page-content club-grid'>
             {page === '/own' ? <ChannelList data={own.data}/> : <ChannelList data={subscribed.data}/>}

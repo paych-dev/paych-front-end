@@ -27,8 +27,8 @@ const ChannelPost = ({date, clicked, ...props}) => {
         </div>
       </div>
       <div className='post_content'>
-        {images()}
         <div className='post_text'>{props.text}</div>
+        {images()}
       </div>
     </div>
   )
