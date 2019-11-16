@@ -2,8 +2,7 @@
 
 @font-face {
   font-family: 'Gilroy-bold';
-  src: url(./assets/fonts/gilroy/Gilroyextrabold.ttf) format('truetype'),
-    url(./assets/fonts/gilroy/Gilroyextrabold.woff) format('woff');
+  src: url(./assets/fonts/gilroy/Gilroy-Bold.ttf) format('truetype');
   font-weight: 800;
 }
 
@@ -14,9 +13,14 @@
 }
 
 @font-face {
+  font-family: 'Gilroy-medium';
+  src: url(./assets/fonts/gilroy/Gilroy-Medium.ttf) format('truetype');
+  font-weight: 500;
+}
+
+@font-face {
   font-family: 'Gilroy-light';
-  src: url(./assets/fonts/gilroy/Gilroylight.ttf) format('truetype'),
-    url(./assets/fonts/gilroy/Gilroylight.woff) format('woff');
+  src: url(./assets/fonts/gilroy/Gilroylight.ttf) format('truetype');
   font-weight: 300;
 }
 
@@ -54,6 +58,16 @@
 body {
   background: #262739 url('./assets/background-m.png') no-repeat fixed;
   background-size: cover;
+}
+
+.page-title {
+  margin-top: 47px;
+  margin-bottom: 67px;
+  font-size: 40px;
+  line-height: 48px;
+  text-align: center;
+  font-family: "Gilroy-bold", serif;
+  color: #FFFFFF;
 }
 
 .flex {
