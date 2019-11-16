@@ -1,6 +1,6 @@
 @import '../../helpers/medias.scss';
 
-.feed_card {
+.post_card {
   width: 100%;
   background-color: white;
   border-radius: 10px;
@@ -11,22 +11,22 @@
   margin-bottom: 20px;
 }
 
-.feed_header   {
+.post_header   {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px;
 
-  .feed_header_wrap {
+  .post_header_wrap {
     display: flex;
     align-items: center;
 
-    .feed_title {
+    .post_title {
       font-family: 'Gilroy-bold', serif;
       font-size: 16px;
     }
 
-    .feed_logo {
+    .post_logo {
       width: 40px;
       height: 40px;
       overflow: hidden;
@@ -42,8 +42,8 @@
   }
 }
 
-.feed_content {
-  .feed_text {
+.post_content {
+  .post_text {
     padding: 20px;
   }
 }

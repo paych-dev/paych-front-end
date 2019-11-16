@@ -93,7 +93,7 @@ class ChannelPage extends Component {
         </div>
         <div>
           { is_owner ? <button className='btn rad-10 blue' onClick={this.onClickNewPost}>Новый пост</button> : null}
-          <ChannelPosts posts={posts.reverse()}/>
+          <ChannelPosts posts={posts.reverse()} channelInfo={this.state.channel}/>
         </div>
       </div>
     );

@@ -14,18 +14,21 @@ const ChannelPost = ({date, clicked, ...props}) => {
     }
   };
   return (
-    <div className='card clubPost_wrap'>
-      <div className='clubHeader'>
-        <div className='clubHeader__date'>
-          <DateComponent date={date}/>
+    <div className='post_card'>
+      <div className='post_header'>
+        <div className='post_header_wrap'>
+          <div className='post_logo'>
+            <img src={props.avatar} alt=''/>
+          </div>
+          <div className='post-header-info'>
+            <h3 className='post_title'>{props.name}</h3>
+            <DateComponent date={date} page={'posts'}/>
+          </div>
         </div>
-        <div className='clubHeader__new' onClick={clicked}>Новое</div>
       </div>
-      <div className='clubContent'>
-        { images() }
-        <div className='clubContent__text'>
-          {props.text}
-        </div>
+      <div className='post_content'>
+        {images()}
+        <div className='post_text'>{props.text}</div>
       </div>
     </div>
   )
