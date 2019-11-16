@@ -13,7 +13,6 @@ const DateComponent = props => {
 
   return (
     <div className='DateComponent flex'>
-      <img className='Date_img' src={time} alt={time}/>
       <span className={`Date_text ${props.page}`}>{dateHandler(props.date)}</span>
     </div>
   )
