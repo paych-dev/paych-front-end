@@ -15,8 +15,6 @@ import axios from "../../axios-setting";
 class ChannelPage extends Component {
   state = {
     channel: '',
-    userId: localStorage.getItem('userId'),
-    ownerId: this.props.location.state.owner_id,
     pageId: null,
     newPost: false,
     posts: '',
@@ -46,7 +44,7 @@ class ChannelPage extends Component {
     })
     .catch(error => {
     });
-  }
+  };
 
   componentDidMount() {
     const currLocation = this.props.location.pathname.replace(/\D+/g, "");
@@ -65,10 +63,10 @@ class ChannelPage extends Component {
   };
 
   render() {
-    const {name, avatar_image} = this.state.channel;
+    const {name, avatar_image, is_owner} = this.state.channel;
     const {posts, userId, ownerId} = this.state;
     if (!posts) return <Loader/>;
-
+    {console.log(posts)}
     const currLocation = this.props.location.pathname.replace(/\D+/g, "");
     if (this.state.newPost) return <NewPost pageId={currLocation} close={this.onClickNewPost}/>;
     return (
@@ -94,7 +92,7 @@ class ChannelPage extends Component {
           {this.state.popoverOpen && <PopupMenu place={'channel'}/>}
         </div>
         <div>
-          {parseInt(userId) === parseInt(ownerId) ? <button className='btn rad-10 blue' onClick={this.onClickNewPost}>Новый пост</button> : null}
+          { is_owner ? <button className='btn rad-10 blue' onClick={this.onClickNewPost}>Новый пост</button> : null}
           <ChannelPosts posts={posts.reverse()}/>
         </div>
       </div>
