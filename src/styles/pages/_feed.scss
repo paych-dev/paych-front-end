@@ -2,17 +2,22 @@
 
 .feed_card {
   width: 100%;
-  margin-bottom: 50px;
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  font-size: 14px;
+  line-height: 1.54;
+  color: #000000;
+  margin-bottom: 20px;
 }
 
-.feed_header {
-  color: white;
+.feed_header   {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  padding: 20px;
 
-  .feed_header_left {
+  .feed_header_wrap {
     display: flex;
     align-items: center;
 
@@ -38,19 +43,8 @@
 }
 
 .feed_content {
-  background-color: white;
-  border-radius: 10px;
-  overflow: hidden;
-  font-size: 14px;
-  line-height: 1.54;
-  color: #000000;
-
-  .channel_image {
-    margin-top: 10px;
-  }
-
   .feed_text {
-    padding: 40px;
+    padding: 20px;
   }
 }
 

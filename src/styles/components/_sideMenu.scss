@@ -1,0 +1,40 @@
+.side-menu {
+  position: fixed;
+  top: 100px;
+  left: 250px;
+  width: 200px;
+  align-items: flex-start !important;
+
+  .Header_logo {
+    margin-bottom: 60px;
+  }
+
+  .links {
+    ul {
+      list-style-type: none;
+      align-items: flex-start !important;
+    }
+
+    a {
+      color: white;
+      font-family: 'Gilroy-semiBold', serif;
+      text-decoration: none
+    }
+
+    .main-links {
+      margin-bottom: 60px;
+
+      li a {
+        font-size: 20px;
+        margin-bottom: 30px;
+        line-height: 2.3;
+      }
+    }
+
+    .sub-links {
+      font-size: 16px;
+      line-height: 2;
+      color: #ffffff;
+    }
+  }
+}
