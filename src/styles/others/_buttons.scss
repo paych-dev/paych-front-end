@@ -30,6 +30,7 @@
 
   &.width100 {
     width: 100%;
+    border-radius: 15px;
   }
 
   &.rad-10 {
@@ -62,6 +63,10 @@
     border-radius: 25px;
     background: transparent;
     border: solid 1px #ffffff41;
+  }
+
+  &.brd15 {
+    border-radius: 15px;
   }
 }
 

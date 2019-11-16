@@ -3,7 +3,7 @@
 .post_card {
   width: 100%;
   background-color: white;
-  border-radius: 10px;
+  border-radius: 15px;
   overflow: hidden;
   font-size: 14px;
   line-height: 1.54;
@@ -15,7 +15,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
+  padding: 18px 20px;
 
   .post_header_wrap {
     display: flex;
@@ -23,7 +23,7 @@
 
     .post_title {
       font-family: 'Gilroy-bold', serif;
-      font-size: 16px;
+      font-size: 14px;
     }
 
     .post_logo {
@@ -44,7 +44,7 @@
 
 .post_content {
   .post_text {
-    padding: 20px;
+    padding: 0 18px 20px;
   }
 }
 
