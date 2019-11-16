@@ -5,9 +5,9 @@ const ChannelPost = ({date, clicked, ...props}) => {
   const images = () => {
     if (props.files[0]) {
       return (
-        <div className='channel_image'>
-          {props.files[0] ? <img src={props.files[0].original_path} alt=''/> : null}
-        </div>
+          <div className='channel_image'>
+            {props.files[0] ? <img src={props.files[0].original_path} alt=''/> : null}
+          </div>
       )
     } else {
       return null
@@ -22,7 +22,7 @@ const ChannelPost = ({date, clicked, ...props}) => {
         <div className='clubHeader__new' onClick={clicked}>Новое</div>
       </div>
       <div className='clubContent'>
-        {images()}
+        { images() }
         <div className='clubContent__text'>
           {props.text}
         </div>

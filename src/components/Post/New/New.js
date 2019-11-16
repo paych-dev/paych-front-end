@@ -36,9 +36,10 @@ class New extends React.Component {
     axios
       .post(`/channels/${this.props.pageId}/posts`, formData)
       .then(resp => {
-        if (resp.status === 201) {
           this.props.close()
-        }
+      })
+      .catch( err => {
+        alert('Something is wrong', err)
       })
   };
 

@@ -4,7 +4,6 @@ import { Link, withRouter } from 'react-router-dom';
 
 //COMPONENTS:
 import ToggleNav from './ToggleNav/ToggleNav'
-import LogInLinks from './LoginLinks/LoginLinks'
 import NotLogInLinks from './NotLoginLinks/NotLoginLinks'
 
 //IMAGES:
@@ -35,7 +34,7 @@ class Header extends Component {
           </Link>
         </div>
 
-        { loggedIn ? <LogInLinks /> : <NotLogInLinks /> }
+        { <NotLogInLinks /> }
 
         <div className='Header_images Toggle_images'>
           <ToggleBtn open={this.state.toggle} onClick={this.toggleNavMenu} color='white'/>
@@ -50,6 +49,6 @@ const mapStateToProps = state => {
   return {
     user: state.auth
   }
-}
+};
 
 export default connect(mapStateToProps, null)(withRouter(Header))
