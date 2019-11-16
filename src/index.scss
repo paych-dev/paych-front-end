@@ -37,6 +37,7 @@
 @import './styles/components/channelPost';
 @import './styles/components/dateComponent';
 @import './styles/components/channelCard';
+@import './styles/components/sideMenu';
 //OTHERS:
 @import './styles/others/loader';
 @import './styles/others/buttons';
@@ -51,7 +52,7 @@
 }
 
 body {
-  background: #262739 url('./assets/background-mobile.png') no-repeat fixed;
+  background: #262739 url('./assets/background-m.png') no-repeat fixed;
   background-size: cover;
 }
 
@@ -91,7 +92,7 @@ body {
 
 @include for-all-desktops {
   body {
-    background: #262739 url('./assets/background.png') no-repeat fixed;
+    background: #262739 url('./assets/background-w.png') no-repeat fixed;
     background-size: cover;
   }
   .form {
