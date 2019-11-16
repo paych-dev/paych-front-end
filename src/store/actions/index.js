@@ -2,7 +2,9 @@ export {
   auth,
   googleAuth_Start,
   register,
-  onGoogleAuth
+  onGoogleAuth,
+  onFacebookAuth,
+  facebookAuth_Start
 } from './auth';
 
 export {

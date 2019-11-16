@@ -32,12 +32,12 @@ class Login extends React.Component {
 
   UNSAFE_componentWillMount() {
     const params = window.location.search;
-    if(params) this.props.onGoogleAuthSecond(params)
+    if (params) this.props.onFacebookAuthSecond(params)
   }
 
   render(){
     const { loggedIn, loggingIn } = this.props.auth;
-    const { googleAuth } = this.props
+    const { googleAuth, facebookAuth } = this.props;
 
     if (loggedIn) return <Redirect to='/' />;
     if (loggingIn) return <Loader />;
@@ -52,7 +52,7 @@ class Login extends React.Component {
         </div>
 
         <div className='social_buttons flex between'>
-          <button className='btn social flex'>
+          <button className='btn social flex' onClick={facebookAuth}>
             <img src={facebook} alt={facebook}/>
             <span>Войти через Facebook</span>
           </button>
@@ -94,14 +94,16 @@ const mapStateToProps = state => {
   return {
     auth: state.auth
   }
-}
+};
 
 const mapDispatchToProps = dispatch => {
   return {
     googleAuth: () => dispatch(actions.googleAuth_Start()),
     onGoogleAuthSecond: (code) => dispatch(actions.onGoogleAuth(code)),
+    facebookAuth: () => dispatch(actions.facebookAuth_Start()),
+    onFacebookAuthSecond: (code) => dispatch(actions.onFacebookAuth(code)),
     onAuth: (email, password) => dispatch(actions.auth(email, password))
   }
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login)
